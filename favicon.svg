@@ -1,7 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="44 86 120 120">
-  <rect x="44" y="86" width="120" height="120" rx="24" fill="#1A1410"/>
-  <path d="M 60 190 A 88 88 0 0 1 148 102" fill="none" stroke="#B5451B" stroke-width="20" stroke-linecap="round"/>
-  <path d="M 60 190 A 56 56 0 0 1 116 134" fill="none" stroke="#D4A847" stroke-width="20" stroke-linecap="round"/>
-  <path d="M 60 190 A 26 26 0 0 1 86 164" fill="none" stroke="#00C9A7" stroke-width="20" stroke-linecap="round"/>
-  <circle cx="60" cy="190" r="10" fill="#B5451B"/>
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="104" cy="146" r="60"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+    <path d="M 60 190 A 88 88 0 0 1 148 102" fill="none" stroke="#B5451B" stroke-width="20" stroke-linecap="round"/>
+    <path d="M 60 190 A 56 56 0 0 1 116 134" fill="none" stroke="#D4A847" stroke-width="20" stroke-linecap="round"/>
+    <path d="M 60 190 A 26 26 0 0 1 86 164" fill="none" stroke="#00C9A7" stroke-width="20" stroke-linecap="round"/>
+    <circle cx="60" cy="190" r="10" fill="#B5451B"/>
+  </g>
 </svg>
