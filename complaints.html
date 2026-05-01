@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaints Handling Policy | HelioFlo</title>
+  <meta name="description" content="HelioFlo's complaints handling procedure: how to lodge a complaint and what to expect from us.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .policy-hero {
+      padding: 7rem 0 2.5rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .policy-hero p.section-eyebrow { margin-bottom: 0.75rem; }
+    .policy-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin: 0 0 0.85rem;
+    }
+    .policy-hero > .container > p {
+      font-size: 1.05rem;
+      max-width: 640px;
+    }
+    .policy-body {
+      padding: 3.5rem 0 4rem;
+      background: var(--white);
+    }
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .policy-toc {
+      position: sticky;
+      top: 100px;
+    }
+    .policy-toc h4 {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .policy-toc-links {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .policy-toc-links a {
+      font-size: 0.86rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+      line-height: 1.4;
+    }
+    .policy-toc-links a:hover { color: var(--brand); }
+    .policy-content {
+      display: grid;
+      gap: 2.5rem;
+    }
+    .policy-section { display: grid; gap: 1rem; }
+    .policy-section-num {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      color: var(--brand);
+      opacity: 0.5;
+      letter-spacing: 0.06em;
+    }
+    .policy-section h2 {
+      font-size: 1.4rem;
+      margin: 0;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .policy-section p,
+    .policy-section li {
+      font-size: 0.96rem;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+    .policy-section ul,
+    .policy-section ol {
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+    .policy-section ol { list-style: decimal; }
+    .policy-section ul { list-style: disc; }
+    .policy-steps {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 0.5rem;
+    }
+    .policy-step {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.25rem;
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-md);
+    }
+    .policy-step-num {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--brand);
+      opacity: 0.45;
+      padding-top: 0.1rem;
+    }
+    .policy-step h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.4rem;
+    }
+    .policy-step p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .policy-contact-card {
+      display: grid;
+      gap: 1rem;
+      padding: 2rem;
+      background: var(--cream);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      margin-top: 0.5rem;
+    }
+    .policy-contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .policy-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .policy-contact-item svg { color: var(--brand); flex-shrink: 0; }
+    .policy-updated {
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0.6;
+      margin-top: 1rem;
+    }
+    .escalation-block {
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid var(--brand);
+      background: rgba(181, 69, 27, 0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .escalation-block h3 {
+      font-size: 0.94rem;
+      margin-bottom: 0.5rem;
+    }
+    .escalation-block p,
+    .escalation-block li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    @media (max-width: 860px) {
+      .policy-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .policy-toc { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container header-row">
+      <a href="index.html" aria-label="HelioFlo home">
+        <img src="brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="brand-logo">
+      </a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html#why">Why HelioFlo</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#contact" class="btn btn-nav btn-sm">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="policy-hero">
+    <div class="container">
+      <p class="section-eyebrow">Legal &amp; Policy</p>
+      <h1>Complaints Handling Policy</h1>
+      <p>At HelioFlo, we view every complaint as an opportunity to improve. If something hasn't met your expectations, we want to hear about it, and we're committed to resolving it fairly, promptly, and transparently.</p>
+      <p class="policy-updated">Last updated: April 2025</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="policy-body">
+    <div class="container policy-layout">
+
+      <!-- TABLE OF CONTENTS -->
+      <aside class="policy-toc" aria-label="Contents">
+        <h4>Contents</h4>
+        <nav class="policy-toc-links">
+          <a href="#commitment">Our commitment</a>
+          <a href="#scope">What you can complain about</a>
+          <a href="#how-to-lodge">How to lodge a complaint</a>
+          <a href="#process">Our handling process</a>
+          <a href="#outcomes">Possible outcomes</a>
+          <a href="#communication">Communication &amp; updates</a>
+          <a href="#escalation">Escalation</a>
+          <a href="#confidentiality">Confidentiality &amp; fairness</a>
+          <a href="#records">Record keeping</a>
+        </nav>
+      </aside>
+
+      <!-- CONTENT -->
+      <main class="policy-content">
+
+        <section class="policy-section" id="commitment">
+          <div class="policy-section-num">01</div>
+          <h2>Our Commitment</h2>
+          <p>HelioFlo is committed to delivering premium solar battery installations and exceptional customer service. We take every complaint seriously and will handle all matters:</p>
+          <ul>
+            <li>Promptly and within clear timeframes</li>
+            <li>Fairly, transparently, and without bias</li>
+            <li>In accordance with Australian Consumer Law and the New Energy Tech Consumer Code (NETCC)</li>
+          </ul>
+        </section>
+
+        <section class="policy-section" id="scope">
+          <div class="policy-section-num">02</div>
+          <h2>What You Can Make a Complaint About</h2>
+          <p>You may lodge a complaint regarding any aspect of our service, including:</p>
+          <ul>
+            <li>Solar battery or inverter installation quality</li>
+            <li>Product performance or faults</li>
+            <li>Workmanship or service standards</li>
+            <li>Delays, communication issues, or customer service conduct</li>
+            <li>Warranty or contract concerns</li>
+            <li>Pricing or billing disputes</li>
+            <li>Any potential breach of your consumer rights</li>
+          </ul>
+        </section>
+
+        <section class="policy-section" id="how-to-lodge">
+          <div class="policy-section-num">03</div>
+          <h2>How to Lodge a Complaint</h2>
+          <p>You can contact us through any of the following channels:</p>
+          <div class="policy-contact-card">
+            <h3>Contact HelioFlo</h3>
+            <div class="policy-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+              1800 HELIOFLO
+            </div>
+            <div class="policy-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              complaints@helioflo.com.au
+            </div>
+            <div class="policy-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              Via the contact form at <a href="index.html#contact" style="color:var(--brand);font-weight:700;">helioflo.com.au</a>
+            </div>
+          </div>
+          <p>To help us resolve your complaint efficiently, please include:</p>
+          <ul>
+            <li>Your full name and contact details</li>
+            <li>The address of the installation</li>
+            <li>A clear description of the issue</li>
+            <li>Any supporting evidence (photos, invoices, communications)</li>
+            <li>Steps you have already taken, if any</li>
+          </ul>
+        </section>
+
+        <section class="policy-section" id="process">
+          <div class="policy-section-num">04</div>
+          <h2>Our Complaints Handling Process</h2>
+          <div class="policy-steps">
+            <div class="policy-step">
+              <div class="policy-step-num">1</div>
+              <div>
+                <h3>Acknowledgement</h3>
+                <p>We will acknowledge receipt of your complaint within <strong>1–2 business days</strong> and confirm a reference number for your records.</p>
+              </div>
+            </div>
+            <div class="policy-step">
+              <div class="policy-step-num">2</div>
+              <div>
+                <h3>Assessment &amp; Logging</h3>
+                <p>Your complaint is logged in our system and directed to the appropriate team member responsible for resolution.</p>
+              </div>
+            </div>
+            <div class="policy-step">
+              <div class="policy-step-num">3</div>
+              <div>
+                <h3>Investigation</h3>
+                <p>We investigate thoroughly; this may include reviewing documentation, contacting you for further information, or arranging a site inspection where required.</p>
+              </div>
+            </div>
+            <div class="policy-step">
+              <div class="policy-step-num">4</div>
+              <div>
+                <h3>Resolution</h3>
+                <p>We aim to resolve all complaints within <strong>10–15 business days</strong>. Where resolution requires more time, we will notify you with revised timeframes.</p>
+              </div>
+            </div>
+            <div class="policy-step">
+              <div class="policy-step-num">5</div>
+              <div>
+                <h3>Outcome Notification</h3>
+                <p>You will receive a written response outlining our findings, the outcome, our reasoning, and any corrective actions we will take.</p>
+              </div>
+            </div>
+            <div class="policy-step">
+              <div class="policy-step-num">6</div>
+              <div>
+                <h3>Closure</h3>
+                <p>The complaint is formally closed once resolution has been confirmed with you. All records are retained for quality improvement purposes.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="policy-section" id="outcomes">
+          <div class="policy-section-num">05</div>
+          <h2>Possible Outcomes</h2>
+          <p>Depending on the nature of your complaint, outcomes may include:</p>
+          <ul>
+            <li>Repair or rectification works</li>
+            <li>Replacement of equipment or components</li>
+            <li>Refund or partial refund</li>
+            <li>System reconfiguration or adjustment</li>
+            <li>A formal apology and process improvement commitment</li>
+            <li>Compensation where applicable under Australian Consumer Law</li>
+          </ul>
+        </section>
+
+        <section class="policy-section" id="communication">
+          <div class="policy-section-num">06</div>
+          <h2>Communication &amp; Updates</h2>
+          <p>We will keep you informed throughout the process. You may request a status update at any time by contacting us using the details above. If unforeseen delays arise, we will proactively notify you with revised timeframes.</p>
+        </section>
+
+        <section class="policy-section" id="escalation">
+          <div class="policy-section-num">07</div>
+          <h2>Escalation</h2>
+          <p>If you are not satisfied with our proposed resolution, your complaint will be escalated to senior management within <strong>2 business days</strong>.</p>
+          <p>If you remain unsatisfied after our internal escalation process, you may contact the following external bodies:</p>
+          <div class="escalation-block">
+            <h3>External dispute resolution options</h3>
+            <ul>
+              <li><strong>Fair Trading (your state):</strong> Contact your state's Fair Trading office for consumer disputes</li>
+              <li><strong>ACCC:</strong> <a href="tel:1300302502" style="color:var(--brand);">1300 302 502</a>, accc.gov.au</li>
+              <li><strong>Clean Energy Council (CEC):</strong> cleanenergycouncil.org.au</li>
+              <li><strong>New Energy Tech Consumer Code (NETCC):</strong> newenergytech.org.au</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="policy-section" id="confidentiality">
+          <div class="policy-section-num">08</div>
+          <h2>Confidentiality &amp; Fairness</h2>
+          <p>HelioFlo is committed to handling all complaints:</p>
+          <ul>
+            <li>Impartially and without prejudice</li>
+            <li>With full confidentiality of your personal information</li>
+            <li>Without any disadvantage to you for raising a concern</li>
+          </ul>
+          <p>Your personal information will be handled in accordance with the Australian Privacy Act 1988.</p>
+        </section>
+
+        <section class="policy-section" id="records">
+          <div class="policy-section-num">09</div>
+          <h2>Record Keeping</h2>
+          <p>We maintain secure records of all complaints, including the details of the issue, actions taken, outcomes, and resolution timeframes. These records are reviewed regularly to identify trends and prevent recurring issues, so every complaint makes us better.</p>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="margin-top:0;">
+    <div class="container footer-bottom" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:2rem;padding-bottom:2rem;">
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.24);">&copy; 2025 HelioFlo. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html" style="color:rgba(255,255,255,0.24);transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.24)'">Privacy Policy</a>
+        <a href="complaints.html" style="color:rgba(255,255,255,0.5);">Complaints Policy</a>
+        <a href="index.html" style="color:rgba(255,255,255,0.24);transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.24)'">Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

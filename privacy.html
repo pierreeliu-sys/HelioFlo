@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | HelioFlo</title>
+  <meta name="description" content="HelioFlo's Privacy Policy: how we collect, use, disclose, and protect your personal information.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .policy-hero {
+      padding: 7rem 0 2.5rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .policy-hero p.section-eyebrow { margin-bottom: 0.75rem; }
+    .policy-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin: 0 0 0.85rem;
+    }
+    .policy-hero > .container > p {
+      font-size: 1.05rem;
+      max-width: 640px;
+    }
+    .policy-body {
+      padding: 3.5rem 0 4rem;
+      background: var(--white);
+    }
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .policy-toc {
+      position: sticky;
+      top: 100px;
+    }
+    .policy-toc h4 {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .policy-toc-links {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .policy-toc-links a {
+      font-size: 0.86rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+      line-height: 1.4;
+    }
+    .policy-toc-links a:hover { color: var(--brand); }
+    .policy-content {
+      display: grid;
+      gap: 2.5rem;
+    }
+    .policy-section { display: grid; gap: 1rem; }
+    .policy-section-num {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      color: var(--brand);
+      opacity: 0.5;
+      letter-spacing: 0.06em;
+    }
+    .policy-section h2 {
+      font-size: 1.4rem;
+      margin: 0;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .policy-section p,
+    .policy-section li {
+      font-size: 0.96rem;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+    .policy-section ul,
+    .policy-section ol {
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+    .policy-section ol { list-style: decimal; }
+    .policy-section ul { list-style: disc; }
+    .policy-contact-card {
+      display: grid;
+      gap: 1rem;
+      padding: 2rem;
+      background: var(--cream);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      margin-top: 0.5rem;
+    }
+    .policy-contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .policy-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .policy-contact-item svg { color: var(--brand); flex-shrink: 0; }
+    .policy-updated {
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0.6;
+      margin-top: 1rem;
+    }
+    .info-block {
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid var(--teal);
+      background: rgba(0, 201, 167, 0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .info-block p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+    @media (max-width: 860px) {
+      .policy-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .policy-toc { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container header-row">
+      <a href="index.html" aria-label="HelioFlo home">
+        <img src="brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="brand-logo">
+      </a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html#why">Why HelioFlo</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#contact" class="btn btn-nav btn-sm">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="policy-hero">
+    <div class="container">
+      <p class="section-eyebrow">Legal &amp; Policy</p>
+      <h1>Privacy Policy</h1>
+      <p>HelioFlo is committed to protecting your personal information and handling it responsibly in accordance with the Australian Privacy Principles under the <em>Privacy Act 1988</em> (Cth).</p>
+      <p class="policy-updated">Last updated: April 2025</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="policy-body">
+    <div class="container policy-layout">
+
+      <!-- TABLE OF CONTENTS -->
+      <aside class="policy-toc" aria-label="Contents">
+        <h4>Contents</h4>
+        <nav class="policy-toc-links">
+          <a href="#overview">Overview</a>
+          <a href="#collection">Information we collect</a>
+          <a href="#how-collected">How we collect it</a>
+          <a href="#use">How we use your information</a>
+          <a href="#disclosure">Disclosure to third parties</a>
+          <a href="#overseas">Overseas disclosure</a>
+          <a href="#storage">Storage &amp; security</a>
+          <a href="#cookies">Cookies &amp; analytics</a>
+          <a href="#marketing">Direct marketing</a>
+          <a href="#access">Access &amp; correction</a>
+          <a href="#complaints">Privacy complaints</a>
+          <a href="#updates">Policy updates</a>
+          <a href="#contact">Contact us</a>
+        </nav>
+      </aside>
+
+      <!-- CONTENT -->
+      <main class="policy-content">
+
+        <section class="policy-section" id="overview">
+          <div class="policy-section-num">01</div>
+          <h2>Overview</h2>
+          <p>This Privacy Policy explains how HelioFlo Pty Ltd (<strong>"HelioFlo"</strong>, <strong>"we"</strong>, <strong>"us"</strong>, or <strong>"our"</strong>) collects, uses, discloses, and manages your personal information when you visit our website, request a quote, or engage our installation services.</p>
+          <p>By providing us with your personal information, you agree to its collection and use in accordance with this policy. If you do not agree, please do not provide us with your personal information.</p>
+        </section>
+
+        <section class="policy-section" id="collection">
+          <div class="policy-section-num">02</div>
+          <h2>Information We Collect</h2>
+          <p>We may collect the following types of personal information:</p>
+          <ul>
+            <li>Name, residential address, and property details</li>
+            <li>Contact information: email address and phone number</li>
+            <li>Details about your existing solar system or energy usage</li>
+            <li>Payment and billing information</li>
+            <li>Communications you send us (enquiries, complaint correspondence)</li>
+            <li>Technical information when you visit our website (IP address, browser type, pages viewed)</li>
+          </ul>
+          <p>We only collect information that is reasonably necessary to provide our services or respond to your enquiry.</p>
+        </section>
+
+        <section class="policy-section" id="how-collected">
+          <div class="policy-section-num">03</div>
+          <h2>How We Collect Your Information</h2>
+          <p>We collect personal information directly from you when you:</p>
+          <ul>
+            <li>Submit a quote request via our website contact form</li>
+            <li>Call or email us with an enquiry</li>
+            <li>Book a site visit or installation appointment</li>
+            <li>Sign a service agreement or payment schedule</li>
+            <li>Correspond with us by any channel</li>
+          </ul>
+          <p>We may also collect information from third parties where you have authorised this, or from publicly available sources where relevant to our services.</p>
+        </section>
+
+        <section class="policy-section" id="use">
+          <div class="policy-section-num">04</div>
+          <h2>How We Use Your Information</h2>
+          <p>HelioFlo uses your personal information to:</p>
+          <ul>
+            <li>Respond to your enquiries and provide quotes</li>
+            <li>Arrange and conduct site assessments and installations</li>
+            <li>Process payments and manage your account</li>
+            <li>Provide after-sales support and warranty services</li>
+            <li>Meet our legal and regulatory obligations</li>
+            <li>Improve our services and website experience</li>
+            <li>Send you relevant service updates (with your consent where required)</li>
+          </ul>
+          <p>We will not use your information for any purpose that is inconsistent with the reason it was collected, unless you have consented or we are required by law to do so.</p>
+        </section>
+
+        <section class="policy-section" id="disclosure">
+          <div class="policy-section-num">05</div>
+          <h2>Disclosure to Third Parties</h2>
+          <p>We may share your personal information with third parties in the following circumstances:</p>
+          <ul>
+            <li><strong>Service providers:</strong> subcontractors, electricians, or logistics partners who assist with your installation</li>
+            <li><strong>Product suppliers:</strong> battery and inverter manufacturers (e.g. for warranty registration)</li>
+            <li><strong>Payment processors:</strong> to securely handle transactions</li>
+            <li><strong>Professional advisers:</strong> lawyers, accountants, or insurers where required</li>
+            <li><strong>Regulatory bodies:</strong> where required by law or accreditation standards (e.g. SAA, NETCC)</li>
+          </ul>
+          <p>We require all third parties to handle your information in accordance with the Australian Privacy Principles and to use it only for the purposes we authorise.</p>
+          <p>We do not sell, rent, or trade your personal information to any third party for marketing purposes.</p>
+        </section>
+
+        <section class="policy-section" id="overseas">
+          <div class="policy-section-num">06</div>
+          <h2>Overseas Disclosure</h2>
+          <p>Some of our service providers, such as cloud storage, email platforms, or customer relationship management tools, may store or process data outside Australia. Where this occurs, we take reasonable steps to ensure those providers comply with standards equivalent to the Australian Privacy Principles.</p>
+          <div class="info-block">
+            <p>If you would like information about which overseas recipients may have access to your data, please contact us using the details in Section 13.</p>
+          </div>
+        </section>
+
+        <section class="policy-section" id="storage">
+          <div class="policy-section-num">07</div>
+          <h2>Storage &amp; Security</h2>
+          <p>We take reasonable steps to protect your personal information from misuse, interference, loss, and unauthorised access, modification, or disclosure. These measures include:</p>
+          <ul>
+            <li>Secure, password-protected systems and cloud infrastructure</li>
+            <li>Access controls limiting staff access to information on a need-to-know basis</li>
+            <li>Encrypted transmission for sensitive data</li>
+          </ul>
+          <p>We retain personal information only for as long as it is needed for the purpose it was collected, or as required by law. When information is no longer required, we take reasonable steps to securely destroy or de-identify it.</p>
+        </section>
+
+        <section class="policy-section" id="cookies">
+          <div class="policy-section-num">08</div>
+          <h2>Cookies &amp; Analytics</h2>
+          <p>Our website may use cookies and similar technologies to improve your browsing experience and understand how visitors use our site. These may include:</p>
+          <ul>
+            <li><strong>Essential cookies:</strong> necessary for core website functionality</li>
+            <li><strong>Analytics cookies:</strong> used to understand site traffic and user behaviour (e.g. Google Analytics)</li>
+          </ul>
+          <p>You can disable cookies through your browser settings; however, this may affect some site functionality. We do not use cookies to serve third-party advertising.</p>
+        </section>
+
+        <section class="policy-section" id="marketing">
+          <div class="policy-section-num">09</div>
+          <h2>Direct Marketing</h2>
+          <p>With your consent, we may use your contact information to send you updates about our services, promotions, or relevant energy information. You can opt out of marketing communications at any time by:</p>
+          <ul>
+            <li>Using the unsubscribe link in any email we send</li>
+            <li>Contacting us directly at <a href="mailto:hello@helioflo.com.au" style="color:var(--brand);font-weight:600;">hello@helioflo.com.au</a></li>
+          </ul>
+          <p>We will never use your information for direct marketing without your consent, and we will action opt-out requests promptly.</p>
+        </section>
+
+        <section class="policy-section" id="access">
+          <div class="policy-section-num">10</div>
+          <h2>Access &amp; Correction</h2>
+          <p>You have the right to access the personal information we hold about you and to request corrections if it is inaccurate, out of date, or incomplete. To make a request:</p>
+          <ul>
+            <li>Contact us using the details in Section 13</li>
+            <li>We will respond within <strong>30 days</strong> of receiving your request</li>
+            <li>We will not charge you for making an access or correction request</li>
+          </ul>
+          <p>We may decline access in limited circumstances permitted under the <em>Privacy Act 1988</em>, in which case we will explain our reasons in writing.</p>
+        </section>
+
+        <section class="policy-section" id="complaints">
+          <div class="policy-section-num">11</div>
+          <h2>Privacy Complaints</h2>
+          <p>If you believe we have breached your privacy rights, please contact us in the first instance so we can attempt to resolve the matter directly. We will acknowledge your complaint within <strong>2 business days</strong> and aim to resolve it within <strong>30 days</strong>.</p>
+          <p>If you are not satisfied with our response, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC):</p>
+          <ul>
+            <li>Website: <a href="https://www.oaic.gov.au" target="_blank" rel="noopener" style="color:var(--brand);font-weight:600;">www.oaic.gov.au</a></li>
+            <li>Phone: 1300 363 992</li>
+          </ul>
+          <p>For complaints related to our services or accreditation, please refer to our <a href="complaints.html" style="color:var(--brand);font-weight:600;">Complaints Handling Policy</a>.</p>
+        </section>
+
+        <section class="policy-section" id="updates">
+          <div class="policy-section-num">12</div>
+          <h2>Policy Updates</h2>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal obligations. When we make significant changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
+          <p>Continued use of our services after any update constitutes your acceptance of the revised policy.</p>
+        </section>
+
+        <section class="policy-section" id="contact">
+          <div class="policy-section-num">13</div>
+          <h2>Contact Us</h2>
+          <p>For any privacy-related enquiries, access requests, or complaints, please contact our Privacy Officer:</p>
+          <div class="policy-contact-card">
+            <h3>HelioFlo Privacy Officer</h3>
+            <div class="policy-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:privacy@helioflo.com.au" style="color:inherit;">privacy@helioflo.com.au</a>
+            </div>
+            <div class="policy-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+              1800 HELIOFLO
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="margin-top:0;">
+    <div class="container footer-bottom" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:2rem;padding-bottom:2rem;">
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.24);">&copy; 2025 HelioFlo. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html" style="color:rgba(255,255,255,0.5);">Privacy Policy</a>
+        <a href="complaints.html" style="color:rgba(255,255,255,0.24);transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.24)'">Complaints Policy</a>
+        <a href="index.html" style="color:rgba(255,255,255,0.24);transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.24)'">Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

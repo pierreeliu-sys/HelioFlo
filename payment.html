@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Terms | HelioFlo</title>
+  <meta name="description" content="HelioFlo's transparent payment structure: 10% deposit to secure, 45% on installation day, 45% on completion.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .policy-hero {
+      padding: 7rem 0 2.5rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .policy-hero p.section-eyebrow { margin-bottom: 0.75rem; }
+    .policy-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin: 0 0 0.85rem;
+    }
+    .policy-hero > .container > p {
+      font-size: 1.05rem;
+      max-width: 640px;
+    }
+    .policy-updated {
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0.6;
+      margin-top: 1rem;
+    }
+    .payment-body {
+      padding: 3.5rem 0 4rem;
+      background: var(--white);
+    }
+
+    /* Payment stages */
+    .payment-stages {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .payment-stage {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0;
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .stage-percent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.75rem 1rem;
+      text-align: center;
+    }
+    .stage-percent--deposit { background: var(--brand); }
+    .stage-percent--install { background: var(--dark-surface); }
+    .stage-percent--complete { background: var(--teal); }
+    .stage-percent-num {
+      font-family: var(--font-serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1;
+    }
+    .stage-percent-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-top: 0.35rem;
+    }
+    .stage-body {
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .stage-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .stage-when {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand);
+    }
+    .stage-desc {
+      font-size: 0.94rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0.25rem 0 0;
+    }
+
+    /* Policy sections below stages */
+    .payment-content {
+      display: grid;
+      gap: 2rem;
+      max-width: 760px;
+    }
+    .payment-section { display: grid; gap: 0.75rem; }
+    .payment-section-num {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      color: var(--brand);
+      opacity: 0.5;
+      letter-spacing: 0.06em;
+    }
+    .payment-section h2 {
+      font-size: 1.3rem;
+      margin: 0;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .payment-section p,
+    .payment-section li {
+      font-size: 0.96rem;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+    .payment-section ul {
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.45rem;
+      list-style: disc;
+    }
+
+    .info-block {
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid var(--teal);
+      background: rgba(0, 201, 167, 0.05);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .info-block p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .payment-contact-card {
+      display: grid;
+      gap: 1rem;
+      padding: 2rem;
+      background: var(--cream);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-lg);
+      margin-top: 0.5rem;
+    }
+    .payment-contact-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .payment-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .payment-contact-item svg { color: var(--brand); flex-shrink: 0; }
+
+    @media (max-width: 640px) {
+      .payment-stage { grid-template-columns: 90px 1fr; }
+      .stage-percent { padding: 2rem 0.5rem; }
+      .stage-percent-num { font-size: 2rem; }
+      .stage-body { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container header-row">
+      <a href="index.html" aria-label="HelioFlo home">
+        <img src="brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="brand-logo">
+      </a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html#why">Why HelioFlo</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#contact" class="btn btn-nav btn-sm">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="policy-hero">
+    <div class="container">
+      <p class="section-eyebrow">Transparent Pricing</p>
+      <h1>Payment Terms</h1>
+      <p>No surprises. HelioFlo's payment structure is designed around your installation milestones: you only pay as the job progresses, so you're always protected.</p>
+      <p class="policy-updated">Effective: April 2025</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="payment-body">
+    <div class="container">
+
+      <!-- PAYMENT STAGES -->
+      <div class="payment-stages">
+
+        <div class="payment-stage">
+          <div class="stage-percent stage-percent--deposit">
+            <div class="stage-percent-num">10%</div>
+            <div class="stage-percent-label">Deposit</div>
+          </div>
+          <div class="stage-body">
+            <div class="stage-when">Stage 1: Booking confirmed</div>
+            <h3 class="stage-title">Secure your installation date</h3>
+            <p class="stage-desc">A 10% deposit is required to confirm your booking and reserve your installation slot. This deposit holds your preferred date and allows us to order your equipment and schedule our accredited team.</p>
+          </div>
+        </div>
+
+        <div class="payment-stage">
+          <div class="stage-percent stage-percent--install">
+            <div class="stage-percent-num">45%</div>
+            <div class="stage-percent-label">On the day</div>
+          </div>
+          <div class="stage-body">
+            <div class="stage-when">Stage 2: Installation day</div>
+            <h3 class="stage-title">Due on the day of installation</h3>
+            <p class="stage-desc">A further 45% is payable on the day your installation commences. This covers materials, labour, and on-site preparation. Payment is due before our team begins work and can be made by bank transfer or agreed payment method.</p>
+          </div>
+        </div>
+
+        <div class="payment-stage">
+          <div class="stage-percent stage-percent--complete">
+            <div class="stage-percent-num">45%</div>
+            <div class="stage-percent-label">On completion</div>
+          </div>
+          <div class="stage-body">
+            <div class="stage-when">Stage 3: Job complete</div>
+            <h3 class="stage-title">Final payment on successful completion</h3>
+            <p class="stage-desc">The remaining 45% is due once the installation is fully commissioned and signed off. Your system will be tested and operational before this payment is required, giving you complete confidence that the job is done right.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- POLICY DETAILS -->
+      <div class="payment-content">
+
+        <div class="payment-section">
+          <div class="payment-section-num">01</div>
+          <h2>Accepted Payment Methods</h2>
+          <p>We accept the following payment methods for all stages:</p>
+          <ul>
+            <li>Bank transfer (EFT), preferred</li>
+            <li>Credit or debit card (Visa, Mastercard)</li>
+            <li>BPAY (where available)</li>
+          </ul>
+          <p>Payment details and references will be provided on your tax invoice. Please include your invoice number when making a transfer.</p>
+        </div>
+
+        <div class="payment-section">
+          <div class="payment-section-num">02</div>
+          <h2>Invoicing</h2>
+          <p>A tax invoice will be issued for each payment stage. Invoices will be sent electronically to the email address provided at the time of booking. All amounts shown include GST where applicable.</p>
+          <div class="info-block">
+            <p>If you require a single consolidated invoice for the full project, please contact us before the installation date and we will accommodate your request.</p>
+          </div>
+        </div>
+
+        <div class="payment-section">
+          <div class="payment-section-num">03</div>
+          <h2>Deposit Refund Policy</h2>
+          <p>We understand that circumstances change. Our deposit refund policy is as follows:</p>
+          <ul>
+            <li><strong>Cancellation more than 5 business days before installation:</strong> Full deposit refund.</li>
+            <li><strong>Cancellation within 5 business days of installation:</strong> The deposit is non-refundable to cover scheduling and equipment ordering costs.</li>
+            <li><strong>HelioFlo-initiated cancellation or scheduling change:</strong> Full deposit refund or rescheduling at no additional cost.</li>
+          </ul>
+        </div>
+
+        <div class="payment-section">
+          <div class="payment-section-num">04</div>
+          <h2>Late Payments</h2>
+          <p>Timely payment at each stage helps us complete your installation without delay. If a payment is not received by the agreed date:</p>
+          <ul>
+            <li>We will contact you to confirm receipt or resolve any issue</li>
+            <li>Installation or commissioning may be paused until payment is cleared</li>
+            <li>Interest may be applied on overdue balances at the rate permitted under applicable law</li>
+          </ul>
+          <p>If you anticipate difficulty making a payment, please contact us as early as possible; we will do our best to work with you.</p>
+        </div>
+
+        <div class="payment-section">
+          <div class="payment-section-num">05</div>
+          <h2>Questions or Disputes</h2>
+          <p>If you have any questions about your invoice or wish to raise a dispute relating to payment, please contact us directly:</p>
+          <div class="payment-contact-card">
+            <h3>HelioFlo Billing Enquiries</h3>
+            <div class="payment-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:billing@helioflo.com.au" style="color:inherit;">billing@helioflo.com.au</a>
+            </div>
+            <div class="payment-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+              1800 HELIOFLO
+            </div>
+          </div>
+          <p>For broader service concerns, refer to our <a href="complaints.html" style="color:var(--brand);font-weight:600;">Complaints Handling Policy</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="margin-top:0;">
+    <div class="container footer-bottom" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:2rem;padding-bottom:2rem;">
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.24);">&copy; 2025 HelioFlo. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html" style="color:rgba(255,255,255,0.24);transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.24)'">Privacy Policy</a>
+        <a href="complaints.html" style="color:rgba(255,255,255,0.24);transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.24)'">Complaints Policy</a>
+        <a href="index.html" style="color:rgba(255,255,255,0.24);transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.24)'">Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
