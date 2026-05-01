@@ -779,12 +779,65 @@
       });
     });
 
-    // ── Form submit (placeholder) ──
-    document.querySelector('.contact-form')?.addEventListener('submit', e => {
+    // ── Form submit → Google Sheets via Apps Script ──
+    const SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload  = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    document.querySelector('.contact-form')?.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = currentLang === 'zh' ? '已提交，我们将尽快联系您！' : 'Request sent. We\'ll be in touch soon!';
+      btn.textContent = currentLang === 'zh' ? '提交中...' : 'Sending...';
       btn.disabled = true;
+
+      const form = e.target;
+
+      const photoSlots = [
+        { id: 'upload-meter-int',    label: 'Meter box interior' },
+        { id: 'upload-meter-back',   label: 'Meter box back panel' },
+        { id: 'upload-install-area', label: 'Installation area' },
+        { id: 'upload-floorplan',    label: 'Floorplan' },
+      ];
+      const photos = [];
+      for (const slot of photoSlots) {
+        const input = document.getElementById(slot.id);
+        if (input?.files.length) {
+          const file = input.files[0];
+          const b64  = await fileToBase64(file);
+          photos.push({ label: slot.label, name: file.name, type: file.type, data: b64 });
+        }
+      }
+
+      const payload = {
+        timestamp:        new Date().toLocaleString('en-AU'),
+        first_name:       form.first_name.value,
+        last_name:        form.last_name.value,
+        email:            form.email.value,
+        phone:            form.phone.value,
+        address:          document.getElementById('address').value,
+        property:         form.property.value,
+        interest:         form.interest.value,
+        build_type:       form.build_type.value,
+        electricity_bill: form.electricity_bill.value,
+        install_period:   form.install_period.value,
+        message:          form.message.value,
+        photos,
+      };
+
+      try {
+        await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+        btn.textContent = currentLang === 'zh' ? '已提交，我们将尽快联系您！' : 'Request sent. We\'ll be in touch soon!';
+      } catch {
+        btn.textContent = currentLang === 'zh' ? '提交失败，请重试。' : 'Something went wrong. Please try again.';
+        btn.disabled = false;
+      }
     });
 
     // ══════════════════════════════════════
