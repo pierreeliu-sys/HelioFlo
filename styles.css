@@ -1109,6 +1109,10 @@ em { font-style: italic; }
   font-weight: 400;
   color: var(--muted);
 }
+.required-star {
+  color: var(--brand);
+  font-weight: 700;
+}
 
 .form-field input,
 .form-field textarea,
