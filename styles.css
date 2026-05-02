@@ -737,7 +737,7 @@ em { font-style: italic; }
 ═══════════════════════════════════════ */
 .section-video-feature {
   padding: 5rem 0;
-  background: var(--white);
+  background: var(--cream);
 }
 
 .video-feature-inner {
