@@ -539,22 +539,23 @@ em { font-style: italic; }
 }
 
 /* ═══════════════════════════════════════
-   WHY HELIOFLO — VIDEO + PANEL LAYOUT
+   WHY HELIOFLO — LAYOUT
 ═══════════════════════════════════════ */
+#why { padding: 4rem 0; }
+
 .why-layout {
-  display: flex;
-  gap: 2.5rem;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr 27%;
+  gap: 3rem;
+  align-items: start;
 }
 
 .why-video-embed {
-  flex: 0 0 32%;
+  order: 2;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
   background: var(--dark-surface);
-  order: 2;
-  min-height: 480px;
+  aspect-ratio: 3 / 4;
 }
 
 .why-video-embed video {
@@ -565,13 +566,16 @@ em { font-style: italic; }
   filter: brightness(0.72);
 }
 
+/* Panel is transparent inside why-layout — items sit on cream */
 .why-layout .why-panel {
-  flex: 1;
-  min-width: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
 }
 
 /* ═══════════════════════════════════════
-   WHY HELIOFLO — PANEL
+   WHY HELIOFLO — PANEL (standalone, product pages)
 ═══════════════════════════════════════ */
 .why-panel {
   background: var(--dark-surface);
@@ -583,10 +587,14 @@ em { font-style: italic; }
 .why-panel-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 2rem;
+  padding: 0 0 0.85rem;
   border-bottom: 1px solid rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.03);
+  background: transparent;
+}
+
+.why-layout .why-panel-header {
+  border-bottom-color: var(--border-warm);
+  margin-bottom: 0;
 }
 
 .why-panel-label {
@@ -599,72 +607,100 @@ em { font-style: italic; }
   margin: 0;
 }
 
-.why-logo {
-  height: 34px;
-  width: auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.55;
-}
+.why-layout .why-panel-label { color: var(--muted); }
 
 .why-items {
   display: grid;
   grid-template-columns: 1fr;
 }
 
+/* 2-col grid inside the why-layout */
+.why-layout .why-items {
+  grid-template-columns: 1fr 1fr;
+}
+
 .why-item {
   display: flex;
   align-items: flex-start;
-  gap: 1.1rem;
-  padding: 1.1rem 2rem;
+  gap: 1rem;
+  padding: 1rem 2rem;
   border-bottom: 1px solid rgba(255,255,255,0.05);
-  transition: background 0.2s ease;
 }
 
 .why-item:last-child { border-bottom: none; }
+.why-item:nth-last-child(2) { border-bottom: none; }
 
-.why-item:hover { background: rgba(255,255,255,0.03); }
+/* why-layout: cream-bg item styling */
+.why-layout .why-item {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.why-layout .why-item:nth-child(odd) {
+  padding-right: 1.5rem;
+  border-right: 1px solid var(--border-warm);
+}
+
+.why-layout .why-item:nth-child(even) {
+  padding-left: 1.5rem;
+}
+
+/* Restore border-bottom for items above the spanning last row */
+.why-layout .why-item:nth-last-child(2) {
+  border-bottom: 1px solid var(--border-warm);
+}
+
+/* Spanning last item (odd count) */
+.why-layout .why-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  border-right: none;
+  padding-right: 0;
+}
+
+.why-layout .why-item:last-child { border-bottom: none; }
 
 .why-check {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: rgba(0, 201, 167, 0.12);
+  background: rgba(0, 201, 167, 0.1);
   border: 1px solid rgba(0, 201, 167, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 0.15rem;
+  margin-top: 0.12rem;
 }
 
-.why-item-body { display: grid; gap: 0.25rem; }
+.why-item-body { display: grid; gap: 0.2rem; }
 
 .why-item-title {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: rgba(255,255,255,0.9);
   display: block;
   letter-spacing: -0.01em;
 }
 
+.why-layout .why-item-title { color: var(--text); }
+
 .why-item-body p {
-  font-size: 0.84rem;
+  font-size: 0.83rem;
   color: rgba(255,255,255,0.45);
-  line-height: 1.6;
+  line-height: 1.55;
   margin: 0;
 }
 
+.why-layout .why-item-body p { color: var(--muted); }
+
 .why-panel-cta {
-  padding: 1.25rem 2rem;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  background: rgba(0,0,0,0.12);
+  padding: 1.5rem 0 0;
+  border-top: none;
+  background: transparent;
 }
 
-.why-panel-cta .btn {
-  width: 100%;
-  justify-content: center;
-}
+.why-panel-cta .btn { width: auto; }
 
 /* ═══════════════════════════════════════
    PRODUCTS / SERVICES
@@ -1930,8 +1966,13 @@ em { font-style: italic; }
 
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 
-  .why-layout { flex-direction: column; }
-  .why-video-embed { flex: none; width: 100%; aspect-ratio: 16 / 9; min-height: 0; }
+  .why-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .why-video-embed { order: 0; width: 100%; aspect-ratio: 16 / 9; }
+  .why-layout .why-items { grid-template-columns: 1fr; }
+  .why-layout .why-item:nth-child(odd) { padding-right: 0; border-right: none; }
+  .why-layout .why-item:nth-child(even) { padding-left: 0; }
+  .why-layout .why-item:nth-last-child(2) { border-bottom: 1px solid var(--border-warm); }
+  .why-layout .why-item:last-child:nth-child(odd) { grid-column: auto; }
 }
 
 /* ═══════════════════════════════════════
@@ -1955,11 +1996,9 @@ em { font-style: italic; }
   .trust-divider { display: none; }
 
   /* ── Why HelioFlo ── */
-  .why-layout { gap: 1.25rem; }
-  .why-panel { border-radius: var(--radius-lg); }
-  .why-item { padding: 0.85rem 1.25rem; }
-  .why-panel-cta { padding: 1rem 1.25rem; }
-  .why-panel-header { padding: 1rem 1.25rem; }
+  .why-layout { gap: 1rem; }
+  .why-layout .why-item { padding: 0.7rem 0; }
+  #why { padding: 3rem 0; }
 
   /* ── Stats ── */
   .section-stats { padding: 2rem 0; }
