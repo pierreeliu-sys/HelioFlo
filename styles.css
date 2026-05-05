@@ -552,18 +552,15 @@ em { font-style: italic; }
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  background: #000;
-  aspect-ratio: 9 / 16;
-  position: sticky;
-  top: 6rem;
+  background: var(--dark-surface);
   order: 2;
-  border: 1px solid rgba(255,255,255,0.08);
+  min-height: 480px;
 }
 
 .why-video-embed video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   filter: brightness(0.72);
 }
@@ -1934,7 +1931,7 @@ em { font-style: italic; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 
   .why-layout { flex-direction: column; }
-  .why-video-embed { flex: none; width: 100%; aspect-ratio: 16 / 9; position: static; }
+  .why-video-embed { flex: none; width: 100%; aspect-ratio: 16 / 9; min-height: 0; }
 }
 
 /* ═══════════════════════════════════════
