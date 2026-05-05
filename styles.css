@@ -556,6 +556,7 @@ em { font-style: italic; }
   aspect-ratio: 9 / 16;
   position: sticky;
   top: 6rem;
+  order: 2;
 }
 
 .why-video-embed video {
