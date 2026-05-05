@@ -539,15 +539,23 @@ em { font-style: italic; }
 }
 
 /* ═══════════════════════════════════════
-   WHY HELIOFLO — VIDEO EMBED
+   WHY HELIOFLO — VIDEO + PANEL LAYOUT
 ═══════════════════════════════════════ */
+.why-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
 .why-video-embed {
-  margin-bottom: 2.5rem;
+  flex: 0 0 38%;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   background: #000;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
+  position: sticky;
+  top: 6rem;
 }
 
 .why-video-embed video {
@@ -555,6 +563,11 @@ em { font-style: italic; }
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.why-layout .why-panel {
+  flex: 1;
+  min-width: 0;
 }
 
 /* ═══════════════════════════════════════
@@ -1912,6 +1925,9 @@ em { font-style: italic; }
   .process-flow::before { display: none; }
 
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  .why-layout { flex-direction: column; }
+  .why-video-embed { flex: none; width: 100%; aspect-ratio: 16 / 9; position: static; }
 }
 
 /* ═══════════════════════════════════════
