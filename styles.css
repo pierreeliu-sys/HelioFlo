@@ -563,8 +563,9 @@ em { font-style: italic; }
 .why-video-embed video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  filter: brightness(0.72);
 }
 
 .why-layout .why-panel {
