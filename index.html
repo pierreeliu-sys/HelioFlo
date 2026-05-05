@@ -41,7 +41,7 @@
     <section id="home" class="hero">
       <div class="hero-media">
         <video class="hero-vid hero-vid--a" autoplay muted playsinline>
-          <source src="brand_assets/Images/Foggy%20Landscape.mp4" type="video/mp4">
+          <source src="brand_assets/Images/8853514-hd_1080_1920_24fps.mp4" type="video/mp4">
         </video>
         <video class="hero-vid hero-vid--b" muted playsinline preload="auto"></video>
         <div class="hero-scrim"></div>
@@ -178,6 +178,12 @@
           <h2 data-i18n="why-h2">The HelioFlo difference.</h2>
           <p  data-i18n="why-sub">What sets us apart in solar battery installation, from first quote to final handover and beyond.</p>
         </div>
+        <div class="why-video-embed reveal">
+          <video controls playsinline preload="metadata">
+            <source src="brand_assets/Why%20HelioFlo%20Video.MOV" type="video/quicktime">
+          </video>
+        </div>
+
         <div class="why-panel reveal">
           <div class="why-panel-header">
             <p class="why-panel-label" data-i18n="why-panel-label">The HelioFlo standard</p>
@@ -756,8 +762,9 @@
     (function () {
       const CLIP_DURATION = 10000;
       const playlist = [
+        'brand_assets/Images/8853514-hd_1080_1920_24fps.mp4',
         'brand_assets/Images/Foggy%20Landscape.mp4',
-        'brand_assets/Images/Solar%20Panel%20Landscape.mp4',
+        'brand_assets/Images/11958600_3840_2160_30fps.mp4',
         'brand_assets/Images/Trees%20Landscape.mp4',
       ];
       const vidA = document.querySelector('.hero-vid--a');
