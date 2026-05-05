@@ -543,12 +543,12 @@ em { font-style: italic; }
 ═══════════════════════════════════════ */
 .why-layout {
   display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+  gap: 2.5rem;
+  align-items: stretch;
 }
 
 .why-video-embed {
-  flex: 0 0 38%;
+  flex: 0 0 32%;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -557,6 +557,7 @@ em { font-style: italic; }
   position: sticky;
   top: 6rem;
   order: 2;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .why-video-embed video {
@@ -578,87 +579,81 @@ em { font-style: italic; }
   background: var(--dark-surface);
   border-radius: var(--radius-xl);
   overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .why-panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2.5rem;
+  padding: 1.25rem 2rem;
   border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
 }
 
 .why-panel-label {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.35);
   margin: 0;
 }
 
 .why-logo {
-  height: 38px;
+  height: 34px;
   width: auto;
   filter: brightness(0) invert(1);
-  opacity: 0.62;
+  opacity: 0.55;
 }
 
 .why-items {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .why-item {
   display: flex;
   align-items: flex-start;
   gap: 1.1rem;
-  padding: 1.5rem 2.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 1.1rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.2s ease;
 }
 
-.why-item:nth-child(odd) {
-  border-right: 1px solid rgba(255,255,255,0.06);
-}
+.why-item:last-child { border-bottom: none; }
 
-/* Remove bottom border from last two items */
-.why-item:last-child,
-.why-item:nth-last-child(2) { border-bottom: none; }
-
-/* If item count is odd, the lone last item spans both cols */
-.why-item:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  border-right: none;
-}
+.why-item:hover { background: rgba(255,255,255,0.03); }
 
 .why-check {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: rgba(0, 201, 167, 0.13);
+  background: rgba(0, 201, 167, 0.12);
+  border: 1px solid rgba(0, 201, 167, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
 }
 
-.why-item-body { display: grid; gap: 0.4rem; }
+.why-item-body { display: grid; gap: 0.25rem; }
 
 .why-item-title {
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255,255,255,0.9);
   display: block;
   letter-spacing: -0.01em;
 }
 
 .why-item-body p {
-  font-size: 0.87rem;
-  color: rgba(255,255,255,0.42);
-  line-height: 1.65;
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -1871,8 +1866,7 @@ em { font-style: italic; }
    RESPONSIVE — 1080px
 ═══════════════════════════════════════ */
 @media (max-width: 1080px) {
-  .why-panel-header { padding: 1.25rem 2rem; }
-  .why-item { padding: 1.25rem 2rem; }
+  .why-item { padding: 1rem 1.75rem; }
 
   .faq-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 
@@ -1951,11 +1945,7 @@ em { font-style: italic; }
 
   /* Why panel */
   .why-panel { border-radius: var(--radius-lg); }
-  .why-items { grid-template-columns: 1fr; }
-  .why-item:nth-child(odd) { border-right: none; }
-  .why-item:nth-last-child(2) { border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .why-item:last-child { border-bottom: none; }
-  .why-item:last-child:nth-child(odd) { grid-column: auto; }
+  .why-item { padding: 1rem 1.5rem; }
 
   /* Section heads */
   .section-head { margin-bottom: 1.75rem; }
