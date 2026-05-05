@@ -657,6 +657,17 @@ em { font-style: italic; }
   margin: 0;
 }
 
+.why-panel-cta {
+  padding: 1.25rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.12);
+}
+
+.why-panel-cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+
 /* ═══════════════════════════════════════
    PRODUCTS / SERVICES
 ═══════════════════════════════════════ */
@@ -1929,50 +1940,57 @@ em { font-style: italic; }
    RESPONSIVE — 640px (mobile)
 ═══════════════════════════════════════ */
 @media (max-width: 640px) {
-  .section { padding: 3rem 0; }
+  .section { padding: 2.5rem 0; }
+  .section-head { margin-bottom: 1.5rem; }
 
-  /* Hero — remove extra horizontal padding (container already gives 1rem each side) */
-  .hero { align-items: center; padding-bottom: 3rem; }
+  /* ── Hero ── */
+  .hero { align-items: center; padding-bottom: 2.5rem; }
   .hero-inner { padding-left: 0; padding-right: 0; padding-top: 4.5rem; }
-  h1 { font-size: clamp(2.6rem, 9vw, 3.6rem); }
-
-  .hero-badges {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+  h1 { font-size: clamp(2.4rem, 9vw, 3.4rem); }
+  .hero-copy > p { font-size: 0.97rem; }
+  .hero-badges { grid-template-columns: repeat(3, 1fr); }
   .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
 
-  /* Why panel */
+  /* ── Trust bar ── */
+  .trust-row { justify-content: center; flex-wrap: wrap; gap: 0.6rem 1.5rem; }
+  .trust-divider { display: none; }
+
+  /* ── Why HelioFlo ── */
+  .why-layout { gap: 1.25rem; }
   .why-panel { border-radius: var(--radius-lg); }
-  .why-item { padding: 1rem 1.5rem; }
+  .why-item { padding: 0.85rem 1.25rem; }
+  .why-panel-cta { padding: 1rem 1.25rem; }
+  .why-panel-header { padding: 1rem 1.25rem; }
 
-  /* Section heads */
-  .section-head { margin-bottom: 1.75rem; }
+  /* ── Stats ── */
+  .section-stats { padding: 2rem 0; }
 
-  /* Tier cards */
+  /* ── Program ── */
+  .section-program { padding: 2.5rem 0; }
+  .program-benefit { gap: 1rem; }
+
+  /* ── Tier cards ── */
+  .tier-grid { gap: 1rem; }
   .tier-card { padding: 1.5rem; }
 
-  /* Video feature */
-  .section-video-feature { padding: 3rem 0; }
+  /* ── Video feature ── */
+  .section-video-feature { padding: 2.5rem 0; }
   .feature-stats { flex-wrap: wrap; gap: 1rem; }
   .feature-stat-divider { display: none; }
 
-  .process-flow    { grid-template-columns: 1fr; }
+  /* ── Process ── */
+  .process-flow { grid-template-columns: 1fr; }
 
-  /* FAQ — increase max-height so long answers don't clip on narrow screens */
-  .faq-item.is-open .faq-body { max-height: 800px; }
+  /* ── FAQ ── */
+  .faq-item.is-open .faq-body { max-height: 900px; }
 
+  /* ── Contact form ── */
   .form-row { grid-template-columns: 1fr; }
   .upload-grid { grid-template-columns: 1fr; }
-
-  /* Contact form card */
   .contact-form-card { padding: 1.5rem; border-radius: var(--radius-lg); }
 
-  .trust-row    { justify-content: center; flex-wrap: wrap; gap: 0.75rem 2rem; }
-  .trust-divider { display: none; }
-
-  /* Product pages */
+  /* ── Product pages ── */
   .product-page-hero { padding: 4.5rem 0 1.75rem; }
   .product-full-card-header { padding: 1.25rem; }
   .pfc-split { flex-direction: column; gap: 1.25rem; }
@@ -1986,20 +2004,18 @@ em { font-style: italic; }
   .brand-intro { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
   .brand-intro-logo { height: 44px; }
 
-  /* Footer */
+  /* ── Footer ── */
   .footer-main { flex-direction: column; gap: 1.5rem; }
   .footer-contact { align-items: flex-start; }
   .footer-bottom p { margin-left: 0; }
-  .footer-accred-logos { gap: 1.5rem; }
-  .footer-accred-logos img { height: 40px; }
+  .footer-accred-logos { gap: 1.25rem; }
+  .footer-accred-logos img { height: 36px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
 
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .btn { width: 100%; }
+  /* ── Buttons ── */
+  .btn-primary,
+  .btn-secondary { width: 100%; }
   .btn.btn-nav   { width: auto; }
   .btn.btn-ghost { width: auto; }
+  .pfc-actions .btn.btn-ghost { width: 100%; }
 }
