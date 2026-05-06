@@ -211,6 +211,27 @@ em { font-style: italic; }
 }
 .btn-primary:hover { box-shadow: 0 18px 44px rgba(0, 201, 167, 0.38); }
 
+.btn-tier-e {
+  background: transparent;
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+}
+.btn-tier-e:hover { background: rgba(0, 201, 167, 0.08); }
+
+.btn-tier-m {
+  background: linear-gradient(135deg, var(--gold) 0%, #B8902E 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(212, 168, 71, 0.28);
+}
+.btn-tier-m:hover { box-shadow: 0 12px 32px rgba(212, 168, 71, 0.38); }
+
+.btn-tier-p {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(181, 69, 27, 0.24);
+}
+.btn-tier-p:hover { box-shadow: 0 12px 32px rgba(181, 69, 27, 0.34); }
+
 .btn-ghost {
   background: rgba(255, 255, 255, 0.14);
   color: #fff;
@@ -1069,6 +1090,65 @@ em { font-style: italic; }
 .program-copy > p { font-size: 1.02rem; margin-bottom: 1.25rem; }
 
 .program-cta { align-self: flex-start; }
+
+.rebate-chart {
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rebate-chart-caption {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.rebate-bar { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.rebate-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.rebate-bar-range {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rebate-bar-value {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.rebate-unit {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-left: 0.05em;
+}
+
+.rebate-bar-track {
+  height: 9px;
+  background: var(--border-warm);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.rebate-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+}
+
+.rebate-bar-fill--teal  { background: var(--teal);  width: 100%; }
+.rebate-bar-fill--gold  { background: var(--gold);  width: 60%; }
+.rebate-bar-fill--brand { background: var(--brand); width: 15%; }
 
 .program-benefits {
   display: grid;
