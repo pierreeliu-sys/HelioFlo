@@ -234,6 +234,17 @@ em { font-style: italic; }
 .hero-text-link svg { transition: transform 0.2s ease; flex-shrink: 0; }
 .hero-text-link:hover svg { transform: translateX(5px); }
 
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.52);
+  letter-spacing: 0.03em;
+}
+
 .btn-nav {
   background: linear-gradient(135deg, var(--teal) 0%, #009E85 100%);
   color: #fff;
