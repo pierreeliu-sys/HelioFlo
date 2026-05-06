@@ -212,25 +212,28 @@ em { font-style: italic; }
 .btn-primary:hover { box-shadow: 0 18px 44px rgba(0, 201, 167, 0.38); }
 
 .btn-tier-e {
-  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.28);
+  background: transparent;
+  color: #DC2626;
+  border: 1.5px solid #DC2626;
+  box-shadow: none;
 }
-.btn-tier-e:hover { box-shadow: 0 12px 32px rgba(220, 38, 38, 0.38); }
+.btn-tier-e:hover { background: rgba(220, 38, 38, 0.07); box-shadow: none; }
 
 .btn-tier-m {
-  background: linear-gradient(135deg, var(--teal) 0%, #009E85 100%);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(0, 201, 167, 0.28);
+  background: transparent;
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+  box-shadow: none;
 }
-.btn-tier-m:hover { box-shadow: 0 12px 32px rgba(0, 201, 167, 0.38); }
+.btn-tier-m:hover { background: rgba(0, 201, 167, 0.07); box-shadow: none; }
 
 .btn-tier-p {
-  background: linear-gradient(135deg, var(--gold) 0%, #B8902E 100%);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(212, 168, 71, 0.28);
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  box-shadow: none;
 }
-.btn-tier-p:hover { box-shadow: 0 12px 32px rgba(212, 168, 71, 0.38); }
+.btn-tier-p:hover { background: rgba(212, 168, 71, 0.07); box-shadow: none; }
 
 .btn-ghost {
   background: rgba(255, 255, 255, 0.14);
@@ -1639,14 +1642,14 @@ em { font-style: italic; }
   position: relative;
 }
 
-.tier-card--basic       { border-top: 3px solid var(--teal); }
+.tier-card--basic       { border-top: 3px solid #DC2626; }
 .tier-card--recommended {
-  border: 2px solid var(--gold);
+  border: 2px solid var(--teal);
   border-top-width: 3px;
   box-shadow: var(--shadow-md);
   transform: translateY(-0.75rem);
 }
-.tier-card--premium     { border-top: 3px solid var(--brand); }
+.tier-card--premium     { border-top: 3px solid var(--gold); }
 
 .tier-badge {
   position: absolute;
