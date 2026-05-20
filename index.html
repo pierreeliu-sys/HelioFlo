@@ -36,7 +36,7 @@
       align-items: center;
       gap: 8px;
       padding: 13px 22px;
-      background: var(--brand);
+      background: var(--teal);
       color: #fff;
       border: none;
       border-radius: 9999px;
@@ -44,12 +44,12 @@
       font-size: 0.9rem;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 4px 18px rgba(181,69,27,0.38);
+      box-shadow: 0 4px 18px rgba(0,201,167,0.38);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .hcw-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(181,69,27,0.48);
+      box-shadow: 0 6px 22px rgba(0,201,167,0.48);
     }
     .hcw-panel {
       position: fixed;
@@ -72,7 +72,7 @@
       pointer-events: auto;
     }
     .hcw-header {
-      background: var(--brand);
+      background: var(--teal);
       padding: 16px 20px;
       display: flex;
       justify-content: space-between;
@@ -100,6 +100,7 @@
       letter-spacing: 0.06em;
     }
     .hcw-field input,
+    .hcw-field select,
     .hcw-field textarea {
       padding: 10px 12px;
       border: 1px solid var(--border-warm);
@@ -111,14 +112,16 @@
       outline: none;
       transition: border-color 0.2s ease;
       resize: none;
+      width: 100%;
     }
     .hcw-field input:focus,
-    .hcw-field textarea:focus { border-color: var(--brand); }
+    .hcw-field select:focus,
+    .hcw-field textarea:focus { border-color: var(--teal); }
     .hcw-submit {
       width: 100%;
       margin-top: 4px;
       padding: 12px;
-      background: var(--brand);
+      background: var(--teal);
       color: #fff;
       border: none;
       border-radius: 9999px;
@@ -1497,7 +1500,7 @@
   <!-- ── Hover Contact Widget ──────────────────────────────── -->
   <button class="hcw-btn" id="hcw-btn" aria-label="Open quick contact form">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-    Get in Touch
+    Get a Free Quote
   </button>
 
   <div class="hcw-panel" id="hcw-panel" role="dialog" aria-modal="true" aria-label="Quick enquiry form">
@@ -1520,8 +1523,26 @@
           <input type="email" id="hcw-email" name="hcw_email" placeholder="you@example.com">
         </div>
         <div class="hcw-field">
+          <label for="hcw-interest">What are you interested in?</label>
+          <select id="hcw-interest" name="hcw_interest">
+            <option value="" disabled selected>Select a service</option>
+            <option value="inverter-battery">Inverter + Battery bundle</option>
+            <option value="battery-only">Battery only</option>
+          </select>
+        </div>
+        <div class="hcw-field">
+          <label for="hcw-bill">Quarterly electricity bill</label>
+          <select id="hcw-bill" name="hcw_bill">
+            <option value="" disabled selected>Select range</option>
+            <option value="under-300">Under $300</option>
+            <option value="301-600">$301 – $600</option>
+            <option value="601-900">$601 – $900</option>
+            <option value="above-900">Above $900</option>
+          </select>
+        </div>
+        <div class="hcw-field">
           <label for="hcw-message">Message</label>
-          <textarea id="hcw-message" name="hcw_message" rows="3" placeholder="I'm interested in a solar battery quote…"></textarea>
+          <textarea id="hcw-message" name="hcw_message" rows="2" placeholder="Anything else we should know…"></textarea>
         </div>
         <button type="submit" class="hcw-submit">Send Enquiry →</button>
       </form>
@@ -1556,12 +1577,14 @@
           await fetch(SCRIPT, {
             method: 'POST', mode: 'no-cors',
             body: JSON.stringify({
-              timestamp:  new Date().toLocaleString('en-AU'),
-              first_name: form.hcw_name.value,
-              phone:      form.hcw_phone.value,
-              email:      form.hcw_email.value,
-              message:    form.hcw_message.value,
-              source:     'hover-widget',
+              timestamp:        new Date().toLocaleString('en-AU'),
+              first_name:       form.hcw_name.value,
+              phone:            form.hcw_phone.value,
+              email:            form.hcw_email.value,
+              interest:         form.hcw_interest.value,
+              electricity_bill: form.hcw_bill.value,
+              message:          form.hcw_message.value,
+              source:           'hover-widget',
             }),
           });
           fbq('track', 'Lead');
