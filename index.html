@@ -25,6 +25,128 @@
   <meta name="description" content="HelioFlo installs premium home battery systems: expert installation, transparent pricing, and support that lasts a lifetime.">
   <link rel="icon" href="brand_assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Hover Contact Widget ──────────────────────────────── */
+    .hcw-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 9999px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(181,69,27,0.38);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hcw-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(181,69,27,0.48);
+    }
+    .hcw-panel {
+      position: fixed;
+      bottom: 84px;
+      right: 24px;
+      z-index: 999;
+      width: 320px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+      overflow: hidden;
+      transform: translateY(16px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .hcw-panel.is-open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .hcw-header {
+      background: var(--brand);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hcw-header h3 { color: #fff; font-size: 1rem; margin: 0; }
+    .hcw-close {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.75);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.15s ease;
+    }
+    .hcw-close:hover { color: #fff; }
+    .hcw-body { padding: 20px; display: grid; gap: 12px; }
+    .hcw-field { display: grid; gap: 4px; }
+    .hcw-field label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hcw-field input,
+    .hcw-field textarea {
+      padding: 10px 12px;
+      border: 1px solid var(--border-warm);
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s ease;
+      resize: none;
+    }
+    .hcw-field input:focus,
+    .hcw-field textarea:focus { border-color: var(--brand); }
+    .hcw-submit {
+      width: 100%;
+      margin-top: 4px;
+      padding: 12px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 9999px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .hcw-submit:hover:not(:disabled) { opacity: 0.88; }
+    .hcw-submit:disabled { opacity: 0.6; cursor: default; }
+    .hcw-success {
+      padding: 32px 20px;
+      text-align: center;
+      display: none;
+    }
+    .hcw-success strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .hcw-success p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin: 0; }
+    @media (max-width: 400px) {
+      .hcw-panel { width: calc(100vw - 32px); right: 16px; }
+      .hcw-btn   { right: 16px; bottom: 16px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -648,7 +770,7 @@
             </div>
             <div class="contact-info-item">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span data-i18n="contact-email">pierree.liu@gmail.com</span>
+              <span data-i18n="contact-email">hello@helioflo.com</span>
             </div>
             <div class="contact-info-item">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.25 8 14 8 14s8-8.75 8-14a8 8 0 00-8-8z"/></svg>
@@ -808,7 +930,7 @@
       <!-- Contact -->
       <div class="footer-contact">
         <a href="tel:0414146027" data-i18n="footer-contact-phone">0414 146 027</a>
-        <a href="mailto:pierree.liu@gmail.com" data-i18n="footer-contact-email">pierree.liu@gmail.com</a>
+        <a href="mailto:hello@helioflo.com" data-i18n="footer-contact-email">hello@helioflo.com</a>
       </div>
 
     </div>
@@ -1072,7 +1194,7 @@
         'faq-a6':'Yes. The federal Cheaper Home Batteries Program provides a tiered rebate: $243/kWh on the first 14 kWh of usable capacity, $146/kWh from 15 to 28 kWh, and $36/kWh from 29 to 50 kWh. In practical terms: a 10 kWh battery attracts around $2,430; a 20 kWh system around $4,278; a 30 kWh system around $5,518; and systems at the maximum 50 kWh capacity receive approximately $6,238. NSW homeowners can also stack the VPP incentive on top, worth up to approximately $1,100. As feed-in tariffs continue to fall, storing your solar energy rather than exporting it makes more financial sense than ever. We identify every applicable incentive and include all savings in your proposal automatically.',
         'contact-eyebrow':'Get in touch','contact-h2':'Ready to power your home?',
         'contact-body':'Complete the form and our team will review your home\'s energy profile and send a detailed proposal within 48 hours, at no cost and with no obligation.',
-        'contact-phone':'0414 146 027','contact-email':'pierree.liu@gmail.com','contact-area':'Servicing Sydney, NSW',
+        'contact-phone':'0414 146 027','contact-email':'hello@helioflo.com','contact-area':'Servicing Sydney, NSW',
         'form-first':'First name','form-last':'Last name','form-email':'Email address','form-phone':'Phone number',
         'form-address':'Address','form-property-label':'Property type','form-interest-label':'What are you interested in?',
         'form-build-label':'Existing or new build','form-bill-label':'Quarterly electricity bill',
@@ -1084,7 +1206,7 @@
         'footer-tagline':'Premium battery storage, professionally installed.',
         'footer-col-nav':'Quick Links','footer-col-contact':'Get in Touch',
         'footer-nav-why':'Why HelioFlo','footer-nav-products':'Products','footer-nav-process':'Our Process','footer-nav-faq':'FAQ','footer-nav-payment':'Payment Terms',
-        'footer-contact-phone':'0414 146 027','footer-contact-email':'pierree.liu@gmail.com',
+        'footer-contact-phone':'0414 146 027','footer-contact-email':'hello@helioflo.com',
         'footer-cta':'Get a Free Quote',
         'footer-copyright':'© 2026 HelioFlo. All rights reserved.',
         'footer-privacy':'Privacy Policy','footer-complaints':'Complaints Policy',
@@ -1192,7 +1314,7 @@
         'faq-a6':'有的。联邦廉价家用电池计划对太阳能电池安装提供阶梯式补贴：前14千瓦时每千瓦时243澳元，15至28千瓦时每千瓦时146澳元，29至50千瓦时每千瓦时36澳元。具体而言：10千瓦时电池约获2,430澳元，20千瓦时约获4,278澳元，30千瓦时约获5,518澳元，最大50千瓦时系统最高获6,238澳元补贴。新南威尔士州业主还可叠加VPP激励，额外获得约1,100澳元。随着上网电价持续下降，储存自发电力比卖回电网更具经济价值。我们跟踪所有可用激励措施，并在报价中自动为您计入全部适用节省金额。',
         'contact-eyebrow':'联系我们','contact-h2':'准备好为您的家赋能了吗？',
         'contact-body':'填写表格后，我们的团队将在48小时内审核您家的用电情况并发送详细方案，完全免费，无任何附加义务。',
-        'contact-phone':'0414 146 027','contact-email':'pierree.liu@gmail.com',
+        'contact-phone':'0414 146 027','contact-email':'hello@helioflo.com',
         'contact-area':'服务范围：悉尼，新南威尔士州',
         'form-first':'名字','form-last':'姓氏','form-email':'电子邮箱','form-phone':'联系电话',
         'form-address':'地址','form-property-label':'房产类型','form-interest-label':'您对哪项服务感兴趣？',
@@ -1205,7 +1327,7 @@
         'footer-tagline':'专业安装，优质储能。',
         'footer-col-nav':'快速导航','footer-col-contact':'联系我们',
         'footer-nav-why':'为何选择我们','footer-nav-products':'产品系列','footer-nav-process':'安装流程','footer-nav-faq':'常见问题','footer-nav-payment':'付款条款',
-        'footer-contact-phone':'0414 146 027','footer-contact-email':'pierree.liu@gmail.com',
+        'footer-contact-phone':'0414 146 027','footer-contact-email':'hello@helioflo.com',
         'footer-cta':'免费获取报价',
         'footer-copyright':'© 2026 HelioFlo. 版权所有。',
         'footer-privacy':'隐私政策','footer-complaints':'投诉政策',
@@ -1370,6 +1492,87 @@
         }
       });
     });
+  </script>
+
+  <!-- ── Hover Contact Widget ──────────────────────────────── -->
+  <button class="hcw-btn" id="hcw-btn" aria-label="Open quick contact form">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Get in Touch
+  </button>
+
+  <div class="hcw-panel" id="hcw-panel" role="dialog" aria-modal="true" aria-label="Quick enquiry form">
+    <div class="hcw-header">
+      <h3>Quick Enquiry</h3>
+      <button class="hcw-close" id="hcw-close" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="hcw-body">
+      <form id="hcw-form" novalidate>
+        <div class="hcw-field">
+          <label for="hcw-name">Your name <span style="color:var(--brand)">*</span></label>
+          <input type="text" id="hcw-name" name="hcw_name" placeholder="Jane Smith" required>
+        </div>
+        <div class="hcw-field">
+          <label for="hcw-phone">Phone <span style="color:var(--brand)">*</span></label>
+          <input type="tel" id="hcw-phone" name="hcw_phone" placeholder="04XX XXX XXX" required>
+        </div>
+        <div class="hcw-field">
+          <label for="hcw-email">Email</label>
+          <input type="email" id="hcw-email" name="hcw_email" placeholder="you@example.com">
+        </div>
+        <div class="hcw-field">
+          <label for="hcw-message">Message</label>
+          <textarea id="hcw-message" name="hcw_message" rows="3" placeholder="I'm interested in a solar battery quote…"></textarea>
+        </div>
+        <button type="submit" class="hcw-submit">Send Enquiry →</button>
+      </form>
+      <div class="hcw-success" id="hcw-success">
+        <strong>Thanks! We'll be in touch soon.</strong>
+        <p>Our team will review your enquiry and reach out within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const btn    = document.getElementById('hcw-btn');
+      const panel  = document.getElementById('hcw-panel');
+      const close  = document.getElementById('hcw-close');
+      const form   = document.getElementById('hcw-form');
+      const succ   = document.getElementById('hcw-success');
+      const SCRIPT = 'https://script.google.com/macros/s/AKfycbzdtD0egYjC7Pg_g59ojkqeVsbfKjvCy8OB3Y6GVi7agO4OiBnBfKxcgosy0IpqUqDWSg/exec';
+
+      btn.addEventListener('click', () => panel.classList.toggle('is-open'));
+      close.addEventListener('click', () => panel.classList.remove('is-open'));
+      document.addEventListener('click', e => {
+        if (!panel.contains(e.target) && e.target !== btn) panel.classList.remove('is-open');
+      });
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const sub = form.querySelector('.hcw-submit');
+        sub.textContent = 'Sending…';
+        sub.disabled = true;
+        try {
+          await fetch(SCRIPT, {
+            method: 'POST', mode: 'no-cors',
+            body: JSON.stringify({
+              timestamp:  new Date().toLocaleString('en-AU'),
+              first_name: form.hcw_name.value,
+              phone:      form.hcw_phone.value,
+              email:      form.hcw_email.value,
+              message:    form.hcw_message.value,
+              source:     'hover-widget',
+            }),
+          });
+          fbq('track', 'Lead');
+          form.style.display = 'none';
+          succ.style.display  = 'block';
+        } catch {
+          sub.textContent = 'Something went wrong — please try again.';
+          sub.disabled = false;
+        }
+      });
+    })();
   </script>
 
 </body>
