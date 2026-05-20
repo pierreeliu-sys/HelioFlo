@@ -21,324 +21,549 @@
   <!-- End Meta Pixel Code -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HelioFlo | Solar Battery Installation Wentworth Falls</title>
-  <meta name="description" content="Get a free solar battery installation quote in Wentworth Falls, Sydney. HelioFlo installs premium LiFePO4 home batteries with federal rebates available.">
+  <title>Solar Battery Installation Wentworth Falls | HelioFlo</title>
+  <meta name="description" content="Get a free solar battery installation quote in Wentworth Falls, Sydney. HelioFlo installs premium LiFePO4 home batteries — federal rebates available.">
   <link rel="icon" href="../brand_assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #F0E6D0; font-family: var(--font-sans, system-ui, sans-serif); }
 
-    /* ── Nav ── */
-    .s-nav {
-      background: #FFFCF7;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      padding: 0 40px;
-      height: 56px;
+    :root {
+      --red:   #B5451B;
+      --teal:  #00C9A7;
+      --gold:  #D4A847;
+      --ink:   #1a1a1a;
+      --cream: #F0E6D0;
+      --white: #FFFCF7;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans:  Helvetica, Arial, sans-serif;
+      --border: rgba(0,0,0,0.09);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ════════════════════════════════════════
+       HEADER
+    ════════════════════════════════════════ */
+    .hdr {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      border-bottom: 3px solid var(--red);
+      padding: 0 48px;
+      height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
     }
-    .s-nav__logo { height: 26px; }
-    .s-nav__back {
-      font-size: 0.78rem;
+    .hdr__logo { height: 30px; flex-shrink: 0; }
+    .hdr__nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex: 1;
+      justify-content: center;
+    }
+    .hdr__nav a {
+      font-family: var(--sans);
+      font-size: 0.8rem;
       font-weight: 600;
-      color: #1a1a1a;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
-      opacity: 0.45;
+      transition: color 0.15s;
+    }
+    .hdr__nav a:hover { color: #fff; }
+    .hdr__right {
       display: flex;
       align-items: center;
-      gap: 5px;
-      transition: opacity 0.15s;
-    }
-    .s-nav__back:hover { opacity: 1; color: #00C9A7; }
-
-    /* ── Page wrapper ── */
-    .s-main {
-      padding: 36px 20px 52px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .s-eyebrow {
-      font-size: 0.67rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #D4A847;
-      margin-bottom: 10px;
-    }
-    .s-h1 {
-      font-size: clamp(1.5rem, 4vw, 2.1rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.15;
-      text-align: center;
-      margin-bottom: 24px;
-      max-width: 580px;
-    }
-    .s-h1__label {
-      display: block;
-      color: #B5451B;
-      font-size: 0.72em;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .s-h1__suburb { color: #00C9A7; }
-
-    /* ── Form card ── */
-    .s-card {
-      width: 100%;
-      max-width: 720px;
-      background: #FFFCF7;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,0.07);
-      border-top: 3px solid #00C9A7;
-      box-shadow: 0 4px 28px rgba(0,0,0,0.07);
-      overflow: hidden;
-    }
-
-    /* ── Card header band ── */
-    .s-card__head {
-      background: #1a1a1a;
-      padding: 16px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .s-card__head-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.9);
-      letter-spacing: 0.01em;
-    }
-    .s-card__head-badges {
-      display: flex;
-      gap: 8px;
+      gap: 20px;
       flex-shrink: 0;
     }
-    .s-badge {
-      font-size: 0.65rem;
+    .hdr__phone {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.15s;
+    }
+    .hdr__phone:hover { color: #fff; }
+    .hdr__cta {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--teal);
+      padding: 9px 20px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .hdr__cta:hover { background: #00b394; transform: translateY(-1px); }
+
+    /* ════════════════════════════════════════
+       HERO SPLIT LAYOUT
+    ════════════════════════════════════════ */
+    .hero {
+      display: grid;
+      grid-template-columns: 52% 48%;
+      min-height: calc(100vh - 68px);
+      align-items: start;
+    }
+
+    /* LEFT PANEL */
+    .hero__left {
+      padding: 64px 56px 64px 64px;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero__eyebrow {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .hero__h1 {
+      font-family: var(--serif);
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+    .hero__h1-service {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      color: var(--red);
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .hero__h1-suburb {
+      display: block;
+      font-style: normal;
+      font-weight: 700;
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--teal);
+      letter-spacing: -0.035em;
+      line-height: 0.92;
+    }
+    .hero__sub {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: rgba(26,26,26,0.6);
+      line-height: 1.65;
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+
+    /* Trust list */
+    .trust {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 44px;
+    }
+    .trust li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .trust li:first-child { border-top: 1px solid var(--border); }
+    .trust__icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--ink);
+    }
+
+    /* Accreditations */
+    .accred {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .accred img {
+      height: 44px;
+      object-fit: contain;
+      opacity: 0.65;
+      filter: grayscale(0.2);
+    }
+
+    /* RIGHT PANEL */
+    .hero__right {
+      background: var(--white);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 68px);
+    }
+
+    /* Form card header */
+    .form-hdr {
+      background: var(--ink);
+      padding: 22px 32px;
+      border-bottom: 3px solid var(--teal);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .form-hdr__title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #fff;
+      font-weight: 400;
+    }
+    .form-hdr__badges {
+      display: flex;
+      gap: 8px;
+    }
+    .badge {
+      font-family: var(--sans);
+      font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 3px 8px;
+      padding: 4px 9px;
       border-radius: 4px;
     }
-    .s-badge--teal { background: #00C9A7; color: #1a1a1a; }
-    .s-badge--gold { background: #D4A847; color: #1a1a1a; }
+    .badge--teal { background: var(--teal); color: var(--ink); }
+    .badge--gold { background: var(--gold); color: var(--ink); }
 
-    /* ── Form body ── */
-    .s-card__body { padding: 24px 28px 28px; }
+    /* Form body */
+    .form-body { padding: 28px 32px 32px; flex: 1; }
 
-    /* ── Compact form overrides ── */
-    .s-form .form-row {
+    /* Form grid */
+    .fg {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-bottom: 10px;
     }
-    .s-form .form-field { margin-bottom: 10px; }
-    .s-form .form-field:last-of-type { margin-bottom: 0; }
-    .s-form label {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      opacity: 0.7;
-      margin-bottom: 4px;
-      letter-spacing: 0.02em;
+    .ff { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+    .ff--full { grid-column: 1 / -1; }
+    .ff label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(26,26,26,0.55);
     }
-    .s-form .required-star { color: #D4A847; opacity: 1; }
-    .s-form input,
-    .s-form select {
-      width: 100%;
-      height: 38px;
-      padding: 0 11px;
-      font-size: 0.86rem;
-      color: #1a1a1a;
+    .ff .req { color: var(--gold); }
+    .ff input,
+    .ff select {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      color: var(--ink);
       background: #fff;
-      border: 1px solid rgba(0,0,0,0.14);
-      border-radius: 7px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      height: 40px;
+      padding: 0 12px;
       outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s;
       appearance: none;
       -webkit-appearance: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .s-form select {
+    .ff select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 10px center;
-      padding-right: 28px;
+      padding-right: 30px;
     }
-    .s-form input:focus,
-    .s-form select:focus {
-      border-color: #00C9A7;
-      box-shadow: 0 0 0 3px rgba(0,201,167,0.13);
+    .ff input:focus,
+    .ff select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0,201,167,0.14);
     }
-    .s-form textarea {
-      width: 100%;
-      padding: 9px 11px;
-      font-size: 0.86rem;
-      color: #1a1a1a;
+    .ff textarea {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      color: var(--ink);
       background: #fff;
-      border: 1px solid rgba(0,0,0,0.14);
-      border-radius: 7px;
-      outline: none;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      padding: 10px 12px;
+      min-height: 64px;
       resize: vertical;
-      min-height: 68px;
+      outline: none;
       transition: border-color 0.15s, box-shadow 0.15s;
-      font-family: inherit;
     }
-    .s-form textarea:focus {
-      border-color: #00C9A7;
-      box-shadow: 0 0 0 3px rgba(0,201,167,0.13);
+    .ff textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(0,201,167,0.14);
     }
 
-    /* ── Submit row ── */
-    .s-form__foot {
-      margin-top: 18px;
+    /* Submit row */
+    .form-foot {
+      margin-top: 20px;
       display: flex;
       align-items: center;
       gap: 16px;
       flex-wrap: wrap;
     }
-    .s-submit {
-      flex-shrink: 0;
-      padding: 11px 28px;
-      background: #00C9A7;
-      color: #1a1a1a;
-      font-size: 0.88rem;
+    .btn-submit {
+      font-family: var(--sans);
+      font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--teal);
       border: none;
       border-radius: 9999px;
+      padding: 13px 32px;
       cursor: pointer;
       transition: background 0.15s, transform 0.1s;
+      flex-shrink: 0;
     }
-    .s-submit:hover { background: #00b394; transform: translateY(-1px); }
-    .s-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .s-form-note {
-      font-size: 0.75rem;
-      color: #999;
-      line-height: 1.4;
+    .btn-submit:hover { background: #00b394; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+    .form-note {
+      font-family: var(--sans);
+      font-size: 0.73rem;
+      color: #aaa;
+      line-height: 1.45;
     }
 
-    /* ── Footer ── */
-    .s-footer {
-      background: #1a1a1a;
-      color: rgba(255,255,255,0.32);
-      text-align: center;
-      padding: 16px 24px;
-      font-size: 0.73rem;
-      letter-spacing: 0.01em;
+    /* ════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════ */
+    .ftr {
+      background: var(--ink);
+      border-top: 3px solid var(--red);
     }
-    .s-footer a {
-      color: rgba(255,255,255,0.32);
+    .ftr__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 48px 24px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: start;
+      gap: 32px;
+    }
+    .ftr__logo { height: 26px; opacity: 0.7; }
+    .ftr__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      justify-content: center;
+      align-items: center;
+    }
+    .ftr__links a {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
       text-decoration: none;
-      margin: 0 6px;
       transition: color 0.15s;
     }
-    .s-footer a:hover { color: #00C9A7; }
+    .ftr__links a:hover { color: var(--teal); }
+    .ftr__contact {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+    }
+    .ftr__contact a {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .ftr__contact a:hover { color: #fff; }
+    .ftr__copy {
+      grid-column: 1 / -1;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 16px;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+    }
 
-    @media (max-width: 580px) {
-      .s-nav { padding: 0 16px; }
-      .s-main { padding: 28px 12px 40px; }
-      .s-card__head { padding: 14px 18px; flex-wrap: wrap; }
-      .s-card__body { padding: 18px 18px 22px; }
-      .s-form .form-row { grid-template-columns: 1fr; gap: 0; }
+    /* ════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hdr { padding: 0 24px; }
+      .hdr__nav { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero__left { padding: 40px 24px 36px; }
+      .hero__right { border-left: none; border-top: 1px solid var(--border); min-height: auto; }
+      .hero__h1-suburb { font-size: clamp(2.4rem, 10vw, 3.8rem); }
+      .ftr__inner { grid-template-columns: 1fr; padding: 24px; text-align: center; }
+      .ftr__links { justify-content: center; }
+      .ftr__contact { text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hdr { padding: 0 16px; height: 60px; }
+      .hdr__logo { height: 26px; }
+      .hero__left { padding: 32px 16px 28px; }
+      .form-hdr { padding: 18px 20px; }
+      .form-body { padding: 20px 20px 24px; }
+      .fg { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <nav class="s-nav">
-    <a href="/">
-      <img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="s-nav__logo">
-    </a>
-    <a href="/" class="s-nav__back">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      Main site
-    </a>
-  </nav>
+  <!-- ═══ HEADER ═══ -->
+  <header class="hdr">
+    <a href="/"><img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="hdr__logo"></a>
+    <nav class="hdr__nav">
+      <a href="/#why">Why HelioFlo</a>
+      <a href="/#products">Products</a>
+      <a href="/#process">Our Process</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <div class="hdr__right">
+      <a href="tel:0414146027" class="hdr__phone">0414 146 027</a>
+      <a href="#quote-form" class="hdr__cta">Get a Quote</a>
+    </div>
+  </header>
 
-  <main class="s-main">
-    <p class="s-eyebrow">SAA-Accredited &middot; Sydney, NSW</p>
-    <h1 class="s-h1">
-      <span class="s-h1__label">Solar Battery Installation</span>
-      <span class="s-h1__suburb">Wentworth Falls</span>
-    </h1>
+  <!-- ═══ HERO ═══ -->
+  <main class="hero">
 
-    <div class="s-card">
-      <div class="s-card__head">
-        <span class="s-card__head-title">Get a free quote</span>
-        <div class="s-card__head-badges">
-          <span class="s-badge s-badge--teal">No obligation</span>
-          <span class="s-badge s-badge--gold">Federal rebate eligible</span>
+    <!-- LEFT: Headline + Trust -->
+    <section class="hero__left">
+      <p class="hero__eyebrow">SAA-Accredited &middot; Sydney, NSW</p>
+      <h1 class="hero__h1">
+        <span class="hero__h1-service">Solar Battery Installation</span>
+        <span class="hero__h1-suburb">Wentworth Falls</span>
+      </h1>
+      <p class="hero__sub">
+        HelioFlo installs premium LiFePO4 battery systems for homeowners across Wentworth Falls and Greater Sydney.
+        Federal government rebates apply — no hidden fees, same-week quotes.
+      </p>
+      <ul class="trust">
+        <li>
+          <span class="trust__icon"><svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></span>
+          SAA Accredited Installer
+        </li>
+        <li>
+          <span class="trust__icon"><svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></span>
+          Licensed &amp; Fully Insured
+        </li>
+        <li>
+          <span class="trust__icon"><svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></span>
+          5-Year Workmanship Warranty
+        </li>
+        <li>
+          <span class="trust__icon"><svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></span>
+          Federal Rebate — Cheaper Home Batteries Program
+        </li>
+        <li>
+          <span class="trust__icon"><svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg></span>
+          Same-week Quotes &middot; 48-hr Proposal
+        </li>
+      </ul>
+      <div class="accred">
+        <img src="../Accreditation/SAA%20Accreditation.jpg" alt="SAA Accredited">
+        <img src="../Accreditation/New%20Energy%20Tech%20Accreditation.webp" alt="New Energy Tech">
+        <img src="../Accreditation/Powerwall%20Certified%20Accreditation.jpg" alt="Powerwall Certified">
+      </div>
+    </section>
+
+    <!-- RIGHT: Form -->
+    <aside class="hero__right" id="quote-form">
+      <div class="form-hdr">
+        <span class="form-hdr__title">Get a free quote</span>
+        <div class="form-hdr__badges">
+          <span class="badge badge--teal">No obligation</span>
+          <span class="badge badge--gold">Rebate eligible</span>
         </div>
       </div>
-      <div class="s-card__body">
-        <form class="s-form" id="suburb-form" action="#" method="post" novalidate>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="first-name">First name <span class="required-star">*</span></label>
-              <input id="first-name" name="first_name" type="text" placeholder="Alex" autocomplete="given-name" required>
+      <div class="form-body">
+        <form id="suburb-form" action="#" method="post" novalidate>
+          <div class="fg">
+            <div class="ff">
+              <label>First name <span class="req">*</span></label>
+              <input name="first_name" type="text" placeholder="Alex" autocomplete="given-name" required>
             </div>
-            <div class="form-field">
-              <label for="last-name">Last name</label>
-              <input id="last-name" name="last_name" type="text" placeholder="Johnson" autocomplete="family-name">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="email">Email <span class="required-star">*</span></label>
-              <input id="email" name="email" type="email" placeholder="alex@example.com" autocomplete="email" required>
-            </div>
-            <div class="form-field">
-              <label for="phone">Phone <span class="required-star">*</span></label>
-              <input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" autocomplete="tel" required>
+            <div class="ff">
+              <label>Last name</label>
+              <input name="last_name" type="text" placeholder="Johnson" autocomplete="family-name">
             </div>
           </div>
-          <div class="form-field">
-            <label for="address">Address</label>
-            <input id="address" name="address" type="text" placeholder="e.g. 12 Smith St, Wentworth Falls" autocomplete="off">
+          <div class="fg">
+            <div class="ff">
+              <label>Email <span class="req">*</span></label>
+              <input name="email" type="email" placeholder="alex@example.com" autocomplete="email" required>
+            </div>
+            <div class="ff">
+              <label>Phone <span class="req">*</span></label>
+              <input name="phone" type="tel" placeholder="04XX XXX XXX" autocomplete="tel" required>
+            </div>
           </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="property">Property type</label>
-              <select id="property" name="property">
-                <option value="" disabled selected>Select type</option>
+          <div class="ff">
+            <label>Address</label>
+            <input name="address" type="text" placeholder="e.g. 12 Smith St, Wentworth Falls" autocomplete="off">
+          </div>
+          <div class="fg">
+            <div class="ff">
+              <label>Property type</label>
+              <select name="property">
+                <option value="" disabled selected>Select</option>
                 <option value="house">House</option>
                 <option value="townhouse">Townhouse</option>
                 <option value="apartment">Apartment</option>
                 <option value="business">Business</option>
               </select>
             </div>
-            <div class="form-field">
-              <label for="interest">Interested in</label>
-              <select id="interest" name="interest">
-                <option value="" disabled selected>Select a service</option>
-                <option value="inverter-battery">Inverter + Battery bundle</option>
+            <div class="ff">
+              <label>Interested in</label>
+              <select name="interest">
+                <option value="" disabled selected>Select</option>
+                <option value="inverter-battery">Inverter + Battery</option>
                 <option value="battery-only">Battery only</option>
               </select>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="build-type">Build type</label>
-              <select id="build-type" name="build_type">
-                <option value="" disabled selected>Select type</option>
+          <div class="fg">
+            <div class="ff">
+              <label>Build type</label>
+              <select name="build_type">
+                <option value="" disabled selected>Select</option>
                 <option value="existing">Existing</option>
                 <option value="new-build">New Build</option>
               </select>
             </div>
-            <div class="form-field">
-              <label for="electricity-bill">Quarterly bill</label>
-              <select id="electricity-bill" name="electricity_bill">
-                <option value="" disabled selected>Select range</option>
+            <div class="ff">
+              <label>Quarterly electricity bill</label>
+              <select name="electricity_bill">
+                <option value="" disabled selected>Select</option>
                 <option value="under-300">Under $300</option>
                 <option value="301-600">$301 – $600</option>
                 <option value="601-900">$601 – $900</option>
@@ -346,39 +571,51 @@
               </select>
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="install-period">Installation timeframe</label>
-              <select id="install-period" name="install_period">
-                <option value="" disabled selected>Select timeframe</option>
+          <div class="fg">
+            <div class="ff">
+              <label>Installation timeframe</label>
+              <select name="install_period">
+                <option value="" disabled selected>Select</option>
                 <option value="0-1m">0 – 1 month</option>
                 <option value="1-3m">1 – 3 months</option>
                 <option value="4-6m">4 – 6 months</option>
                 <option value="researching">Just researching</option>
               </select>
             </div>
-            <div class="form-field">
-              <label for="message">Anything else? <span style="font-weight:400;opacity:0.6;">(optional)</span></label>
-              <textarea id="message" name="message" placeholder="Tell us about your home…"></textarea>
+            <div class="ff">
+              <label>Anything else? <span style="font-weight:400;opacity:0.6;">(optional)</span></label>
+              <textarea name="message" placeholder="Tell us about your home…"></textarea>
             </div>
           </div>
-          <div class="s-form__foot">
-            <button type="submit" class="s-submit" id="suburb-submit">Send Quote Request</button>
-            <p class="s-form-note">No spam, ever. We'll only contact you about your enquiry.</p>
+          <div class="form-foot">
+            <button type="submit" class="btn-submit" id="suburb-submit">Send Quote Request</button>
+            <p class="form-note">No spam. We'll only contact you about your enquiry.</p>
           </div>
         </form>
       </div>
-    </div>
+    </aside>
+
   </main>
 
-  <footer class="s-footer">
-    <p>
-      &copy; 2026 HelioFlo. All rights reserved.
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/complaints">Complaints Policy</a>
-      <a href="tel:0414146027">0414 146 027</a>
-      <a href="mailto:hello@helioflo.com">hello@helioflo.com</a>
-    </p>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="ftr">
+    <div class="ftr__inner">
+      <img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="ftr__logo">
+      <div class="ftr__links">
+        <a href="/#why">Why HelioFlo</a>
+        <a href="/#products">Products</a>
+        <a href="/#process">Our Process</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/payment">Payment Terms</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/complaints">Complaints Policy</a>
+      </div>
+      <div class="ftr__contact">
+        <a href="tel:0414146027">0414 146 027</a>
+        <a href="mailto:hello@helioflo.com">hello@helioflo.com</a>
+      </div>
+      <p class="ftr__copy">&copy; 2026 HelioFlo. All rights reserved. Servicing Sydney, NSW.</p>
+    </div>
   </footer>
 
   <script>
