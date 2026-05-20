@@ -274,7 +274,7 @@
             </div>
             <div class="policy-contact-item">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              pierree.liu@gmail.com
+              hello@helioflo.com
             </div>
             <div class="policy-contact-item">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
@@ -410,5 +410,13 @@
     </div>
   </footer>
 
+  <script>
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest('a');
+      if (!a || !a.href) return;
+      if (a.href.indexOf('tel:')    === 0) fbq('track', 'Contact', {contact_method: 'phone'});
+      if (a.href.indexOf('mailto:') === 0) fbq('track', 'Contact', {contact_method: 'email'});
+    });
+  </script>
 </body>
 </html>

@@ -14,6 +14,7 @@
   fbq('init', '994518709733202');
   fbq('track', 'PageView');
   fbq('track', 'Lead');
+  fbq('track', 'ViewContent');
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=994518709733202&ev=PageView&noscript=1"
@@ -277,7 +278,7 @@
       </nav>
       <div class="footer-contact">
         <a href="tel:0414146027">0414 146 027</a>
-        <a href="mailto:pierree.liu@gmail.com">pierree.liu@gmail.com</a>
+        <a href="mailto:hello@helioflo.com">hello@helioflo.com</a>
       </div>
     </div>
     <div class="footer-accred">
@@ -315,5 +316,13 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 
+  <script>
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest('a');
+      if (!a || !a.href) return;
+      if (a.href.indexOf('tel:')    === 0) fbq('track', 'Contact', {contact_method: 'phone'});
+      if (a.href.indexOf('mailto:') === 0) fbq('track', 'Contact', {contact_method: 'email'});
+    });
+  </script>
 </body>
 </html>

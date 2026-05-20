@@ -202,7 +202,7 @@
           <h1 data-i18n-html="hero-h1">Your solar energy,<br><em>stored and ready.</em></h1>
           <p data-i18n="hero-body">A home battery can cut your grid dependence by up to 95%, keeping your home powered through blackouts and making you virtually immune to rising electricity prices, all backed by a federal government rebate.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero-cta1">Get a Free Quote</a>
+            <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero-cta1" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
             <a href="#process" class="hero-text-link">
               <span data-i18n="hero-cta2">How It Works</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -459,7 +459,7 @@
           </div>
 
           <div class="why-panel-cta">
-            <a href="#contact" class="btn btn-primary btn-sm" data-i18n="why-cta">Get a Free Quote</a>
+            <a href="#contact" class="btn btn-primary btn-sm" data-i18n="why-cta" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
           </div>
         </div>
         </div><!-- /.why-layout -->
@@ -755,7 +755,7 @@
         </p>
         <h2 data-i18n-html="cta-h2">Power your home.<br>Protect your future.</h2>
         <p data-i18n="cta-body">Join 100+ Australian homeowners who've taken control of their energy future with a solar battery system installed by HelioFlo.</p>
-        <a href="#contact" class="btn btn-primary btn-lg" data-i18n="cta-btn">Get a Free Quote</a>
+        <a href="#contact" class="btn btn-primary btn-lg" data-i18n="cta-btn" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
       </div>
     </section>
 
@@ -1085,6 +1085,7 @@
       try {
         await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
         fbq('track', 'Lead');
+        fbq('track', 'Schedule');
         btn.textContent = currentLang === 'zh' ? '已提交，我们将尽快联系您！' : 'Request sent. We\'ll be in touch soon!';
       } catch {
         btn.textContent = currentLang === 'zh' ? '提交失败，请重试。' : 'Something went wrong. Please try again.';
@@ -1554,6 +1555,14 @@
   </div>
 
   <script>
+    // Contact tracking — phone/email link clicks
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest('a');
+      if (!a || !a.href) return;
+      if (a.href.indexOf('tel:')    === 0) fbq('track', 'Contact', {contact_method: 'phone'});
+      if (a.href.indexOf('mailto:') === 0) fbq('track', 'Contact', {contact_method: 'email'});
+    });
+
     (function () {
       const btn    = document.getElementById('hcw-btn');
       const panel  = document.getElementById('hcw-panel');
@@ -1588,6 +1597,7 @@
             }),
           });
           fbq('track', 'Lead');
+          fbq('track', 'Schedule');
           form.style.display = 'none';
           succ.style.display  = 'block';
         } catch {
