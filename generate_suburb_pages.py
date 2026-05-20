@@ -88,12 +88,19 @@ SUBURBS = sorted(set(SUBURBS))
 
 SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzdtD0egYjC7Pg_g59ojkqeVsbfKjvCy8OB3Y6GVi7agO4OiBnBfKxcgosy0IpqUqDWSg/exec"
 PIXEL_ID   = "994518709733202"
+
+# Brand colours
+CREAM  = "#F0E6D0"   # website background
+CREAM2 = "#FFFCF7"   # lighter cream for form card
+TEAL   = "#00C9A7"
+INK    = "#1a1a1a"
+
+
 def slugify(name):
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
 
 def make_page(suburb):
-    slug  = slugify(suburb)
     title = f"Solar Battery Installation {suburb}"
     desc  = (
         f"Get a free solar battery installation quote in {suburb}, Sydney. "
@@ -129,316 +136,199 @@ def make_page(suburb):
   <link rel="stylesheet" href="../styles.css">
   <style>
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{ background: {CREAM}; font-family: var(--font-sans, system-ui, sans-serif); }}
 
     /* ── Nav ── */
-    .suburb-nav {{
-      background: #fff;
-      border-bottom: 1px solid #ece8e1;
+    .s-nav {{
+      background: {CREAM2};
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       padding: 0 40px;
       height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }}
-    .suburb-nav__logo {{ height: 28px; }}
-    .suburb-nav__back {{
-      font-size: 0.82rem;
+    .s-nav__logo {{ height: 28px; }}
+    .s-nav__back {{
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.01em;
-      color: #555;
+      color: {INK};
       text-decoration: none;
+      opacity: 0.5;
       display: flex;
       align-items: center;
-      gap: 6px;
-      transition: color 0.15s;
+      gap: 5px;
+      transition: opacity 0.15s;
     }}
-    .suburb-nav__back:hover {{ color: #00C9A7; }}
+    .s-nav__back:hover {{ opacity: 1; }}
 
-    /* ── Hero ── */
-    .suburb-hero {{
-      background: #0B1612;
-      padding: 88px 24px 80px;
-      text-align: center;
-      border-bottom: 3px solid #00C9A7;
+    /* ── Single section ── */
+    .s-main {{
+      min-height: calc(100vh - 64px - 56px);
+      padding: 64px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }}
-    .suburb-hero__eyebrow {{
-      display: inline-block;
-      font-size: 0.72rem;
+    .s-eyebrow {{
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #00C9A7;
-      margin-bottom: 20px;
+      color: {TEAL};
+      margin-bottom: 14px;
     }}
-    .suburb-hero__h1 {{
-      font-size: clamp(2rem, 5.5vw, 3.2rem);
+    .s-h1 {{
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
       font-weight: 800;
-      color: #fff;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }}
-    .suburb-hero__sub {{
-      font-size: 1rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.65;
-      max-width: 520px;
-      margin: 0 auto;
-    }}
-
-    /* ── Trust bar ── */
-    .suburb-trust {{
-      background: #fff;
-      border-bottom: 1px solid #ece8e1;
-      padding: 16px 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px 36px;
-      justify-content: center;
-      align-items: center;
-    }}
-    .suburb-trust__item {{
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      letter-spacing: 0.01em;
-    }}
-    .suburb-trust__item svg {{ color: #00C9A7; flex-shrink: 0; }}
-
-    /* ── Form section ── */
-    .suburb-form-wrap {{
-      background: #F7F3EE;
-      padding: 72px 24px 96px;
-    }}
-    .suburb-form-inner {{
-      max-width: 740px;
-      margin: 0 auto;
-    }}
-    .suburb-form-inner > .form-label {{
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #00C9A7;
-      margin-bottom: 12px;
-    }}
-    .suburb-form-inner > h2 {{
-      font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-      font-weight: 800;
-      color: #0B1612;
-      letter-spacing: -0.02em;
-      line-height: 1.18;
-      margin-bottom: 10px;
-    }}
-    .suburb-form-inner > p {{
-      color: #777;
-      font-size: 0.95rem;
-      margin-bottom: 40px;
-      line-height: 1.65;
+      color: {INK};
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      text-align: center;
+      margin-bottom: 48px;
+      max-width: 640px;
     }}
 
     /* ── Form card ── */
-    .contact-form-card {{
-      background: #fff;
-      border-radius: 12px;
-      padding: 44px 40px;
-      border: 1px solid #ece8e1;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    .s-card {{
+      width: 100%;
+      max-width: 680px;
+      background: {CREAM2};
+      border-radius: 16px;
+      padding: 48px 44px;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }}
     @media (max-width: 600px) {{
-      .contact-form-card {{ padding: 28px 20px; }}
-      .suburb-nav {{ padding: 0 20px; }}
+      .s-nav  {{ padding: 0 20px; }}
+      .s-card {{ padding: 28px 20px; border-radius: 12px; }}
+      .s-h1   {{ margin-bottom: 32px; }}
     }}
-
-    /* ── Accreditations ── */
-    .suburb-accred {{
-      background: #fff;
-      border-top: 1px solid #ece8e1;
-      padding: 32px 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      align-items: center;
-    }}
-    .suburb-accred img {{ height: 48px; object-fit: contain; opacity: 0.75; }}
 
     /* ── Footer ── */
-    .suburb-footer {{
-      background: #0B1612;
-      color: rgba(255,255,255,0.4);
+    .s-footer {{
+      background: {INK};
+      color: rgba(255,255,255,0.35);
       text-align: center;
-      padding: 28px 24px;
-      font-size: 0.78rem;
+      padding: 18px 24px;
+      font-size: 0.75rem;
       letter-spacing: 0.01em;
     }}
-    .suburb-footer a {{
-      color: rgba(255,255,255,0.4);
+    .s-footer a {{
+      color: rgba(255,255,255,0.35);
       text-decoration: none;
-      margin: 0 8px;
+      margin: 0 6px;
       transition: color 0.15s;
     }}
-    .suburb-footer a:hover {{ color: rgba(255,255,255,0.85); }}
+    .s-footer a:hover {{ color: rgba(255,255,255,0.8); }}
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
-  <nav class="suburb-nav">
+  <nav class="s-nav">
     <a href="../index.html">
-      <img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="suburb-nav__logo">
+      <img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="s-nav__logo">
     </a>
-    <a href="../index.html" class="suburb-nav__back">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    <a href="../index.html" class="s-nav__back">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       Main site
     </a>
   </nav>
 
-  <!-- Hero -->
-  <section class="suburb-hero">
-    <span class="suburb-hero__eyebrow">SAA-Accredited &middot; {suburb}, Sydney</span>
-    <h1 class="suburb-hero__h1">{title}</h1>
-    <p class="suburb-hero__sub">Free quote, no obligation. Federal rebates available. Response within 48 hours.</p>
-  </section>
+  <main class="s-main">
+    <p class="s-eyebrow">SAA-Accredited &middot; {suburb}, Sydney</p>
+    <h1 class="s-h1">{title}</h1>
 
-  <!-- Trust bar -->
-  <div class="suburb-trust">
-    <div class="suburb-trust__item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      SAA Accredited Installer
-    </div>
-    <div class="suburb-trust__item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      Licensed &amp; Fully Insured
-    </div>
-    <div class="suburb-trust__item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      5-Year Workmanship Warranty
-    </div>
-    <div class="suburb-trust__item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      Federal Rebate Eligible
-    </div>
-    <div class="suburb-trust__item">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      Same-week Quotes
-    </div>
-  </div>
-
-  <!-- Form -->
-  <section class="suburb-form-wrap">
-    <div class="suburb-form-inner">
-      <h2>Get your free quote for {suburb}</h2>
-      <p>Complete the form below and our team will review your home's energy profile and send a detailed proposal within 48 hours, at no cost and with no obligation.</p>
-
-      <div class="contact-form-card">
-        <form class="contact-form" id="suburb-form" action="#" method="post" novalidate>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="first-name">First name <span class="required-star">*</span></label>
-              <input id="first-name" name="first_name" type="text" placeholder="Alex" autocomplete="given-name" required>
-            </div>
-            <div class="form-field">
-              <label for="last-name">Last name</label>
-              <input id="last-name" name="last_name" type="text" placeholder="Johnson" autocomplete="family-name">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="email">Email address <span class="required-star">*</span></label>
-              <input id="email" name="email" type="email" placeholder="alex@example.com" autocomplete="email" required>
-            </div>
-            <div class="form-field">
-              <label for="phone">Phone number <span class="required-star">*</span></label>
-              <input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" autocomplete="tel" required>
-            </div>
+    <div class="s-card">
+      <form class="contact-form" id="suburb-form" action="#" method="post" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="first-name">First name <span class="required-star">*</span></label>
+            <input id="first-name" name="first_name" type="text" placeholder="Alex" autocomplete="given-name" required>
           </div>
           <div class="form-field">
-            <label for="address">Address</label>
-            <input id="address" name="address" type="text" placeholder="e.g. 5/42 George St, {suburb}" autocomplete="off">
+            <label for="last-name">Last name</label>
+            <input id="last-name" name="last_name" type="text" placeholder="Johnson" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email address <span class="required-star">*</span></label>
+            <input id="email" name="email" type="email" placeholder="alex@example.com" autocomplete="email" required>
           </div>
           <div class="form-field">
-            <label for="property">Property type</label>
-            <select id="property" name="property">
+            <label for="phone">Phone number <span class="required-star">*</span></label>
+            <input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" autocomplete="tel" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="address">Address</label>
+          <input id="address" name="address" type="text" placeholder="e.g. 12 Smith St, {suburb}" autocomplete="off">
+        </div>
+        <div class="form-field">
+          <label for="property">Property type</label>
+          <select id="property" name="property">
+            <option value="" disabled selected>Select type</option>
+            <option value="house">House</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="apartment">Apartment</option>
+            <option value="business">Business</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="interest">What are you interested in?</label>
+          <select id="interest" name="interest">
+            <option value="" disabled selected>Select a service</option>
+            <option value="inverter-battery">Inverter + Battery bundle</option>
+            <option value="battery-only">Battery only</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="build-type">Existing or new build</label>
+            <select id="build-type" name="build_type">
               <option value="" disabled selected>Select type</option>
-              <option value="house">House</option>
-              <option value="townhouse">Townhouse</option>
-              <option value="apartment">Apartment</option>
-              <option value="business">Business</option>
+              <option value="existing">Existing</option>
+              <option value="new-build">New Build</option>
             </select>
           </div>
           <div class="form-field">
-            <label for="interest">What are you interested in?</label>
-            <select id="interest" name="interest">
-              <option value="" disabled selected>Select a service</option>
-              <option value="inverter-battery">Inverter + Battery bundle</option>
-              <option value="battery-only">Battery only</option>
+            <label for="electricity-bill">Quarterly electricity bill</label>
+            <select id="electricity-bill" name="electricity_bill">
+              <option value="" disabled selected>Select range</option>
+              <option value="under-300">Under $300</option>
+              <option value="301-600">$301 – $600</option>
+              <option value="601-900">$601 – $900</option>
+              <option value="above-900">Above $900</option>
             </select>
           </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="build-type">Existing or new build</label>
-              <select id="build-type" name="build_type">
-                <option value="" disabled selected>Select type</option>
-                <option value="existing">Existing</option>
-                <option value="new-build">New Build</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="electricity-bill">Quarterly electricity bill</label>
-              <select id="electricity-bill" name="electricity_bill">
-                <option value="" disabled selected>Select range</option>
-                <option value="under-300">Under $300</option>
-                <option value="301-600">$301 – $600</option>
-                <option value="601-900">$601 – $900</option>
-                <option value="above-900">Above $900</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="install-period">Installation timeframe</label>
-            <select id="install-period" name="install_period">
-              <option value="" disabled selected>Select timeframe</option>
-              <option value="0-1m">0 – 1 month</option>
-              <option value="1-3m">1 – 3 months</option>
-              <option value="4-6m">4 – 6 months</option>
-              <option value="researching">Just researching</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">Anything else? <span style="font-weight:400;color:#888;">(optional)</span></label>
-            <textarea id="message" name="message" placeholder="Tell us about your home and energy goals…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg" id="suburb-submit">Send My Free Quote Request</button>
-          <p class="form-note">No spam, ever. We'll only contact you about your enquiry.</p>
-        </form>
-      </div>
+        </div>
+        <div class="form-field">
+          <label for="install-period">Installation timeframe</label>
+          <select id="install-period" name="install_period">
+            <option value="" disabled selected>Select timeframe</option>
+            <option value="0-1m">0 – 1 month</option>
+            <option value="1-3m">1 – 3 months</option>
+            <option value="4-6m">4 – 6 months</option>
+            <option value="researching">Just researching</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Anything else? <span style="font-weight:400;color:#999;">(optional)</span></label>
+          <textarea id="message" name="message" placeholder="Tell us about your home and energy goals…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" id="suburb-submit">Send My Free Quote Request</button>
+        <p class="form-note">No spam, ever. We'll only contact you about your enquiry.</p>
+      </form>
     </div>
-  </section>
+  </main>
 
-  <!-- Accreditations -->
-  <div class="suburb-accred">
-    <img src="../Accreditation/SAA%20Accreditation.jpg" alt="SAA Accredited Installer">
-    <img src="../Accreditation/New%20Energy%20Tech%20Accreditation.webp" alt="New Energy Tech Approved Seller">
-    <img src="../Accreditation/Powerwall%20Certified%20Accreditation.jpg" alt="Powerwall Certified Installer">
-  </div>
-
-  <!-- Footer -->
-  <footer class="suburb-footer">
+  <footer class="s-footer">
     <p>
-      &copy; 2026 HelioFlo. All rights reserved. &nbsp;|&nbsp;
+      &copy; 2026 HelioFlo. All rights reserved.
       <a href="../privacy.html">Privacy Policy</a>
       <a href="../complaints.html">Complaints Policy</a>
-      &nbsp;|&nbsp;
       <a href="tel:0414146027">0414 146 027</a>
-      &nbsp;
       <a href="mailto:hello@helioflo.com">hello@helioflo.com</a>
     </p>
   </footer>
@@ -494,19 +384,27 @@ def make_page(suburb):
 
 
 def main():
-    out_dir = os.path.join(os.path.dirname(__file__), "suburbs")
-    os.makedirs(out_dir, exist_ok=True)
+    base = os.path.dirname(os.path.abspath(__file__))
+
+    # Remove old suburbs/ flat-file directory
+    old_dir = os.path.join(base, "suburbs")
+    if os.path.isdir(old_dir):
+        import shutil
+        shutil.rmtree(old_dir)
+        print(f"Removed old {old_dir}/")
 
     for suburb in SUBURBS:
         slug     = slugify(suburb)
-        filepath = os.path.join(out_dir, f"{slug}.html")
+        out_dir  = os.path.join(base, slug)
+        os.makedirs(out_dir, exist_ok=True)
+        filepath = os.path.join(out_dir, "index.html")
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(make_page(suburb))
 
-    print(f"Generated {len(SUBURBS)} suburb pages in {out_dir}/")
+    print(f"Generated {len(SUBURBS)} suburb pages as /<slug>/index.html")
     print("Sample URLs:")
     for s in SUBURBS[:5]:
-        print(f"  suburbs/{slugify(s)}.html")
+        print(f"  /{slugify(s)}/")
 
 
 if __name__ == "__main__":
