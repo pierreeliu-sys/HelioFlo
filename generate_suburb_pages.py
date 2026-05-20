@@ -9,79 +9,133 @@ SUBURBS = [
     "Redfern", "Chippendale", "Darlinghurst", "Potts Point", "Elizabeth Bay",
     "Woolloomooloo", "Paddington", "Waterloo", "Zetland", "Erskineville",
     "Alexandria", "Beaconsfield", "Rosebery", "Eastlakes", "Mascot",
+    "Eveleigh", "Forest Lodge", "Macdonaldtown", "Camperdown",
     # Eastern Suburbs
     "Bondi", "Bondi Beach", "Bondi Junction", "Coogee", "Randwick",
     "Clovelly", "Bronte", "Tamarama", "Rose Bay", "Double Bay", "Edgecliff",
     "Woollahra", "Vaucluse", "Watsons Bay", "Maroubra", "Matraville",
     "Malabar", "Little Bay", "La Perouse", "Kensington", "Kingsford",
-    "Botany", "Hillsdale",
+    "Botany", "Hillsdale", "Pagewood", "Daceyville", "Banksmeadow",
+    "Chifley", "Philip Bay", "Phillip Bay",
     # Inner West
     "Marrickville", "Leichhardt", "Balmain", "Rozelle", "Annandale",
     "Petersham", "Stanmore", "Enmore", "Tempe", "Sydenham", "St Peters",
     "Dulwich Hill", "Summer Hill", "Ashfield", "Croydon", "Burwood",
-    "Strathfield", "Homebush", "Flemington", "Haberfield", "Lilyfield",
-    "Balmain East", "Abbotsford", "Five Dock", "Drummoyne", "Canada Bay",
-    "Concord", "Rhodes", "Meadowbank",
-    # North Sydney / Lower North Shore
+    "Strathfield", "Homebush", "Homebush West", "Flemington", "Haberfield",
+    "Lilyfield", "Balmain East", "Abbotsford", "Five Dock", "Drummoyne",
+    "Canada Bay", "Concord", "Concord West", "Rhodes", "Meadowbank",
+    "North Strathfield", "Croydon Park",
+    # Lower North Shore
     "North Sydney", "Crows Nest", "St Leonards", "Naremburn", "Waverton",
-    "Milsons Point", "Neutral Bay", "Kirribilli", "Cremorne", "Mosman",
-    "Spit Junction", "Balmoral",
+    "Milsons Point", "Neutral Bay", "Kirribilli", "Cremorne",
+    "Cremorne Point", "Mosman", "Spit Junction", "Balmoral",
+    "McMahons Point", "Lavender Bay", "Blues Point", "Wollstonecraft",
+    "Northbridge", "Castlecrag", "Middle Cove", "Castle Cove",
+    "Northwood", "Longueville", "Riverview", "Lane Cove West", "Gore Hill",
     # Upper North Shore
     "Chatswood", "Lane Cove", "Willoughby", "Artarmon", "Lindfield",
     "Killara", "Gordon", "Pymble", "Turramurra", "Wahroonga", "Hornsby",
-    "Berowra", "Mount Colah", "Asquith", "Waitara", "Thornleigh",
-    "Pennant Hills", "Cherrybrook", "Beecroft", "Cheltenham", "Epping",
-    "Eastwood", "Ryde", "Meadowbank", "West Ryde", "Ermington",
-    "Shepherds Bay", "Putney", "Hunters Hill",
+    "Berowra", "Berowra Heights", "Mount Colah", "Mount Kuring-Gai",
+    "Asquith", "Waitara", "Thornleigh", "Pennant Hills", "Cherrybrook",
+    "Beecroft", "Cheltenham", "Epping", "Eastwood", "Ryde", "Meadowbank",
+    "West Ryde", "Ermington", "Shepherds Bay", "Putney", "Hunters Hill",
+    "Gladesville", "North Ryde", "Top Ryde", "Marsfield",
     # Northern Beaches
-    "Manly", "Fairlight", "Balgowlah", "Seaforth", "Dee Why", "Brookvale",
-    "Freshwater", "Curl Curl", "Collaroy", "Narraweena", "Cromer",
-    "Narrabeen", "Warriewood", "Mona Vale", "Newport", "Bilgola",
-    "Avalon Beach", "Palm Beach", "Bayview", "Church Point", "Terrey Hills",
+    "Manly", "Fairlight", "Balgowlah", "Balgowlah Heights", "Seaforth",
+    "Dee Why", "Brookvale", "Freshwater", "Curl Curl", "Collaroy",
+    "Collaroy Plateau", "Narraweena", "Cromer", "Narrabeen",
+    "North Narrabeen", "Warriewood", "Mona Vale", "Newport",
+    "Newport Beach", "Bilgola", "Bilgola Plateau", "Avalon Beach",
+    "Palm Beach", "Bayview", "Church Point", "Terrey Hills",
     "Belrose", "Davidson", "Frenchs Forest", "Allambie Heights",
-    "Beacon Hill", "North Manly", "Manly Vale", "Balgowlah Heights",
+    "Beacon Hill", "North Manly", "Manly Vale", "Forestville",
+    "Killarney Heights", "Oxford Falls", "Duffys Forest",
     # Hills District
-    "Castle Hill", "Kellyville", "Rouse Hill", "Baulkham Hills",
-    "Winston Hills", "Northmead", "Westmead", "Wentworthville", "Pendle Hill",
-    "Girraween", "Glenwood", "Stanhope Gardens", "Beaumont Hills", "Box Hill",
-    "Schofields", "Riverstone", "Vineyard", "McGraths Hill", "Windsor",
-    "Richmond", "Dural", "Glenhaven", "West Pennant Hills", "Carlingford",
-    "Dundas", "Telopea", "Ermington", "Oatlands", "Clyde", "Rydalmere",
+    "Castle Hill", "Kellyville", "Kellyville Ridge", "Rouse Hill",
+    "Baulkham Hills", "Winston Hills", "Northmead", "Westmead",
+    "Wentworthville", "Pendle Hill", "Girraween", "Glenwood",
+    "Stanhope Gardens", "Beaumont Hills", "Box Hill", "Schofields",
+    "Riverstone", "Vineyard", "McGraths Hill", "Windsor",
+    "Windsor Downs", "Richmond", "North Richmond", "Dural",
+    "Glenhaven", "West Pennant Hills", "Carlingford", "Dundas",
+    "Dundas Valley", "Telopea", "Oatlands", "Clyde", "Rydalmere",
+    "The Ponds", "Parklea", "Quakers Hill", "Acacia Gardens",
+    "Pitt Town", "Wilberforce", "Glossodia",
+    # Blacktown
+    "Blacktown", "Arndell Park", "Bidwill", "Blackett", "Bungarribee",
+    "Colebee", "Dean Park", "Dharruk", "Doonside", "Eastern Creek",
+    "Glendenning", "Hebersham", "Kings Park", "Lalor Park",
+    "Lethbridge Park", "Marayong", "Marsden Park", "Minchinbury",
+    "Mount Druitt", "Old Toongabbie", "Prospect", "Rooty Hill",
+    "Seven Hills", "Shalvey", "Tregear", "Willmot", "Woodcroft",
+    "Wattle Grove",
     # Parramatta
-    "Parramatta", "Granville", "Harris Park", "Merrylands", "Guildford",
-    "Auburn", "Lidcombe", "Berala", "Regents Park", "Woodville",
-    "Chester Hill", "Villawood", "Carramar", "Sefton", "Bass Hill",
-    # South-Western / Bankstown
+    "Parramatta", "North Parramatta", "Granville", "South Granville",
+    "Harris Park", "Merrylands", "Merrylands West", "Guildford",
+    "Guildford West", "Auburn", "Lidcombe", "Berala", "Regents Park",
+    "Woodville", "Camellia", "Chester Hill", "Villawood",
+    "Carramar", "Sefton", "Bass Hill",
+    # Penrith
+    "Penrith", "Kingswood", "Jamisontown", "Emu Plains", "Emu Heights",
+    "Leonay", "Glenmore Park", "Jordan Springs", "Cranebrook",
+    "Cambridge Gardens", "Cambridge Park", "Oxley Park", "South Penrith",
+    "Colyton", "Claremont Meadows", "Werrington", "Orchard Hills",
+    "Regentville", "Mulgoa", "Llandilo", "Berkshire Park",
+    # Blue Mountains
+    "Blaxland", "Glenbrook", "Lapstone", "Springwood", "Winmalee",
+    "Faulconbridge", "Woodford", "Hazelbrook", "Lawson", "Bullaburra",
+    "Wentworth Falls", "Leura", "Katoomba", "Linden", "Valley Heights",
+    "Yellow Rock",
+    # Hawkesbury
+    "Kurrajong", "Kurrajong Heights", "Kurmond",
+    # South-Western / Bankstown / Canterbury
     "Yagoona", "Bankstown", "Punchbowl", "Wiley Park", "Lakemba",
-    "Roselands", "Beverly Hills", "Narwee", "Peakhurst", "Hurstville",
-    "Penshurst", "Mortdale", "Oatley", "Lugarno", "Riverwood",
-    "Padstow", "Revesby", "Panania", "East Hills", "Milperra",
-    "Condell Park", "Mount Lewis", "Greenacre",
+    "Roselands", "Beverly Hills", "Narwee", "Peakhurst", "Condell Park",
+    "Mount Lewis", "Greenacre", "Birrong", "Chullora",
+    "Canterbury", "Campsie", "Belmore", "Earlwood", "Kingsgrove",
+    # Hurstville / St George
+    "Hurstville", "Penshurst", "Mortdale", "Oatley", "Lugarno",
+    "Riverwood", "Padstow", "Padstow Heights", "Revesby",
+    "Revesby Heights", "Panania", "East Hills", "Milperra",
+    "Peakhurst Heights", "Hurstville Grove", "Kyle Bay", "Blakehurst",
+    "Carss Park", "Ramsgate", "Ramsgate Beach", "Sans Souci",
+    "Dolls Point", "Monterey", "Brighton-Le-Sands", "Kyeemagh",
+    "Arncliffe", "Bardwell Park", "Bardwell Valley", "Bexley",
+    "Bexley North", "Rockdale", "Kogarah", "Carlton", "Allawah",
+    "South Hurstville", "Kogarah Bay",
     # Liverpool / South-West
     "Liverpool", "Casula", "Moorebank", "Chipping Norton", "Lansvale",
     "Carnes Hill", "Prestons", "Edmondson Park", "Middleton Grange",
     "Hoxton Park", "Miller", "Hinchinbrook", "Cecil Hills", "Green Valley",
-    "Bonnyrigg", "Fairfield", "Cabramatta", "Canley Vale", "Canley Heights",
-    "Smithfield", "Wetherill Park", "Bossley Park", "Prairiewood", "Wakeley",
-    "Lurnea", "Sadleir", "Cartwright", "Busby", "Ashcroft", "Holsworthy",
+    "Bonnyrigg", "Bonnyrigg Heights", "Fairfield", "Fairfield East",
+    "Fairfield Heights", "Fairfield West", "Cabramatta",
+    "Cabramatta West", "Canley Vale", "Canley Heights",
+    "Smithfield", "Wetherill Park", "Bossley Park", "Prairiewood",
+    "Wakeley", "Edensor Park", "Greenfield Park", "St Johns Park",
+    "Yennora", "Lurnea", "Sadleir", "Cartwright", "Busby",
+    "Ashcroft", "Holsworthy", "Cecil Park", "Warwick Farm",
     # Sutherland Shire
-    "Sutherland", "Cronulla", "Caringbah", "Miranda", "Gymea", "Kirrawee",
-    "Jannali", "Como", "Engadine", "Heathcote", "Waterfall", "Menai",
-    "Illawong", "Alfords Point", "Bangor", "Barden Ridge", "Sandy Point",
-    "Bonnet Bay", "Woronora", "Loftus", "Grays Point", "Kangaroo Point",
-    "Sylvania", "Taren Point", "Caringbah South", "Burraneer", "Dolans Bay",
-    "Port Hacking", "Kurnell", "Bundeena", "Maianbar", "Gymea Bay",
-    "Yowie Bay", "Oyster Bay",
-    # St George
-    "Rockdale", "Kogarah", "Carlton", "Allawah", "Hurstville Grove",
-    "Kyle Bay", "Blakehurst", "Carss Park", "Ramsgate", "Sans Souci",
-    "Dolls Point", "Monterey", "Brighton-Le-Sands", "Kyeemagh", "Arncliffe",
-    "Bardwell Park", "Bardwell Valley", "Bexley", "Bexley North", "Kingsgrove",
-    # Camden / Macarthur
-    "Camden", "Narellan", "Mount Annan", "Harrington Park",
-    "Gregory Hills", "Oran Park", "Campbelltown", "Minto",
-    "Leumeah", "Glenfield", "Macquarie Fields", "Ingleburn",
-    "Raby", "Bow Bowing", "Ambarvale", "Rosemeadow", "Blair Athol",
+    "Sutherland", "Cronulla", "Caringbah", "Caringbah South",
+    "Miranda", "Gymea", "Gymea Bay", "Kirrawee", "Jannali", "Como",
+    "Engadine", "Heathcote", "Waterfall", "Menai", "Illawong",
+    "Alfords Point", "Bangor", "Barden Ridge", "Sandy Point",
+    "Bonnet Bay", "Woronora", "Woronora Heights", "Loftus",
+    "Grays Point", "Kangaroo Point", "Sylvania", "Sylvania Waters",
+    "Taren Point", "Burraneer", "Dolans Bay", "Port Hacking",
+    "Kurnell", "Bundeena", "Maianbar", "Yowie Bay", "Oyster Bay",
+    "Kareela", "Woolooware",
+    # Camden / Macarthur / Wollondilly
+    "Camden", "Narellan", "Narellan Vale", "Mount Annan",
+    "Harrington Park", "Gregory Hills", "Gledswood Hills",
+    "Oran Park", "Spring Farm", "Cobbitty", "Elderslie",
+    "Kirkham", "Leppington", "Grasmere",
+    "Campbelltown", "Minto", "Leumeah", "Glenfield",
+    "Macquarie Fields", "Ingleburn", "Raby", "Bow Bowing",
+    "Ambarvale", "Rosemeadow", "Blair Athol", "Bradbury",
+    "Claymore", "Glen Alpine", "Kentlyn", "Ruse",
+    "St Andrews", "St Helens Park", "Woodbine",
+    "Appin", "Bargo", "Picton", "Thirlmere", "Tahmoor", "Wilton",
+    "Douglas Park", "Buxton",
 ]
 
 SUBURBS = sorted(set(SUBURBS))
@@ -90,10 +144,11 @@ SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzdtD0egYjC7Pg_g59ojkqeVsb
 PIXEL_ID   = "994518709733202"
 
 # Brand colours
-CREAM  = "#F0E6D0"   # website background
-CREAM2 = "#FFFCF7"   # lighter cream for form card
+CREAM  = "#F0E6D0"
+CREAM2 = "#FFFCF7"
 TEAL   = "#00C9A7"
 GOLD   = "#D4A847"
+RED    = "#B5451B"
 INK    = "#1a1a1a"
 
 
@@ -165,13 +220,13 @@ def make_page(suburb):
 
     /* ── Page wrapper ── */
     .s-main {{
-      padding: 40px 20px 56px;
+      padding: 36px 20px 52px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }}
     .s-eyebrow {{
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -179,15 +234,24 @@ def make_page(suburb):
       margin-bottom: 10px;
     }}
     .s-h1 {{
-      font-size: clamp(1.55rem, 4vw, 2.2rem);
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
       font-weight: 800;
-      color: {INK};
       letter-spacing: -0.025em;
-      line-height: 1.12;
+      line-height: 1.15;
       text-align: center;
-      margin-bottom: 28px;
-      max-width: 600px;
+      margin-bottom: 24px;
+      max-width: 580px;
     }}
+    .s-h1__label {{
+      display: block;
+      color: {RED};
+      font-size: 0.72em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }}
+    .s-h1__suburb {{ color: {TEAL}; }}
 
     /* ── Form card ── */
     .s-card {{
@@ -357,18 +421,21 @@ def make_page(suburb):
 <body>
 
   <nav class="s-nav">
-    <a href="../index.html">
+    <a href="/">
       <img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="s-nav__logo">
     </a>
-    <a href="../index.html" class="s-nav__back">
+    <a href="/" class="s-nav__back">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       Main site
     </a>
   </nav>
 
   <main class="s-main">
-    <p class="s-eyebrow">SAA-Accredited &middot; {suburb}, Sydney</p>
-    <h1 class="s-h1">{title}</h1>
+    <p class="s-eyebrow">SAA-Accredited &middot; Sydney, NSW</p>
+    <h1 class="s-h1">
+      <span class="s-h1__label">Solar Battery Installation</span>
+      <span class="s-h1__suburb">{suburb}</span>
+    </h1>
 
     <div class="s-card">
       <div class="s-card__head">
@@ -472,8 +539,8 @@ def make_page(suburb):
   <footer class="s-footer">
     <p>
       &copy; 2026 HelioFlo. All rights reserved.
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../complaints.html">Complaints Policy</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/complaints">Complaints Policy</a>
       <a href="tel:0414146027">0414 146 027</a>
       <a href="mailto:hello@helioflo.com">hello@helioflo.com</a>
     </p>

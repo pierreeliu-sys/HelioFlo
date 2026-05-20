@@ -55,13 +55,13 @@
 
     /* ── Page wrapper ── */
     .s-main {
-      padding: 40px 20px 56px;
+      padding: 36px 20px 52px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     .s-eyebrow {
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -69,15 +69,24 @@
       margin-bottom: 10px;
     }
     .s-h1 {
-      font-size: clamp(1.55rem, 4vw, 2.2rem);
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
       font-weight: 800;
-      color: #1a1a1a;
       letter-spacing: -0.025em;
-      line-height: 1.12;
+      line-height: 1.15;
       text-align: center;
-      margin-bottom: 28px;
-      max-width: 600px;
+      margin-bottom: 24px;
+      max-width: 580px;
     }
+    .s-h1__label {
+      display: block;
+      color: #B5451B;
+      font-size: 0.72em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .s-h1__suburb { color: #00C9A7; }
 
     /* ── Form card ── */
     .s-card {
@@ -247,18 +256,21 @@
 <body>
 
   <nav class="s-nav">
-    <a href="../index.html">
+    <a href="/">
       <img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="s-nav__logo">
     </a>
-    <a href="../index.html" class="s-nav__back">
+    <a href="/" class="s-nav__back">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       Main site
     </a>
   </nav>
 
   <main class="s-main">
-    <p class="s-eyebrow">SAA-Accredited &middot; Granville, Sydney</p>
-    <h1 class="s-h1">Solar Battery Installation Granville</h1>
+    <p class="s-eyebrow">SAA-Accredited &middot; Sydney, NSW</p>
+    <h1 class="s-h1">
+      <span class="s-h1__label">Solar Battery Installation</span>
+      <span class="s-h1__suburb">Granville</span>
+    </h1>
 
     <div class="s-card">
       <div class="s-card__head">
@@ -362,8 +374,8 @@
   <footer class="s-footer">
     <p>
       &copy; 2026 HelioFlo. All rights reserved.
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../complaints.html">Complaints Policy</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/complaints">Complaints Policy</a>
       <a href="tel:0414146027">0414 146 027</a>
       <a href="mailto:hello@helioflo.com">hello@helioflo.com</a>
     </p>

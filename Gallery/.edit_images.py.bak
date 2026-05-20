@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+"""
+HelioFlo Gallery Image Editor
+Adds logo, core value label, and consistent color grade to installation photos.
+"""
+
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
+import os
+
+# ── Brand colors ────────────────────────────────────────────────────
+C_ORANGE = (181, 69, 27)
+C_GOLD   = (212, 168, 71)
+C_TEAL   = (0, 201, 167)
+C_WHITE  = (255, 255, 255)
+C_BLACK  = (0, 0, 0)
+
+# ── Fonts ────────────────────────────────────────────────────────────
+F_GEORGIA       = '/System/Library/Fonts/Supplemental/Georgia.ttf'
+F_GEORGIA_IT    = '/System/Library/Fonts/Supplemental/Georgia Italic.ttf'
+F_GEORGIA_BI    = '/System/Library/Fonts/Supplemental/Georgia Bold Italic.ttf'
+F_HELVETICA     = '/System/Library/Fonts/Helvetica.ttc'
+
+# ── Paths ────────────────────────────────────────────────────────────
+SRC_DIR = '/Users/pierreliu/HelioFlo/Gallery/Unedited'
+OUT_DIR = '/Users/pierreliu/HelioFlo/Gallery/Edited'
+os.makedirs(OUT_DIR, exist_ok=True)
+
+
+# ── Helpers ──────────────────────────────────────────────────────────
+
+def apply_grade(img: Image.Image) -> Image.Image:
+    """Consistent professional color grade across all images."""
+    img = ImageEnhance.Brightness(img).enhance(1.05)
+    img = ImageEnhance.Contrast(img).enhance(1.12)
+    img = ImageEnhance.Color(img).enhance(1.10)
+    img = ImageEnhance.Sharpness(img).enhance(1.18)
+    # Subtle warm toning
+    warm = Image.new('RGB', img.size, (255, 235, 210))
+    img = Image.blend(img, warm, 0.035)
+    return img
+
+
+def make_gradient(W: int, H: int, ratio: float = 0.50) -> Image.Image:
+    """Dark bottom gradient for text legibility."""
+    layer = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    draw  = ImageDraw.Draw(layer)
+    y0 = int(H * (1 - ratio))
+    for y in range(y0, H):
+        t = (y - y0) / max(H - y0, 1)
+        a = int(210 * (t ** 0.62))
+        draw.line([(0, y), (W, y)], fill=(8, 8, 12, a))
+    return layer
+
+
+def draw_logo(draw: ImageDraw.ImageDraw, ox: float, oy: float, logo_h: int) -> None:
+    """
+    Draw the HelioFlo arc mark + wordmark.
+
+    SVG viewBox: 42 84 646 128
+    All arc centers share y=190 SVG; arcs sweep 180°→270° (left to up).
+      Orange: center (148, 190)  r=88
+      Gold:   center (116, 190)  r=56
+      Teal:   center ( 86, 190)  r=26
+    """
+    VBX, VBY, VBH = 42, 84, 128
+    sc = logo_h / VBH
+
+    def p(sx, sy):
+        return ox + (sx - VBX) * sc, oy + (sy - VBY) * sc
+
+    sw = max(2, round(20 * sc))
+
+    # Arcs
+    for cx_s, r_s, color in [(148, 88, C_ORANGE), (116, 56, C_GOLD), (86, 26, C_TEAL)]:
+        cx, cy = p(cx_s, 190)
+        r  = r_s * sc
+        bb = [cx - r, cy - r, cx + r, cy + r]
+        draw.arc(bb, start=180, end=270, fill=color, width=sw)
+
+    # Origin dot
+    dx, dy = p(60, 190)
+    rd = 10 * sc
+    draw.ellipse([dx - rd, dy - rd, dx + rd, dy + rd], fill=C_ORANGE)
+
+    # Wordmark — "Helio" Georgia Regular (white), "Flo" Georgia Italic (gold)
+    fs     = max(12, int(86 * sc))
+    fh_reg = ImageFont.truetype(F_GEORGIA, fs)
+    fh_it  = ImageFont.truetype(F_GEORGIA_IT, fs)
+
+    tx, ty = p(178, 192)          # baseline position
+
+    helio_w = draw.textlength('Helio', font=fh_reg)
+
+    # 1-px drop shadow
+    draw.text((tx + 1, ty + 1), 'Helio', font=fh_reg,
+              fill=(0, 0, 0, 180), anchor='ls')
+    draw.text((tx + helio_w + 1, ty + 1), 'Flo', font=fh_it,
+              fill=(0, 0, 0, 180), anchor='ls')
+
+    # Main text
+    draw.text((tx, ty),           'Helio', font=fh_reg, fill=C_WHITE,  anchor='ls')
+    draw.text((tx + helio_w, ty), 'Flo',   font=fh_it,  fill=C_GOLD,   anchor='ls')
+
+
+def draw_value(draw: ImageDraw.ImageDraw, W: int, H: int,
+               value: str, accent: tuple) -> None:
+    """Draw core value label in the bottom-left."""
+    m  = int(W * 0.055)          # left margin
+    bm = int(H * 0.048)          # bottom margin
+
+    label_sz = max(16, int(H * 0.021))
+    value_sz = max(48, min(160, int(H * 0.086)))
+    line_w   = int(H * 0.10)
+
+    f_label = ImageFont.truetype(F_HELVETICA, label_sz)
+    f_value = ImageFont.truetype(F_GEORGIA_BI, value_sz)
+
+    # Heights via bounding box
+    lbb = draw.textbbox((0, 0), 'OUR VALUES', font=f_label)
+    vbb = draw.textbbox((0, 0), value, font=f_value)
+    label_h = lbb[3] - lbb[1]
+    value_h = vbb[3] - vbb[1]
+
+    # Layout from bottom up
+    y_value = H - bm - value_h
+    y_line  = y_value - 14
+    y_label = y_line - 4 - label_h
+
+    # "OUR VALUES"
+    draw.text((m, y_label), 'OUR VALUES', font=f_label,
+              fill=(255, 255, 255, 125))
+
+    # Accent line
+    draw.rectangle([m, y_line, m + line_w, y_line + 3], fill=accent)
+
+    # Value shadow
+    draw.text((m + 2, y_value + 2), value, font=f_value,
+              fill=(0, 0, 0, 160))
+    # Value text
+    draw.text((m, y_value), value, font=f_value, fill=C_WHITE)
+
+    # URL — bottom right
+    url_sz = max(13, int(H * 0.018))
+    f_url  = ImageFont.truetype(F_HELVETICA, url_sz)
+    url    = 'helioflo.com.au'
+    uw     = draw.textlength(url, font=f_url)
+    draw.text((W - m - uw, H - bm + url_sz // 4),
+              url, font=f_url, fill=(255, 255, 255, 90))
+
+
+# ── Main processing ──────────────────────────────────────────────────
+
+jobs = [
+    # (source, output name, core value, accent color)
+    ('HelioFlo Installation 1.jpeg', 'HelioFlo Installation 1 — Professional.jpeg', 'Professional', C_TEAL),
+    ('HelioFlo Installation 2.jpeg', 'HelioFlo Installation 2 — Care.jpeg',         'Care',         C_GOLD),
+    ('HelioFlo Installation 3.jpeg', 'HelioFlo Installation 3 — Excellence.jpeg',   'Excellence',   C_ORANGE),
+    ('HelioFlo Installation 4.jpeg', 'HelioFlo Installation 4 — Excellence.jpeg',   'Excellence',   C_ORANGE),
+]
+
+for src_name, dst_name, value, accent in jobs:
+    src = os.path.join(SRC_DIR, src_name)
+    dst = os.path.join(OUT_DIR, dst_name)
+    print(f'  [{value}] {src_name}')
+
+    img = Image.open(src).convert('RGB')
+    img = apply_grade(img)
+    W, H = img.size
+
+    img_rgba = img.convert('RGBA')
+
+    # Gradient overlay
+    grad = make_gradient(W, H, ratio=0.50)
+    img_rgba = Image.alpha_composite(img_rgba, grad)
+
+    draw = ImageDraw.Draw(img_rgba)
+
+    # Logo — top-left
+    logo_h = min(88, int(H * 0.063))
+    logo_m = int(min(W, H) * 0.038)
+    draw_logo(draw, logo_m, logo_m, logo_h)
+
+    # Core value
+    draw_value(draw, W, H, value, accent)
+
+    img_rgba.convert('RGB').save(dst, 'JPEG', quality=93, subsampling=0)
+    print(f'    → {dst_name}')
+
+print('Done.')
