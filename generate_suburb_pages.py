@@ -665,7 +665,7 @@ def make_page(suburb):
 
       try {{
         await fetch(SCRIPT_URL, {{ method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) }});
-        fbq('track', 'Lead');
+        fbq('track', 'Lead', {{value: 150.00, currency: 'AUD'}});
         fbq('track', 'Schedule');
         btn.textContent = 'Request sent. We\\'ll be in touch soon!';
       }} catch {{

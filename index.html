@@ -1083,7 +1083,7 @@
 
       try {
         await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
-        fbq('track', 'Lead');
+        fbq('track', 'Lead', {value: 150.00, currency: 'AUD'});
         fbq('track', 'Schedule');
         btn.textContent = currentLang === 'zh' ? '已提交，我们将尽快联系您！' : 'Request sent. We\'ll be in touch soon!';
       } catch {
@@ -1595,7 +1595,7 @@
               source:           'hover-widget',
             }),
           });
-          fbq('track', 'Lead');
+          fbq('track', 'Lead', {value: 150.00, currency: 'AUD'});
           fbq('track', 'Schedule');
           form.style.display = 'none';
           succ.style.display  = 'block';
