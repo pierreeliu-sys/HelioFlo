@@ -178,6 +178,7 @@ def make_page(suburb):
         f"Get a free solar battery installation quote in {suburb}, Sydney. "
         "HelioFlo installs premium LiFePO4 home batteries — federal rebates available."
     )
+    slug = slugify(suburb)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -204,212 +205,115 @@ def make_page(suburb):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solar Battery Installation {suburb} | HelioFlo</title>
   <meta name="description" content="{desc}">
-  <link rel="icon" href="../brand_assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../brand_assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../styles.css">
   <style>
-    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    /* ════════ SUBURB PAGE — VIDEO HERO + FORM ════════ */
 
-    :root {{
-      --red:   {RED};
-      --teal:  {TEAL};
-      --gold:  {GOLD};
-      --ink:   {INK};
-      --cream: {CREAM};
-      --white: {CREAM2};
-      --serif: {SERIF};
-      --sans:  {SANS};
-      --border: rgba(0,0,0,0.09);
-    }}
-
-    html {{ scroll-behavior: smooth; }}
-    body {{
-      font-family: var(--sans);
-      background: var(--cream);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-    }}
-
-    /* ════════════════════════════════════════
-       HEADER
-    ════════════════════════════════════════ */
-    .hdr {{
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--ink);
-      border-bottom: 3px solid var(--red);
-      padding: 0 48px;
-      height: 68px;
+    /* Video hero */
+    .suburb-hero {{
+      position: relative;
+      height: 100vh;
+      min-height: 560px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }}
-    .hdr__logo {{ height: 30px; flex-shrink: 0; }}
-    .hdr__nav {{
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      flex: 1;
       justify-content: center;
+      overflow: hidden;
     }}
-    .hdr__nav a {{
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      transition: color 0.15s;
+    .suburb-hero__vid {{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }}
-    .hdr__nav a:hover {{ color: #fff; }}
-    .hdr__right {{
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-shrink: 0;
+    .suburb-hero__scrim {{
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(26,20,16,0.72) 0%,
+        rgba(26,20,16,0.55) 60%,
+        rgba(26,20,16,0.70) 100%
+      );
+      z-index: 1;
     }}
-    .hdr__phone {{
-      font-family: var(--sans);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: color 0.15s;
+    .suburb-hero__inner {{
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 820px;
     }}
-    .hdr__phone:hover {{ color: #fff; }}
-    .hdr__cta {{
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--teal);
-      padding: 9px 20px;
-      border-radius: 9999px;
-      text-decoration: none;
-      transition: background 0.15s, transform 0.1s;
-    }}
-    .hdr__cta:hover {{ background: #00b394; transform: translateY(-1px); }}
-
-    /* ════════════════════════════════════════
-       HERO SPLIT LAYOUT
-    ════════════════════════════════════════ */
-    .hero {{
-      display: grid;
-      grid-template-columns: 52% 48%;
-      min-height: calc(100vh - 68px);
-      align-items: start;
-    }}
-
-    /* LEFT PANEL */
-    .hero__left {{
-      padding: 64px 56px 64px 64px;
-      display: flex;
-      flex-direction: column;
-    }}
-    .hero__eyebrow {{
-      font-family: var(--sans);
-      font-size: 0.68rem;
+    .suburb-hero__eyebrow {{
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }}
-    .hero__h1 {{
-      font-family: var(--serif);
-      margin-bottom: 32px;
-      line-height: 1;
+    .suburb-hero__h1 {{
+      font-family: var(--font-serif);
+      line-height: 1.05;
+      margin-bottom: 36px;
     }}
-    .hero__h1-service {{
+    .suburb-hero__service {{
       display: block;
       font-style: italic;
       font-weight: 400;
-      font-size: clamp(1.4rem, 2.6vw, 2rem);
-      color: var(--red);
+      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      color: rgba(255,255,255,0.78);
       letter-spacing: -0.01em;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }}
-    .hero__h1-suburb {{
+    .suburb-hero__name {{
       display: block;
       font-style: normal;
       font-weight: 700;
-      font-size: clamp(3rem, 6vw, 5rem);
+      font-size: clamp(3.2rem, 8vw, 6rem);
       color: var(--teal);
-      letter-spacing: -0.035em;
-      line-height: 0.92;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
     }}
-    .hero__sub {{
-      font-family: var(--serif);
-      font-size: 1rem;
-      color: rgba(26,26,26,0.62);
-      line-height: 1.7;
-      max-width: 400px;
-      margin-bottom: 40px;
-    }}
-
-    /* Trust list */
-    .trust {{
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-bottom: 44px;
-    }}
-    .trust li {{
-      display: flex;
+    .suburb-hero__cta {{
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-family: var(--serif);
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: var(--ink);
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-    }}
-    .trust li:first-child {{ border-top: 1px solid var(--border); }}
-    .trust__icon {{
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
+      gap: 0.5rem;
+      padding: 1rem 2.2rem;
       background: var(--teal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--ink);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 14px 36px rgba(0,201,167,0.32);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }}
+    .suburb-hero__cta:hover {{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(0,201,167,0.42);
     }}
 
-    /* Accreditations */
-    .accred {{
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
+    /* Quote form section */
+    .suburb-form-section {{
+      background: var(--cream);
+      padding: 80px 0;
     }}
-    .accred img {{
-      height: 44px;
-      object-fit: contain;
-      opacity: 0.65;
-      filter: grayscale(0.2);
+    .suburb-form-wrap {{
+      width: min(680px, calc(100% - 2rem));
+      margin: 0 auto;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
     }}
-
-    /* RIGHT PANEL */
-    .hero__right {{
-      background: var(--white);
-      border-left: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      min-height: calc(100vh - 68px);
-    }}
-
-    /* Form card header */
-    .form-hdr {{
-      background: var(--ink);
-      padding: 22px 32px;
+    .sform-hdr {{
+      background: var(--dark-surface);
+      padding: 24px 36px;
       border-bottom: 3px solid var(--teal);
       display: flex;
       align-items: baseline;
@@ -417,19 +321,19 @@ def make_page(suburb):
       gap: 12px;
       flex-wrap: wrap;
     }}
-    .form-hdr__title {{
-      font-family: var(--serif);
+    .sform-hdr__title {{
+      font-family: var(--font-serif);
       font-style: italic;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       color: #fff;
       font-weight: 400;
     }}
-    .form-hdr__badges {{
+    .sform-hdr__badges {{
       display: flex;
       gap: 8px;
     }}
-    .badge {{
-      font-family: var(--sans);
+    .sbadge {{
+      font-family: var(--font-sans);
       font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -437,283 +341,188 @@ def make_page(suburb):
       padding: 4px 9px;
       border-radius: 4px;
     }}
-    .badge--teal {{ background: var(--teal); color: var(--ink); }}
-    .badge--gold {{ background: var(--gold); color: var(--ink); }}
-
-    /* Form body */
-    .form-body {{ padding: 28px 32px 32px; flex: 1; }}
-
-    /* Form grid */
-    .fg {{
+    .sbadge--teal {{ background: var(--teal); color: var(--dark); }}
+    .sbadge--gold {{ background: var(--gold); color: var(--dark); }}
+    .sform-body {{ padding: 32px 36px 36px; }}
+    .sfg {{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 10px;
+      gap: 12px;
+      margin-bottom: 12px;
     }}
-    .ff {{ display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }}
-    .ff--full {{ grid-column: 1 / -1; }}
-    .ff label {{
-      font-family: var(--sans);
+    .sff {{ display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }}
+    .sff label {{
+      font-family: var(--font-sans);
       font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(26,26,26,0.55);
+      color: var(--muted);
     }}
-    .ff .req {{ color: var(--gold); }}
-    .ff input,
-    .ff select {{
-      font-family: var(--sans);
+    .sff .req {{ color: var(--gold); }}
+    .sff input,
+    .sff select {{
+      font-family: var(--font-sans);
       font-size: 0.875rem;
-      color: var(--ink);
-      background: #fff;
-      border: 1px solid rgba(0,0,0,0.15);
-      border-radius: 6px;
-      height: 40px;
+      color: var(--text);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      height: 42px;
       padding: 0 12px;
       outline: none;
       appearance: none;
       -webkit-appearance: none;
       transition: border-color 0.15s, box-shadow 0.15s;
     }}
-    .ff select {{
+    .sff select {{
       background-image: {CARET_SVG};
+      background-color: var(--cream);
       background-repeat: no-repeat;
       background-position: right 10px center;
       padding-right: 30px;
     }}
-    .ff input:focus,
-    .ff select:focus {{
+    .sff input:focus,
+    .sff select:focus {{
       border-color: var(--teal);
       box-shadow: 0 0 0 3px rgba(0,201,167,0.14);
-    }}
-    .ff textarea {{
-      font-family: var(--sans);
-      font-size: 0.875rem;
-      color: var(--ink);
       background: #fff;
-      border: 1px solid rgba(0,0,0,0.15);
-      border-radius: 6px;
+    }}
+    .sff textarea {{
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--text);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
       padding: 10px 12px;
-      min-height: 64px;
+      min-height: 72px;
       resize: vertical;
       outline: none;
       transition: border-color 0.15s, box-shadow 0.15s;
     }}
-    .ff textarea:focus {{
+    .sff textarea:focus {{
       border-color: var(--teal);
       box-shadow: 0 0 0 3px rgba(0,201,167,0.14);
+      background: #fff;
     }}
-
-    /* Submit row */
-    .form-foot {{
-      margin-top: 20px;
+    .sform-foot {{
+      margin-top: 24px;
       display: flex;
       align-items: center;
       gap: 16px;
       flex-wrap: wrap;
     }}
-    .btn-submit {{
-      font-family: var(--sans);
-      font-size: 0.85rem;
+    .sbtn-submit {{
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--teal);
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal) 0%, #009E85 100%);
       border: none;
-      border-radius: 9999px;
-      padding: 13px 32px;
+      border-radius: 999px;
+      padding: 14px 36px;
       cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-      flex-shrink: 0;
+      box-shadow: 0 10px 28px rgba(0,201,167,0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }}
-    .btn-submit:hover {{ background: #00b394; transform: translateY(-1px); }}
-    .btn-submit:disabled {{ opacity: 0.55; cursor: not-allowed; transform: none; }}
-    .form-note {{
-      font-family: var(--sans);
+    .sbtn-submit:hover {{ transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,201,167,0.38); }}
+    .sbtn-submit:disabled {{ opacity: 0.55; cursor: not-allowed; transform: none; }}
+    .sform-note {{
+      font-family: var(--font-sans);
       font-size: 0.73rem;
-      color: #aaa;
-      line-height: 1.45;
+      color: var(--muted);
+      line-height: 1.5;
     }}
 
-    /* ════════════════════════════════════════
-       FOOTER
-    ════════════════════════════════════════ */
-    .ftr {{
-      background: var(--ink);
-      border-top: 3px solid var(--red);
-    }}
-    .ftr__inner {{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 48px 24px;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: start;
-      gap: 32px;
-    }}
-    .ftr__logo {{ height: 26px; opacity: 0.7; }}
-    .ftr__links {{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 20px;
-      justify-content: center;
-      align-items: center;
-    }}
-    .ftr__links a {{
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      transition: color 0.15s;
-    }}
-    .ftr__links a:hover {{ color: var(--teal); }}
-    .ftr__contact {{
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      text-align: right;
-    }}
-    .ftr__contact a {{
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      transition: color 0.15s;
-    }}
-    .ftr__contact a:hover {{ color: #fff; }}
-    .ftr__copy {{
-      grid-column: 1 / -1;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 16px;
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.25);
-      text-align: center;
-    }}
-
-    /* ════════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════════ */
-    @media (max-width: 900px) {{
-      .hdr {{ padding: 0 24px; }}
-      .hdr__nav {{ display: none; }}
-      .hero {{ grid-template-columns: 1fr; }}
-      .hero__left {{ padding: 40px 24px 36px; }}
-      .hero__right {{ border-left: none; border-top: 1px solid var(--border); min-height: auto; }}
-      .hero__h1-suburb {{ font-size: clamp(2.4rem, 10vw, 3.8rem); }}
-      .ftr__inner {{ grid-template-columns: 1fr; padding: 24px; text-align: center; }}
-      .ftr__links {{ justify-content: center; }}
-      .ftr__contact {{ text-align: center; }}
-    }}
-    @media (max-width: 480px) {{
-      .hdr {{ padding: 0 16px; height: 60px; }}
-      .hdr__logo {{ height: 26px; }}
-      .hero__left {{ padding: 32px 16px 28px; }}
-      .form-hdr {{ padding: 18px 20px; }}
-      .form-body {{ padding: 20px 20px 24px; }}
-      .fg {{ grid-template-columns: 1fr; }}
+    @media (max-width: 600px) {{
+      .sfg {{ grid-template-columns: 1fr; }}
+      .sform-body {{ padding: 24px 20px 28px; }}
+      .sform-hdr {{ padding: 20px 20px; }}
     }}
   </style>
 </head>
 <body>
 
-  <!-- ═══ HEADER ═══ -->
-  <header class="hdr">
-    <a href="/"><img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="hdr__logo"></a>
-    <nav class="hdr__nav">
-      <a href="/#why">Why HelioFlo</a>
-      <a href="/#products">Products</a>
-      <a href="/#process">Our Process</a>
-      <a href="/#faq">FAQ</a>
-    </nav>
-    <div class="hdr__right">
-      <a href="tel:0414146027" class="hdr__phone">0414 146 027</a>
-      <a href="#quote-form" class="hdr__cta">Get a Quote</a>
+  <!-- ═══ HEADER (matches landing page) ═══ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-row">
+      <a href="/" aria-label="HelioFlo home">
+        <img src="../../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="brand-logo">
+      </a>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="/#why">Why HelioFlo</a>
+        <a href="/#products">Products</a>
+        <a href="/#process">Process</a>
+        <a href="/#faq">FAQ</a>
+        <a href="#quote" class="btn btn-nav btn-sm">Get a Free Quote</a>
+      </nav>
+      <div class="header-end">
+        <a href="tel:0414146027" class="header-phone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 0118 1.18 2 2 0 0120 3.17v3a2 2 0 01-1.64 1.95 13 13 0 00-5.5 2.38 13 13 0 00-3.63 3.63 13 13 0 00-2.38 5.5A2 2 0 016.84 22a19.79 19.79 0 01-3.07-8.63 2 2 0 012-2.18h3a2 2 0 011.95 1.64z"/></svg>
+          0414 146 027
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- ═══ HERO ═══ -->
-  <main class="hero">
-
-    <!-- LEFT: Headline + Trust -->
-    <section class="hero__left">
-      <p class="hero__eyebrow">SAA-Accredited &middot; Sydney, NSW</p>
-      <h1 class="hero__h1">
-        <span class="hero__h1-service">Solar Battery Installation</span>
-        <span class="hero__h1-suburb">{suburb}</span>
+  <!-- ═══ VIDEO HERO ═══ -->
+  <section class="suburb-hero">
+    <video class="suburb-hero__vid" autoplay muted loop playsinline>
+      <source src="../../brand_assets/solar-bg.mp4" type="video/mp4">
+    </video>
+    <div class="suburb-hero__scrim"></div>
+    <div class="suburb-hero__inner">
+      <p class="suburb-hero__eyebrow">SAA-Accredited &middot; Sydney, NSW</p>
+      <h1 class="suburb-hero__h1">
+        <span class="suburb-hero__service">Solar Battery Installation</span>
+        <span class="suburb-hero__name">{suburb}</span>
       </h1>
-      <p class="hero__sub">
-        HelioFlo installs premium LiFePO4 battery systems for homeowners across {suburb} and Greater Sydney.
-        Federal government rebates apply — no hidden fees, same-week quotes.
-      </p>
-      <ul class="trust">
-        <li>
-          <span class="trust__icon">{CHECK_SVG}</span>
-          SAA Accredited Installer
-        </li>
-        <li>
-          <span class="trust__icon">{CHECK_SVG}</span>
-          Licensed &amp; Fully Insured
-        </li>
-        <li>
-          <span class="trust__icon">{CHECK_SVG}</span>
-          5-Year Workmanship Warranty
-        </li>
-        <li>
-          <span class="trust__icon">{CHECK_SVG}</span>
-          Federal Rebate — Cheaper Home Batteries Program
-        </li>
-        <li>
-          <span class="trust__icon">{CHECK_SVG}</span>
-          Same-week Quotes &middot; 48-hr Proposal
-        </li>
-      </ul>
-      <div class="accred">
-        <img src="../Accreditation/SAA%20Accreditation.jpg" alt="SAA Accredited">
-        <img src="../Accreditation/New%20Energy%20Tech%20Accreditation.webp" alt="New Energy Tech">
-        <img src="../Accreditation/Powerwall%20Certified%20Accreditation.jpg" alt="Powerwall Certified">
-      </div>
-    </section>
+      <a href="#quote" class="suburb-hero__cta">Get a Free Quote</a>
+    </div>
+  </section>
 
-    <!-- RIGHT: Form -->
-    <aside class="hero__right" id="quote-form">
-      <div class="form-hdr">
-        <span class="form-hdr__title">Get a free quote</span>
-        <div class="form-hdr__badges">
-          <span class="badge badge--teal">No obligation</span>
-          <span class="badge badge--gold">Rebate eligible</span>
+  <!-- ═══ QUOTE FORM ═══ -->
+  <section class="suburb-form-section" id="quote">
+    <div class="suburb-form-wrap">
+      <div class="sform-hdr">
+        <span class="sform-hdr__title">Get a free quote</span>
+        <div class="sform-hdr__badges">
+          <span class="sbadge sbadge--teal">No obligation</span>
+          <span class="sbadge sbadge--gold">Rebate eligible</span>
         </div>
       </div>
-      <div class="form-body">
+      <div class="sform-body">
         <form id="suburb-form" action="#" method="post" novalidate>
-          <div class="fg">
-            <div class="ff">
+          <div class="sfg">
+            <div class="sff">
               <label>First name <span class="req">*</span></label>
               <input name="first_name" type="text" placeholder="Alex" autocomplete="given-name" required>
             </div>
-            <div class="ff">
+            <div class="sff">
               <label>Last name</label>
               <input name="last_name" type="text" placeholder="Johnson" autocomplete="family-name">
             </div>
           </div>
-          <div class="fg">
-            <div class="ff">
+          <div class="sfg">
+            <div class="sff">
               <label>Email <span class="req">*</span></label>
               <input name="email" type="email" placeholder="alex@example.com" autocomplete="email" required>
             </div>
-            <div class="ff">
+            <div class="sff">
               <label>Phone <span class="req">*</span></label>
               <input name="phone" type="tel" placeholder="04XX XXX XXX" autocomplete="tel" required>
             </div>
           </div>
-          <div class="ff">
+          <div class="sff">
             <label>Address</label>
             <input name="address" type="text" placeholder="e.g. 12 Smith St, {suburb}" autocomplete="off">
           </div>
-          <div class="fg">
-            <div class="ff">
+          <div class="sfg">
+            <div class="sff">
               <label>Property type</label>
               <select name="property">
                 <option value="" disabled selected>Select</option>
@@ -723,7 +532,7 @@ def make_page(suburb):
                 <option value="business">Business</option>
               </select>
             </div>
-            <div class="ff">
+            <div class="sff">
               <label>Interested in</label>
               <select name="interest">
                 <option value="" disabled selected>Select</option>
@@ -732,8 +541,8 @@ def make_page(suburb):
               </select>
             </div>
           </div>
-          <div class="fg">
-            <div class="ff">
+          <div class="sfg">
+            <div class="sff">
               <label>Build type</label>
               <select name="build_type">
                 <option value="" disabled selected>Select</option>
@@ -741,7 +550,7 @@ def make_page(suburb):
                 <option value="new-build">New Build</option>
               </select>
             </div>
-            <div class="ff">
+            <div class="sff">
               <label>Quarterly electricity bill</label>
               <select name="electricity_bill">
                 <option value="" disabled selected>Select</option>
@@ -752,8 +561,8 @@ def make_page(suburb):
               </select>
             </div>
           </div>
-          <div class="fg">
-            <div class="ff">
+          <div class="sfg">
+            <div class="sff">
               <label>Installation timeframe</label>
               <select name="install_period">
                 <option value="" disabled selected>Select</option>
@@ -763,45 +572,74 @@ def make_page(suburb):
                 <option value="researching">Just researching</option>
               </select>
             </div>
-            <div class="ff">
+            <div class="sff">
               <label>Anything else? <span style="font-weight:400;opacity:0.6;">(optional)</span></label>
               <textarea name="message" placeholder="Tell us about your home…"></textarea>
             </div>
           </div>
-          <div class="form-foot">
-            <button type="submit" class="btn-submit" id="suburb-submit">Send Quote Request</button>
-            <p class="form-note">No spam. We'll only contact you about your enquiry.</p>
+          <div class="sform-foot">
+            <button type="submit" class="sbtn-submit" id="suburb-submit">Send Quote Request</button>
+            <p class="sform-note">No spam. We'll only contact you about your enquiry.</p>
           </div>
         </form>
       </div>
-    </aside>
+    </div>
+  </section>
 
-  </main>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer class="ftr">
-    <div class="ftr__inner">
-      <img src="../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="ftr__logo">
-      <div class="ftr__links">
+  <!-- ═══ FOOTER (matches landing page) ═══ -->
+  <footer class="site-footer">
+    <div class="footer-accent"></div>
+    <div class="container footer-main">
+      <a href="/" aria-label="HelioFlo home" class="footer-brand">
+        <img src="../../brand_assets/HelioFlo_Logo.svg" alt="HelioFlo" class="footer-logo">
+      </a>
+      <nav class="footer-nav" aria-label="Footer navigation">
         <a href="/#why">Why HelioFlo</a>
         <a href="/#products">Products</a>
         <a href="/#process">Our Process</a>
         <a href="/#faq">FAQ</a>
         <a href="/payment">Payment Terms</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/complaints">Complaints Policy</a>
-      </div>
-      <div class="ftr__contact">
+      </nav>
+      <div class="footer-contact">
         <a href="tel:0414146027">0414 146 027</a>
         <a href="mailto:hello@helioflo.com">hello@helioflo.com</a>
       </div>
-      <p class="ftr__copy">&copy; 2026 HelioFlo. All rights reserved. Servicing Sydney, NSW.</p>
+    </div>
+    <div class="footer-accred">
+      <div class="container footer-accred-logos">
+        <img src="../../Accreditation/SAA%20Accreditation.jpg" alt="SAA Accredited Installer">
+        <img src="../../Accreditation/New%20Energy%20Tech%20Accreditation.webp" alt="New Energy Tech Approved Seller">
+        <img src="../../Accreditation/Powerwall%20Certified%20Accreditation.jpg" alt="Powerwall Certified Installer">
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 HelioFlo. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/complaints">Complaints Policy</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    const SCRIPT_URL = '{SCRIPT_URL}';
+    // Header scroll state (matches landing page)
+    const header = document.getElementById('site-header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, {{ passive: true }});
+    onScroll();
 
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav   = document.querySelector('.main-nav');
+    navToggle?.addEventListener('click', () => {{
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      mainNav.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open');
+    }});
+
+    // Form submit
+    const SCRIPT_URL = '{SCRIPT_URL}';
     document.getElementById('suburb-form').addEventListener('submit', async function(e) {{
       e.preventDefault();
       const btn  = document.getElementById('suburb-submit');
@@ -850,27 +688,38 @@ def make_page(suburb):
 
 
 def main():
+    import shutil
     base = os.path.dirname(os.path.abspath(__file__))
 
-    # Remove old suburbs/ flat-file directory
-    old_dir = os.path.join(base, "suburbs")
-    if os.path.isdir(old_dir):
-        import shutil
-        shutil.rmtree(old_dir)
-        print(f"Removed old {old_dir}/")
+    # Remove old root-level suburb folders
+    slugs = {slugify(s) for s in SUBURBS}
+    non_suburb = {
+        "brand_assets", "accreditation", "payment", "privacy", "complaints",
+        "basic-batteries", "recommended-batteries", "premium-batteries",
+        "solar-inverters", "suburbs", ".git", ".github",
+    }
+    for entry in os.listdir(base):
+        entry_lower = entry.lower()
+        if (os.path.isdir(os.path.join(base, entry))
+                and entry_lower not in non_suburb
+                and entry_lower in slugs):
+            shutil.rmtree(os.path.join(base, entry))
+            print(f"  Removed old /{entry}/")
 
+    # Generate into suburbs/{slug}/index.html
+    suburbs_dir = os.path.join(base, "suburbs")
     for suburb in SUBURBS:
         slug     = slugify(suburb)
-        out_dir  = os.path.join(base, slug)
+        out_dir  = os.path.join(suburbs_dir, slug)
         os.makedirs(out_dir, exist_ok=True)
         filepath = os.path.join(out_dir, "index.html")
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(make_page(suburb))
 
-    print(f"Generated {len(SUBURBS)} suburb pages as /<slug>/index.html")
+    print(f"Generated {len(SUBURBS)} suburb pages as /suburbs/<slug>/index.html")
     print("Sample URLs:")
     for s in SUBURBS[:5]:
-        print(f"  /{slugify(s)}/")
+        print(f"  /suburbs/{slugify(s)}/")
 
 
 if __name__ == "__main__":

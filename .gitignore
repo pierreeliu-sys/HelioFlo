@@ -1,4 +1,5 @@
 brand_assets/Images/Solar Panel Landscape.mp4
+brand_assets/*.mp4
 .claude/
 .DS_Store
 CLAUDE*.md
