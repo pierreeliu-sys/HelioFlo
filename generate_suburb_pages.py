@@ -206,7 +206,7 @@ def make_page(suburb):
   <title>Solar Battery Installation {suburb} | HelioFlo</title>
   <meta name="description" content="{desc}">
   <link rel="icon" href="../../brand_assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../styles.min.css">
   <style>
     /* ════════ SUBURB PAGE — VIDEO HERO + FORM ════════ */
 

@@ -23,7 +23,8 @@
   <title>HelioFlo | Premium Solar Battery Installation</title>
   <meta name="description" content="HelioFlo installs premium home battery systems: expert installation, transparent pricing, and support that lasts a lifetime.">
   <link rel="icon" href="brand_assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" as="video" href="brand_assets/Images/8853514-hd_1080_1920_24fps.mp4" type="video/mp4">
+  <link rel="stylesheet" href="styles.min.css">
   <style>
     /* ── Hover Contact Widget ──────────────────────────────── */
     .hcw-btn {
@@ -186,10 +187,10 @@
     <!-- ═══ HERO ═══ -->
     <section id="home" class="hero">
       <div class="hero-media">
-        <video class="hero-vid hero-vid--a" autoplay muted playsinline>
+        <video class="hero-vid hero-vid--a" autoplay muted playsinline fetchpriority="high">
           <source src="brand_assets/Images/8853514-hd_1080_1920_24fps.mp4" type="video/mp4">
         </video>
-        <video class="hero-vid hero-vid--b" muted playsinline preload="auto"></video>
+        <video class="hero-vid hero-vid--b" muted playsinline preload="none"></video>
         <div class="hero-scrim"></div>
       </div>
       <div class="container hero-inner">
@@ -480,7 +481,7 @@
           <!-- Essential -->
           <div class="tier-card tier-card--basic reveal">
             <div class="tier-header">
-              <img src="Solis/Solis%20Logo.jpg" alt="Solis" style="height:52px; width:auto; display:block; margin-bottom:0.75rem;">
+              <img src="Solis/Solis%20Logo.jpg" alt="Solis" style="height:52px; width:auto; display:block; margin-bottom:0.75rem;" loading="lazy" width="120" height="52">
               <span class="tier-name" data-i18n="tier-e-name">Essential</span>
               <h3 class="tier-title" data-i18n="tier-e-title">Essential Coverage</h3>
             </div>
@@ -515,7 +516,7 @@
           <div class="tier-card tier-card--recommended reveal reveal--delay">
             <span class="tier-badge" data-i18n="tier-m-badge">Recommended</span>
             <div class="tier-header">
-              <img src="Swatten/Swatten%20Logo.png" alt="Swatten" style="height:36px; width:auto; display:block; margin-bottom:0.75rem;">
+              <img src="Swatten/Swatten%20Logo.png" alt="Swatten" style="height:36px; width:auto; display:block; margin-bottom:0.75rem;" loading="lazy" width="120" height="36">
               <span class="tier-name" data-i18n="tier-m-name">Mid-Market</span>
               <h3 class="tier-title" data-i18n="tier-m-title">All-in-One Three Phase</h3>
             </div>
@@ -549,7 +550,7 @@
           <!-- Premium -->
           <div class="tier-card tier-card--premium reveal reveal--delay-2">
             <div class="tier-header">
-              <img src="EcoFlow/ecoflow%20logo.png" alt="EcoFlow" style="height:52px; width:auto; display:block; margin-bottom:0.75rem;">
+              <img src="EcoFlow/ecoflow%20logo.png" alt="EcoFlow" style="height:52px; width:auto; display:block; margin-bottom:0.75rem;" loading="lazy" width="120" height="52">
               <span class="tier-name" data-i18n="tier-p-name">Premium</span>
               <h3 class="tier-title" data-i18n="tier-p-title">Whole-Home Independence</h3>
             </div>
@@ -588,7 +589,10 @@
     <section class="section-video-feature">
       <div class="container video-feature-inner">
         <div class="video-feature-media reveal">
-          <img src="brand_assets/Images/Solis_Dyness_Installed.png" alt="Solis-Dyness PowerBox Pro battery system professionally installed">
+          <picture>
+            <source srcset="brand_assets/Images/Solis_Dyness_Installed.webp" type="image/webp">
+            <img src="brand_assets/Images/Solis_Dyness_Installed.png" alt="Solis-Dyness PowerBox Pro battery system professionally installed" width="800" height="600" loading="lazy">
+          </picture>
         </div>
         <div class="video-feature-copy reveal reveal--delay">
           <p class="section-eyebrow" data-i18n="vf-eyebrow">Professional Installation</p>
@@ -940,9 +944,9 @@
     <!-- Accreditations -->
     <div class="footer-accred">
       <div class="container footer-accred-logos">
-        <img src="Accreditation/SAA%20Accreditation.jpg" alt="SAA Accredited Installer">
-        <img src="Accreditation/New%20Energy%20Tech%20Accreditation.webp" alt="New Energy Tech Approved Seller">
-        <img src="Accreditation/Powerwall%20Certified%20Accreditation.jpg" alt="Powerwall Certified Installer">
+        <img src="Accreditation/SAA%20Accreditation.jpg" alt="SAA Accredited Installer" loading="lazy" width="120" height="52">
+        <img src="Accreditation/New%20Energy%20Tech%20Accreditation.webp" alt="New Energy Tech Approved Seller" loading="lazy" width="120" height="52">
+        <img src="Accreditation/Powerwall%20Certified%20Accreditation.jpg" alt="Powerwall Certified Installer" loading="lazy" width="120" height="52">
       </div>
     </div>
 
@@ -957,21 +961,20 @@
   </footer>
 
   <script>
-    // ── Hero video playlist (A/B crossfade) ──
+    // ── Hero video playlist (A/B crossfade, desktop only) ──
     (function () {
+      const vidA = document.querySelector('.hero-vid--a');
+      vidA.classList.add('is-active');
+      if (window.innerWidth < 768) return; // single looping video on mobile
       const CLIP_DURATION = 8000;
       const playlist = [
         'brand_assets/Images/8853514-hd_1080_1920_24fps.mp4',
-        'brand_assets/Images/Foggy%20Landscape.mp4',
+        'brand_assets/Images/foggy-landscape-web.mp4',
         'brand_assets/Images/Solar%20Panel%20Neighbourhood.mp4',
-        'brand_assets/Images/Trees%20Landscape.mp4',
       ];
-      const vidA = document.querySelector('.hero-vid--a');
       const vidB = document.querySelector('.hero-vid--b');
       let currentIdx = 0;
-      vidA.classList.add('is-active');
-      vidB.src = playlist[1];
-      vidB.load();
+      setTimeout(() => { vidB.src = playlist[1]; vidB.load(); }, 3000); // defer second video load
       function advance(finished, next) {
         currentIdx = (currentIdx + 1) % playlist.length;
         const preloadIdx = (currentIdx + 1) % playlist.length;
