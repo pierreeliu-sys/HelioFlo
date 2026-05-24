@@ -248,8 +248,27 @@
     /* ── Footer accreditations: 1.5× larger ─────────────────── */
     .footer-accred-logos img { width: 180px !important; height: auto !important; }
 
-    /* ── NET badge in hero ───────────────────────────────────── */
+    /* ── Hero layout: left content + right NET logo ─────────── */
+    .hero-inner { grid-template-columns: 1fr auto; align-items: center; }
     .hero-badges { flex-wrap: wrap; }
+    .hero-right { align-self: center; }
+    .hero-net-logo {
+      display: block; width: 155px; height: auto;
+      background: rgba(255,255,255,0.92);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+    }
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+    }
+
+    /* ── Why-layout chip/detail alignment overrides ─────────── */
+    .why-layout .why-chips { justify-content: flex-start; max-width: none; margin: 1.25rem 0 1.5rem; }
+    .why-layout .why-detail { max-width: none; margin-left: 0; margin-right: 0; }
+    .why-layout .why-detail-text { text-align: left; }
+    .why-layout .why-cta-wrap { text-align: left; }
   </style>
 </head>
 <body>
@@ -262,7 +281,6 @@
       </a>
       <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
         <a href="#why"      data-i18n="nav-why">Why HelioFlo</a>
-        <a href="#products" data-i18n="nav-products">Products</a>
         <a href="#process"  data-i18n="nav-process">Process</a>
         <a href="#faq"      data-i18n="nav-faq">FAQ</a>
         <a href="#contact" class="btn btn-nav btn-sm" data-i18n="nav-cta">Get a Free Quote</a>
@@ -295,42 +313,46 @@
         <div class="hero-scrim"></div>
       </div>
       <div class="container hero-inner">
-        <div class="hero-copy reveal">
-          <p class="eyebrow eyebrow--light">
-            <span class="eyebrow-dot"></span>
-            <span data-i18n="hero-eyebrow">SAA-accredited battery installation</span>
-          </p>
-          <h1 data-i18n-html="hero-h1">Your solar energy,<br><em>stored and ready.</em></h1>
-          <p data-i18n="hero-body">Stuck choosing the right home solar battery for you? We will work with you to understand your energy consumption, your future solar plans and your budget to find the best set-up for you. Start a free and no obligation conversation with us.</p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero-cta1" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
-            <a href="#process" class="hero-text-link">
-              <span data-i18n="hero-cta2">How It Works</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+        <div class="hero-left">
+          <div class="hero-copy reveal">
+            <p class="eyebrow eyebrow--light">
+              <span class="eyebrow-dot"></span>
+              <span data-i18n="hero-eyebrow">SAA-accredited battery installation</span>
+            </p>
+            <h1 data-i18n-html="hero-h1">Your solar energy,<br><em>stored and ready.</em></h1>
+            <p data-i18n="hero-body">Stuck choosing the right home solar battery for you? We will work with you to understand your energy consumption, your future solar plans and your budget to find the best set-up for you. Start a free and no obligation conversation with us.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero-cta1" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
+              <a href="#process" class="hero-text-link">
+                <span data-i18n="hero-cta2">How It Works</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            <p class="hero-location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="hero-location">Servicing Sydney, NSW</span>
+            </p>
           </div>
-          <p class="hero-location">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span data-i18n="hero-location">Servicing Sydney, NSW</span>
-          </p>
+          <div class="hero-badges reveal reveal--delay">
+            <div class="hero-badge">
+              <strong data-i18n="badge-1-val">100+</strong>
+              <span   data-i18n="badge-1-label">Batteries installed</span>
+            </div>
+            <div class="hero-badge">
+              <strong data-i18n="badge-2-val">5 yr</strong>
+              <span   data-i18n="badge-2-label">Workmanship warranty</span>
+            </div>
+            <div class="hero-badge">
+              <strong data-i18n="badge-3-val">10 yr</strong>
+              <span   data-i18n="badge-3-label">Battery warranty</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-badges reveal reveal--delay">
-          <div class="hero-badge">
-            <strong data-i18n="badge-1-val">100+</strong>
-            <span   data-i18n="badge-1-label">Batteries installed</span>
-          </div>
-          <div class="hero-badge">
-            <strong data-i18n="badge-2-val">5 yr</strong>
-            <span   data-i18n="badge-2-label">Workmanship warranty</span>
-          </div>
-          <div class="hero-badge">
-            <strong data-i18n="badge-3-val">10 yr</strong>
-            <span   data-i18n="badge-3-label">Battery warranty</span>
-          </div>
-          <div class="hero-badge">
-            <strong>NET</strong>
-            <span>Approved Seller</span>
-          </div>
+        <div class="hero-right reveal reveal--delay">
+          <img src="Accreditation/New%20Energy%20Tech%20Accreditation.webp"
+               alt="NET Approved Seller"
+               class="hero-net-logo"
+               width="200" height="88" loading="eager">
         </div>
       </div>
     </section>
@@ -437,26 +459,38 @@
     <!-- ═══ WHY HELIOFLO ═══ -->
     <section id="why" class="section section--cream">
       <div class="container">
-        <div class="section-head text-center reveal">
+        <div class="section-head reveal">
           <p class="section-eyebrow" data-i18n="why-eyebrow">Why HelioFlo</p>
           <h2 data-i18n="why-h2">The HelioFlo difference.</h2>
         </div>
-        <div class="why-chips reveal">
-          <button class="why-chip is-active" data-chip="0" data-i18n="why-r1-l">Installation expertise</button>
-          <button class="why-chip" data-chip="1" data-i18n="why-r2-l">Industry standards</button>
-          <button class="why-chip" data-chip="2" data-i18n="why-r3-l">Equipment quality</button>
-          <button class="why-chip" data-chip="3" data-i18n="why-r4-l">Pricing transparency</button>
-          <button class="why-chip" data-chip="4" data-i18n="why-r5-l">Government rebates</button>
-          <button class="why-chip" data-chip="5" data-i18n="why-r6-l">Customer support</button>
-          <button class="why-chip" data-chip="6" data-i18n="why-r7-l">Warranty coverage</button>
-          <button class="why-chip" data-chip="7" data-i18n="why-r8-l">SAA Accredited</button>
-          <button class="why-chip" data-chip="8" data-i18n="why-r9-l">Same-day commissioning</button>
-        </div>
-        <div class="why-detail reveal">
-          <p class="why-detail-text" data-i18n="why-r1-r">Over a decade of professional electrician experience, specialising in home solar battery installations.</p>
-        </div>
-        <div class="why-cta-wrap reveal">
-          <a href="#contact" class="btn btn-primary btn-sm" data-i18n="why-cta" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
+        <div class="why-layout">
+          <div class="why-panel reveal">
+            <div class="why-panel-header">
+              <p class="why-panel-label" data-i18n="why-panel-label">The HelioFlo standard</p>
+            </div>
+            <div class="why-chips">
+              <button class="why-chip is-active" data-chip="0" data-i18n="why-r1-l">Installation expertise</button>
+              <button class="why-chip" data-chip="1" data-i18n="why-r2-l">Industry standards</button>
+              <button class="why-chip" data-chip="2" data-i18n="why-r3-l">Equipment quality</button>
+              <button class="why-chip" data-chip="3" data-i18n="why-r4-l">Pricing transparency</button>
+              <button class="why-chip" data-chip="4" data-i18n="why-r5-l">Government rebates</button>
+              <button class="why-chip" data-chip="5" data-i18n="why-r6-l">Customer support</button>
+              <button class="why-chip" data-chip="6" data-i18n="why-r7-l">Warranty coverage</button>
+              <button class="why-chip" data-chip="7" data-i18n="why-r8-l">SAA Accredited</button>
+              <button class="why-chip" data-chip="8" data-i18n="why-r9-l">Same-day commissioning</button>
+            </div>
+            <div class="why-detail">
+              <p class="why-detail-text" data-i18n="why-r1-r">Over a decade of professional electrician experience, specialising in home solar battery installations.</p>
+            </div>
+            <div class="why-cta-wrap">
+              <a href="#contact" class="btn btn-primary btn-sm" data-i18n="why-cta" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
+            </div>
+          </div>
+          <div class="why-video-embed reveal reveal--delay">
+            <video controls playsinline preload="metadata">
+              <source src="brand_assets/Why%20HelioFlo%20Video.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
     </section>
