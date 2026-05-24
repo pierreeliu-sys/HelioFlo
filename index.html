@@ -247,20 +247,22 @@
 
     /* ── Footer accreditations: 1.5× larger ─────────────────── */
     .footer-accred-logos img { width: 180px !important; height: auto !important; }
+    .footer-accred-logos img[alt*="New Energy"] { width: 270px !important; }
 
-    /* ── Hero layout: left content + right NET logo ─────────── */
-    .hero-inner { grid-template-columns: 1fr auto; align-items: center; }
+    /* ── Hero layout: NET logo bottom-right ─────────────────── */
     .hero-badges { flex-wrap: wrap; }
-    .hero-right { align-self: center; }
+    .hero-right {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      z-index: 3;
+    }
     .hero-net-logo {
-      display: block; width: 155px; height: auto;
-      background: rgba(255,255,255,0.92);
-      border-radius: var(--radius-md);
-      padding: 0.85rem 1rem;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+      display: block;
+      width: 465px;
+      height: auto;
     }
     @media (max-width: 860px) {
-      .hero-inner { grid-template-columns: 1fr; }
       .hero-right { display: none; }
     }
 
