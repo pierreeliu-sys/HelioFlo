@@ -149,6 +149,101 @@
       .hcw-panel { width: calc(100vw - 32px); right: 16px; }
       .hcw-btn   { right: 16px; bottom: 16px; }
     }
+
+    /* ── Rebate Pyramid ────────────────────────────────────── */
+    .rebate-pyramid { margin: 1.5rem 0; }
+    .pyramid-tier {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 4px;
+      border-radius: 6px;
+      padding: 10px 20px;
+      clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 100%, 0% 100%);
+    }
+    .pyramid-tier--top  { width: 45%; background: var(--teal); }
+    .pyramid-tier--mid  { width: 72%; background: var(--gold); }
+    .pyramid-tier--base { width: 100%; background: var(--brand); }
+    .pyramid-tier-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 8px; }
+    .pyramid-range { font-size: 0.8rem; font-weight: 600; color: #fff; white-space: nowrap; }
+    .pyramid-value { font-size: 1rem; font-weight: 800; color: #fff; white-space: nowrap; }
+    .rebate-unit   { font-size: 0.7rem; font-weight: 600; }
+
+    /* ── Why-chips ─────────────────────────────────────────── */
+    .why-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1.25rem;
+    }
+    .why-chip {
+      padding: 8px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 9999px;
+      background: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+    .why-chip:hover,
+    .why-chip.is-active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+    .why-detail {
+      background: var(--cream);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      min-height: 60px;
+    }
+    .why-detail-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── Process Video Section ──────────────────────────────── */
+    .section-process-video {
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 0;
+    }
+    .process-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .process-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.55) 100%);
+      z-index: 1;
+    }
+    .process-video-content {
+      position: relative;
+      z-index: 2;
+    }
+    .section-eyebrow--light {
+      color: rgba(255,255,255,0.75);
+    }
+    .section-eyebrow--light::before {
+      background: rgba(255,255,255,0.6);
+    }
+    .text-white { color: #fff !important; }
+    .text-white-muted { color: rgba(255,255,255,0.75) !important; }
+    .flow-step--light h3 { color: #fff; }
+    .flow-step--light p  { color: rgba(255,255,255,0.78); }
+    .flow-step--light .flow-node { border-color: rgba(255,255,255,0.3); }
+    .flow-step--light .flow-num  { color: var(--teal); }
   </style>
 </head>
 <body>
@@ -200,7 +295,7 @@
             <span data-i18n="hero-eyebrow">SAA-accredited battery installation</span>
           </p>
           <h1 data-i18n-html="hero-h1">Your solar energy,<br><em>stored and ready.</em></h1>
-          <p data-i18n="hero-body">A home battery can cut your grid dependence by up to 95%, keeping your home powered through blackouts and making you virtually immune to rising electricity prices, all backed by a federal government rebate.</p>
+          <p data-i18n="hero-body">Stuck choosing the right home solar battery for you? We will work with you to understand your energy consumption, your future solar plans and your budget to find the best set-up for you. Start a free and no obligation conversation with us.</p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero-cta1" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
             <a href="#process" class="hero-text-link">
@@ -223,7 +318,7 @@
             <span   data-i18n="badge-2-label">Workmanship warranty</span>
           </div>
           <div class="hero-badge">
-            <strong data-i18n="badge-3-val">15 yr</strong>
+            <strong data-i18n="badge-3-val">10 yr</strong>
             <span   data-i18n="badge-3-label">Battery warranty</span>
           </div>
         </div>
@@ -240,22 +335,17 @@
         <div class="trust-divider"></div>
         <div class="trust-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span data-i18n="trust-2">Licensed &amp; Fully Insured</span>
+          <span data-i18n="trust-2">NET Approved Seller</span>
         </div>
         <div class="trust-divider"></div>
         <div class="trust-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-          <span data-i18n="trust-3">5-Year Workmanship Warranty</span>
-        </div>
-        <div class="trust-divider"></div>
-        <div class="trust-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span data-i18n="trust-4">Up to 15-Year Battery Warranty</span>
+          <span data-i18n="trust-3">5 Year Workmanship Warranty</span>
         </div>
         <div class="trust-divider"></div>
         <div class="trust-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span data-i18n="trust-5">Same-week Quotes</span>
+          <span data-i18n="trust-4">Instant Competitive Quotes</span>
         </div>
       </div>
     </div>
@@ -265,30 +355,27 @@
       <div class="container program-layout">
         <div class="program-copy reveal">
           <p class="section-eyebrow" data-i18n="prog-eyebrow">Australian Government Initiative</p>
-          <h2 data-i18n="prog-h2">Now is the best time to invest in a solar battery.</h2>
-          <p data-i18n="prog-body">The federal Cheaper Home Batteries Program applies a tiered rebate automatically at the point of installation — no separate application required. NSW homeowners can stack the NSW VPP incentive on top, worth up to approximately $1,100. With electricity prices rising and feed-in tariffs falling, the financial case for a home battery has never been stronger.</p>
-          <div class="rebate-chart" aria-label="Tiered rebate structure">
+          <h2 data-i18n="prog-h2">Take advantage of the federal Cheaper Home Batteries Program</h2>
+          <p data-i18n="prog-body">The federal Cheaper Home Batteries Program applies a tiered rebate at the point of installation. Larger batteries don't always mean better, we will work with you to find the perfect set-up that suits your budget, consumption and future plans. We handle your rebate end-to-end, so you only pay the discounted price.</p>
+          <div class="rebate-pyramid" aria-label="Tiered rebate structure">
             <p class="rebate-chart-caption">Federal rebate — applied per kWh of usable capacity*</p>
-            <div class="rebate-bar">
-              <div class="rebate-bar-meta">
-                <span class="rebate-bar-range">1 – 14 kWh</span>
-                <span class="rebate-bar-value">$243<span class="rebate-unit">/kWh</span></span>
+            <div class="pyramid-tier pyramid-tier--top">
+              <div class="pyramid-tier-inner">
+                <span class="pyramid-range">1 – 14 kWh</span>
+                <span class="pyramid-value">$243<span class="rebate-unit">/kWh</span></span>
               </div>
-              <div class="rebate-bar-track"><div class="rebate-bar-fill rebate-bar-fill--teal"></div></div>
             </div>
-            <div class="rebate-bar">
-              <div class="rebate-bar-meta">
-                <span class="rebate-bar-range">15 – 28 kWh</span>
-                <span class="rebate-bar-value">$146<span class="rebate-unit">/kWh</span></span>
+            <div class="pyramid-tier pyramid-tier--mid">
+              <div class="pyramid-tier-inner">
+                <span class="pyramid-range">15 – 28 kWh</span>
+                <span class="pyramid-value">$146<span class="rebate-unit">/kWh</span></span>
               </div>
-              <div class="rebate-bar-track"><div class="rebate-bar-fill rebate-bar-fill--gold"></div></div>
             </div>
-            <div class="rebate-bar">
-              <div class="rebate-bar-meta">
-                <span class="rebate-bar-range">29 – 50 kWh</span>
-                <span class="rebate-bar-value">$36<span class="rebate-unit">/kWh</span></span>
+            <div class="pyramid-tier pyramid-tier--base">
+              <div class="pyramid-tier-inner">
+                <span class="pyramid-range">29 – 50 kWh</span>
+                <span class="pyramid-value">$36<span class="rebate-unit">/kWh</span></span>
               </div>
-              <div class="rebate-bar-track"><div class="rebate-bar-fill rebate-bar-fill--brand"></div></div>
             </div>
             <p class="rebate-footnote">* Values based on the average traded price of Small-scale Technology Certificates (STCs).</p>
           </div>
@@ -296,29 +383,6 @@
             <span data-i18n="prog-cta">Learn about the program</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
-        </div>
-        <div class="program-benefits reveal reveal--delay">
-          <div class="program-benefit">
-            <div class="program-benefit-num">01</div>
-            <div>
-              <h3 data-i18n="prog-b1-h">Federal rebate: Cheaper Home Batteries</h3>
-              <p   data-i18n="prog-b1-p">A tiered rebate is applied automatically to eligible installations nationwide, covering both new systems and batteries added to existing solar. No separate application is required; HelioFlo handles the process end-to-end.</p>
-            </div>
-          </div>
-          <div class="program-benefit">
-            <div class="program-benefit-num">02</div>
-            <div>
-              <h3 data-i18n="prog-b2-h">NSW VPP incentive on top</h3>
-              <p   data-i18n="prog-b2-p">NSW homeowners can earn an additional rebate of up to approximately $1,100 by connecting their battery to an approved Virtual Power Plant. All HelioFlo-installed systems are VPP-capable and ready to enrol from day one.</p>
-            </div>
-          </div>
-          <div class="program-benefit">
-            <div class="program-benefit-num">03</div>
-            <div>
-              <h3 data-i18n="prog-b3-h">Faster return on investment</h3>
-              <p   data-i18n="prog-b3-p">A well-sized battery saves the average Australian household around $1,500 per year on electricity. With government rebates lowering the entry cost and feed-in tariffs continuing to decline, payback periods are shortening every year.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -328,20 +392,12 @@
     <section class="section-stats section--dark-alt">
       <div class="container stats-grid">
         <div class="stat-item reveal">
-          <strong>Up to 95%</strong>
-          <span>reduction in grid energy use with a correctly sized solar battery system</span>
-        </div>
-        <div class="stat-item reveal reveal--delay">
           <strong>~$1,500</strong>
           <span>average annual energy bill savings for a typical Australian home with a solar battery</span>
         </div>
         <div class="stat-item reveal reveal--delay">
-          <strong>6,000+</strong>
-          <span>charge cycles in a LiFePO4 battery, engineered to deliver reliable performance for 15+ years in Australian conditions</span>
-        </div>
-        <div class="stat-item reveal reveal--delay">
-          <strong>Up to $6,238</strong>
-          <span>maximum federal rebate on a solar battery installation under the Cheaper Home Batteries Program</span>
+          <strong>Up to $6,283</strong>
+          <span>in federal rebate on a solar battery installation under the Cheaper Home Batteries Program</span>
         </div>
       </div>
     </section>
@@ -364,98 +420,19 @@
             <div class="why-panel-header">
               <p class="why-panel-label" data-i18n="why-panel-label">The HelioFlo standard</p>
             </div>
-          <div class="why-items">
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r1-l">Installation expertise</strong>
-                <p data-i18n="why-r1-r">Over a decade of professional electrician experience, specialising in home solar battery installations</p>
-              </div>
-            </div>
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r2-l">Industry standards</strong>
-                <p data-i18n="why-r2-r">All installations comply with AS/NZS 3000:2018 (Wiring Rules) and AS/NZS 5139:2019 (Battery Energy Storage Systems), and operate under the New Energy Tech Consumer Code (NETCC) — protecting your rights at every step</p>
-              </div>
-            </div>
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r3-l">Equipment quality</strong>
-                <p data-i18n="why-r3-r">Rigorously selected LiFePO4 batteries and CEC-approved inverters from globally proven manufacturers, precision-matched to your home's energy profile for maximum solar self-sufficiency</p>
-              </div>
-            </div>
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r4-l">Pricing transparency</strong>
-                <p data-i18n="why-r4-r">Fixed, itemised solar battery quotes with no hidden fees or surprises on installation day</p>
-              </div>
-            </div>
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r5-l">Government rebates</strong>
-                <p data-i18n="why-r5-r">Federal solar battery rebate (Cheaper Home Batteries Program) managed end-to-end; we handle every step of the paperwork for you</p>
-              </div>
-            </div>
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r6-l">Customer support</strong>
-                <p data-i18n="why-r6-r">Dedicated local support team: responsive, knowledgeable about solar battery systems, and with you for the life of your installation</p>
-              </div>
-            </div>
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r7-l">Warranty coverage</strong>
-                <p data-i18n="why-r7-r">5-year workmanship warranty + 10-year product warranty, covered from every angle</p>
-              </div>
-            </div>
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r8-l">CEC Accredited Designer</strong>
-                <p data-i18n="why-r8-r">Certified by the Clean Energy Council to design battery storage systems to Australian standards — a requirement for all government rebate eligibility</p>
-              </div>
-            </div>
-
-            <div class="why-item">
-              <div class="why-check" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="why-item-body">
-                <strong class="why-item-title" data-i18n="why-r9-l">Same-day commissioning</strong>
-                <p data-i18n="why-r9-r">Your battery is fully tested, activated, and generating savings from the moment we leave — no waiting, no follow-up visits required</p>
-              </div>
-            </div>
-
+          <div class="why-chips">
+            <button class="why-chip is-active" data-chip="0" data-i18n="why-r1-l">Installation expertise</button>
+            <button class="why-chip" data-chip="1" data-i18n="why-r2-l">Industry standards</button>
+            <button class="why-chip" data-chip="2" data-i18n="why-r3-l">Equipment quality</button>
+            <button class="why-chip" data-chip="3" data-i18n="why-r4-l">Pricing transparency</button>
+            <button class="why-chip" data-chip="4" data-i18n="why-r5-l">Government rebates</button>
+            <button class="why-chip" data-chip="5" data-i18n="why-r6-l">Customer support</button>
+            <button class="why-chip" data-chip="6" data-i18n="why-r7-l">Warranty coverage</button>
+            <button class="why-chip" data-chip="7" data-i18n="why-r8-l">SAA Accredited</button>
+            <button class="why-chip" data-chip="8" data-i18n="why-r9-l">Same-day commissioning</button>
+          </div>
+          <div class="why-detail">
+            <p class="why-detail-text" data-i18n="why-r1-r">Over a decade of professional electrician experience, specialising in home solar battery installations.</p>
           </div>
 
           <div class="why-panel-cta">
@@ -585,64 +562,35 @@
       </div>
     </section>
 
-    <!-- ═══ VIDEO FEATURE ═══ -->
-    <section class="section-video-feature">
-      <div class="container video-feature-inner">
-        <div class="video-feature-media reveal">
-          <picture>
-            <source srcset="brand_assets/Images/Solis_Dyness_Installed.webp" type="image/webp">
-            <img src="brand_assets/Images/Solis_Dyness_Installed.png" alt="Solis-Dyness PowerBox Pro battery system professionally installed" width="800" height="600" loading="lazy">
-          </picture>
-        </div>
-        <div class="video-feature-copy reveal reveal--delay">
-          <p class="section-eyebrow" data-i18n="vf-eyebrow">Professional Installation</p>
-          <h2 data-i18n-html="vf-h2">Clean. Precise.<br>Commissioned on the day.</h2>
-          <p data-i18n="vf-body">Our SAA-accredited electricians manage every detail of your solar battery installation, from cable routing and secure mounting to full system commissioning and energy optimisation. Your battery is tested, charged from solar, and running before we leave.</p>
-          <div class="feature-stats">
-            <div class="feature-stat">
-              <strong data-i18n="vf-s1-v">SAA</strong>
-              <span   data-i18n="vf-s1-l">Accredited</span>
-            </div>
-            <div class="feature-stat-divider" aria-hidden="true"></div>
-            <div class="feature-stat">
-              <strong data-i18n="vf-s2-v">Same day</strong>
-              <span   data-i18n="vf-s2-l">Commissioning</span>
-            </div>
-            <div class="feature-stat-divider" aria-hidden="true"></div>
-            <div class="feature-stat">
-              <strong data-i18n="vf-s3-v">5 yr</strong>
-              <span   data-i18n="vf-s3-l">Workmanship warranty</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ PROCESS ═══ -->
-    <section id="process" class="section section--white">
-      <div class="container">
+    <section id="process" class="section-process-video">
+      <video autoplay muted loop playsinline class="process-video-bg">
+        <source src="brand_assets/Images/8853514-hd_1080_1920_24fps.mp4" type="video/mp4">
+      </video>
+      <div class="process-video-overlay"></div>
+      <div class="container process-video-content">
         <div class="section-head text-center">
-          <p class="section-eyebrow" data-i18n="proc-eyebrow">Our process</p>
-          <h2 data-i18n="proc-h2">From first call to full power.</h2>
-          <p  data-i18n="proc-sub">Four clear steps, so you always know what comes next.</p>
+          <p class="section-eyebrow section-eyebrow--light" data-i18n="proc-eyebrow">Our process</p>
+          <h2 class="text-white" data-i18n="proc-h2">From first call to full power.</h2>
+          <p class="text-white-muted" data-i18n="proc-sub">Four clear steps, so you always know what comes next.</p>
         </div>
         <div class="process-flow">
-          <div class="flow-step reveal">
+          <div class="flow-step flow-step--light reveal">
             <div class="flow-node"><span class="flow-num">01</span></div>
             <h3 data-i18n="proc-1-h">Free consultation</h3>
             <p   data-i18n="proc-1-p">No-obligation consultation and complimentary site visit to assess your solar setup, energy usage patterns, and battery requirements.</p>
           </div>
-          <div class="flow-step reveal reveal--delay">
+          <div class="flow-step flow-step--light reveal reveal--delay">
             <div class="flow-node"><span class="flow-num">02</span></div>
             <h3 data-i18n="proc-2-h">Tailored proposal</h3>
             <p   data-i18n="proc-2-p">A clear, itemised solar battery quote with equipment specs, installation timeline, applicable government rebates, and projected annual energy savings. No surprises.</p>
           </div>
-          <div class="flow-step reveal reveal--delay">
+          <div class="flow-step flow-step--light reveal reveal--delay">
             <div class="flow-node"><span class="flow-num">03</span></div>
             <h3 data-i18n="proc-3-h">Installation &amp; commissioning</h3>
             <p   data-i18n="proc-3-p">Our SAA-accredited electricians install and fully commission your solar battery system on the day, with live energy monitoring configured and optimised from hour one.</p>
           </div>
-          <div class="flow-step reveal reveal--delay">
+          <div class="flow-step flow-step--light reveal reveal--delay">
             <div class="flow-node"><span class="flow-num">04</span></div>
             <h3 data-i18n="proc-4-h">Handover &amp; aftercare</h3>
             <p   data-i18n="proc-4-p">We walk you through your solar battery system, configure remote energy monitoring, and remain your dedicated support partner for the life of the installation.</p>
@@ -676,15 +624,6 @@
             </button>
             <div class="faq-body">
               <p data-i18n="faq-a2">In most cases, yes. Adding a battery to an existing solar system is one of the most effective ways to maximise your solar energy self-consumption. We assess your existing inverter, panels, and switchboard to determine the best integration approach, whether AC-coupling or DC-coupling, and advise on any upgrades needed during your free consultation at no charge.</p>
-            </div>
-          </div>
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q3">Which products do you supply and install?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n-html="faq-a3-html">We offer three tiers of LiFePO4 battery systems, each paired with a compatible CEC-approved inverter. The <strong>Essential Range</strong> pairs the Solis-Dyness PowerBox Pro with the Solis Hybrid S6 LV — a single-phase system with 6,000+ cycle life and expandable capacity. The <strong>Mid-Market Range</strong> features the Swatten All-in-One Three Phase HV — an integrated inverter and battery delivering three-phase whole-home backup with a 15-year machine replacement warranty. The <strong>Premium Range</strong> includes the EcoFlow PowerOcean and PowerOcean Plus — modular, app-connected three-phase systems for large homes and high energy users. During your free consultation, we recommend the right tier for your home's energy profile and budget.</p>
             </div>
           </div>
           <div class="faq-item" role="listitem">
@@ -723,42 +662,7 @@
               <p data-i18n="faq-a7">Battery sizing should match your home's nighttime energy consumption. For most Australian homes, a solar battery in the 10–16 kWh range covers overnight usage comfortably while leaving a reserve for blackout protection. If you're on a time-of-use tariff or want to trade energy back to the grid, a larger system of 16–20 kWh may deliver better returns. We size every solar battery system to your specific usage profile during your free consultation.</p>
             </div>
           </div>
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q8">What is LiFePO4 and why does it matter for solar batteries?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n="faq-a8">LiFePO4 (lithium iron phosphate) is the gold standard chemistry for home solar batteries. Compared to older lithium-ion chemistries, LiFePO4 batteries are significantly safer (no thermal runaway risk), deliver 6,000+ charge cycles, and maintain usable capacity for 15+ years in Australian conditions. All battery systems in the HelioFlo range use LiFePO4 chemistry — chosen specifically for its long-term safety, durability, and performance in residential energy storage.</p>
-            </div>
-          </div>
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q9">Will my solar battery keep working during a blackout?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n="faq-a9">Yes, when correctly configured for backup operation. All battery systems HelioFlo installs include automatic UPS switching — when the grid goes down, your home transfers to battery power within milliseconds, fast enough that most appliances don't register any interruption. Your solar panels also continue charging the battery during a blackout, so as long as there's sunlight, your energy supply keeps replenishing. We configure backup circuits during installation to protect your essential loads: lights, refrigeration, and other critical devices.</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ═══ CTA STRIP ═══ -->
-    <section class="section-cta-strip">
-      <video autoplay muted loop playsinline class="cta-strip-video">
-        <source src="brand_assets/Images/8853514-hd_1080_1920_24fps.mp4" type="video/mp4">
-      </video>
-      <div class="cta-strip-overlay"></div>
-      <div class="container cta-strip-content">
-        <p class="eyebrow eyebrow--light">
-          <span class="eyebrow-dot"></span>
-          <span data-i18n="cta-eyebrow">Start your energy journey</span>
-        </p>
-        <h2 data-i18n-html="cta-h2">Power your home.<br>Protect your future.</h2>
-        <p data-i18n="cta-body">Join 100+ Australian homeowners who've taken control of their energy future with a solar battery system installed by HelioFlo.</p>
-        <a href="#contact" class="btn btn-primary btn-lg" data-i18n="cta-btn" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
       </div>
     </section>
 
@@ -802,15 +706,22 @@
                 <input id="email" name="email" type="email" placeholder="alex@example.com" autocomplete="email" required>
               </div>
               <div class="form-field">
-                <label for="phone" data-i18n="form-phone">Phone number <span class="required-star">*</span></label>
-                <input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" autocomplete="tel" required>
+                <label for="phone" data-i18n="form-phone">Phone number <span class="label-optional">(optional)</span></label>
+                <input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" autocomplete="tel">
               </div>
             </div>
-            <div class="form-field address-field">
-              <label for="address" data-i18n="form-address">Address</label>
-              <div class="address-input-wrap">
-                <input id="address" name="address" type="text" autocomplete="off" data-i18n-placeholder="ph-address" placeholder="e.g. 5/42 George St, Sydney">
-                <ul class="address-suggestions" id="address-suggestions" role="listbox" hidden></ul>
+            <div class="form-field">
+              <label for="address" data-i18n="form-address">Street address</label>
+              <input id="address" name="address" type="text" placeholder="e.g. 5/42 George St" autocomplete="address-line1">
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="suburb" data-i18n="form-suburb">Suburb</label>
+                <input id="suburb" name="suburb" type="text" placeholder="Sydney" autocomplete="address-level2">
+              </div>
+              <div class="form-field">
+                <label for="postcode" data-i18n="form-postcode">Postcode</label>
+                <input id="postcode" name="postcode" type="text" placeholder="2000" autocomplete="postal-code" pattern="[0-9]{4}" maxlength="4">
               </div>
             </div>
             <div class="form-field">
@@ -1019,6 +930,45 @@
     );
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+    // ── Why-chip descriptions ──
+    const WHY_DESCS = {
+      en: [
+        'Over a decade of professional electrician experience, specialising in home solar battery installations.',
+        'All installations comply with AS/NZS 3000:2018 (Wiring Rules) and AS/NZS 5139:2019 (Battery Energy Storage Systems), and operate under the New Energy Tech Consumer Code (NETCC) — protecting your rights at every step.',
+        'Rigorously selected LiFePO4 batteries and CEC-approved inverters from globally proven manufacturers, precision-matched to your home\'s energy profile for maximum solar self-sufficiency.',
+        'Fixed, itemised solar battery quotes with no hidden fees or surprises on installation day.',
+        'Federal solar battery rebate (Cheaper Home Batteries Program) managed end-to-end; we handle every step of the paperwork for you.',
+        'Dedicated local support team: responsive, knowledgeable about solar battery systems, and with you for the life of your installation.',
+        '5-year workmanship warranty + 10-year product warranty, covered from every angle.',
+        'SAA-accredited electricians certified to the highest Australian standard for residential battery storage installations.',
+        'Your battery is fully tested, activated, and generating savings from the moment we leave — no waiting, no follow-up visits required.',
+      ],
+      zh: [
+        '超过十年的专业电工经验，专注于家用储能电池安装。',
+        '所有安装均符合AS/NZS 3000:2018（布线规范）和AS/NZS 5139:2019（电池储能系统）标准，并依据新能源技术消费者准则（NETCC）运营，全程保障您的合法权益。',
+        '严格筛选的LiFePO4电池与CEC认证逆变器，来自全球知名制造商，精准匹配您家庭的能源需求，最大化太阳能自用率。',
+        '固定明细报价，无隐性费用，安装当天无意外惊喜。',
+        '廉价家用电池计划全程代办，所有文件由我们一手处理。',
+        '本地专属客服团队，响应迅速、经验丰富，伴您系统全生命周期。',
+        '5年施工质保 + 10年产品质保，全方位覆盖，长期安心无忧。',
+        'SAA认证电工，持有澳大利亚住宅储能安装最高认证资质。',
+        '您的电池在我们离开前完成测试、激活并开始节电——无需等待，无需再次上门。',
+      ],
+    };
+    (function () {
+      const chips = document.querySelectorAll('.why-chip');
+      const detail = document.querySelector('.why-detail-text');
+      if (!chips.length || !detail) return;
+      function setChip(idx) {
+        chips.forEach((c, i) => c.classList.toggle('is-active', i === idx));
+        detail.textContent = WHY_DESCS[currentLang]?.[idx] ?? WHY_DESCS.en[idx];
+      }
+      chips.forEach((chip, idx) => {
+        chip.addEventListener('mouseenter', () => setChip(idx));
+        chip.addEventListener('click', () => setChip(idx));
+      });
+    })();
+
     // ── FAQ accordion ──
     document.querySelectorAll('.faq-summary').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1075,6 +1025,8 @@
         email:            form.email.value,
         phone:            form.phone.value,
         address:          document.getElementById('address').value,
+        suburb:           document.getElementById('suburb').value,
+        postcode:         document.getElementById('postcode').value,
         property:         form.property.value,
         interest:         form.interest.value,
         build_type:       form.build_type.value,
@@ -1103,16 +1055,16 @@
         'nav-why':'Why HelioFlo','nav-services':'Services','nav-products':'Products','nav-process':'Process','nav-faq':'FAQ','nav-cta':'Get a Free Quote',
         'hero-eyebrow':'SAA-accredited battery installation',
         'hero-h1':'Your solar energy,<br><em>stored and ready.</em>',
-        'hero-body':'A home battery can cut your grid dependence by up to 95%, keeping your home powered through blackouts and making you virtually immune to rising electricity prices, all backed by a federal government rebate.',
+        'hero-body':'Stuck choosing the right home solar battery for you? We will work with you to understand your energy consumption, your future solar plans and your budget to find the best set-up for you. Start a free and no obligation conversation with us.',
         'hero-cta1':'Get a Free Quote','hero-cta2':'How It Works','hero-location':'Servicing Sydney, NSW',
         'badge-1-val':'100+','badge-1-label':'Batteries installed',
         'badge-2-val':'5 yr','badge-2-label':'Workmanship warranty',
-        'badge-3-val':'15 yr','badge-3-label':'Battery warranty',
-        'trust-1':'SAA Accredited Installer','trust-2':'Licensed & Fully Insured',
-        'trust-3':'5-Year Workmanship Warranty','trust-4':'Up to 15-Year Battery Warranty','trust-5':'Same-week Quotes',
+        'badge-3-val':'10 yr','badge-3-label':'Battery warranty',
+        'trust-1':'SAA Accredited Installer','trust-2':'NET Approved Seller',
+        'trust-3':'5 Year Workmanship Warranty','trust-4':'Instant Competitive Quotes',
         'prog-eyebrow':'Australian Government Initiative',
-        'prog-h2':'Now is the best time to invest in a solar battery.',
-        'prog-body':'The federal Cheaper Home Batteries Program applies a tiered rebate automatically at the point of installation — no separate application required. NSW homeowners can stack the NSW VPP incentive on top, worth up to approximately $1,100. With electricity prices rising and feed-in tariffs falling, the financial case for a home battery has never been stronger.',
+        'prog-h2':'Take advantage of the federal Cheaper Home Batteries Program',
+        'prog-body':'The federal Cheaper Home Batteries Program applies a tiered rebate at the point of installation. Larger batteries don\'t always mean better, we will work with you to find the perfect set-up that suits your budget, consumption and future plans. We handle your rebate end-to-end, so you only pay the discounted price.',
         'prog-cta':'Learn about the program',
         'prog-b1-h':'Federal rebate: Cheaper Home Batteries','prog-b1-p':'A tiered rebate is applied automatically to eligible installations nationwide, covering both new systems and batteries added to existing solar. No separate application is required; HelioFlo handles the process end-to-end.',
         'prog-b2-h':'NSW VPP incentive on top','prog-b2-p':'NSW homeowners can earn an additional rebate of up to approximately $1,100 by connecting their battery to an approved Virtual Power Plant. All HelioFlo-installed systems are VPP-capable and ready to enrol from day one.',
@@ -1126,8 +1078,8 @@
         'why-r4-l':'Pricing transparency','why-r4-r':'Fixed, itemised solar battery quotes with no hidden fees or surprises on installation day',
         'why-r5-l':'Government rebates','why-r5-r':'Federal solar battery rebate (Cheaper Home Batteries Program) managed end-to-end; we handle every step of the paperwork for you',
         'why-r6-l':'Customer support','why-r6-r':'Dedicated local support team: responsive, knowledgeable about solar battery systems, and with you for the life of your installation',
-        'why-r7-l':'Warranty coverage','why-r7-r':'5-year workmanship warranty + up to 15-year product warranty — covered from every angle for the long term',
-        'why-r8-l':'CEC Accredited Designer','why-r8-r':'Certified by the Clean Energy Council to design battery storage systems to Australian standards — a requirement for all government rebate eligibility',
+        'why-r7-l':'Warranty coverage','why-r7-r':'5-year workmanship warranty + 10-year product warranty, covered from every angle.',
+        'why-r8-l':'SAA Accredited','why-r8-r':'SAA-accredited electricians certified to the highest Australian standard for residential battery storage installations.',
         'why-r9-l':'Same-day commissioning','why-r9-r':'Your battery is fully tested, activated, and generating savings from the moment we leave — no waiting, no follow-up visits required',
         'why-cta':'Get a Free Quote',
         'prod-eyebrow':'Our Product Range','prod-h2':'Choose the right system for your home.',
@@ -1202,7 +1154,8 @@
         'contact-body':'Complete the form and our team will review your home\'s energy profile and send a detailed proposal within 48 hours, at no cost and with no obligation.',
         'contact-phone':'0414 146 027','contact-email':'hello@helioflo.com','contact-area':'Servicing Sydney, NSW',
         'form-first':'First name','form-last':'Last name','form-email':'Email address','form-phone':'Phone number',
-        'form-address':'Address','form-property-label':'Property type','form-interest-label':'What are you interested in?',
+        'form-address':'Street address','form-suburb':'Suburb','form-postcode':'Postcode',
+        'form-property-label':'Property type','form-interest-label':'What are you interested in?',
         'form-build-label':'Existing or new build','form-bill-label':'Quarterly electricity bill',
         'form-period-label':'Installation timeframe','form-photos-label':'Site photos',
         'ph-address':'e.g. 5/42 George St, Sydney',
@@ -1223,16 +1176,16 @@
         'nav-why':'为何选择我们','nav-services':'服务产品','nav-products':'产品系列','nav-process':'安装流程','nav-faq':'常见问题','nav-cta':'免费报价',
         'hero-eyebrow':'SAA认证储能电池安装',
         'hero-h1':'您的太阳能，<br><em>随时储存待用。</em>',
-        'hero-body':'储能电池可将您对电网的依赖降低高达95%，停电时保障家庭用电，让您几乎不受电价上涨影响，更有联邦政府补贴助力，现在正是安装的最佳时机。',
+        'hero-body':'不知如何选择适合自己的家用储能电池？我们将与您深入了解您的用电情况、未来太阳能规划和预算，为您找到最合适的方案。立即开始一次免费、无义务的交流。',
         'hero-cta1':'获取免费报价','hero-cta2':'了解安装流程','hero-location':'服务区域：悉尼，新南威尔士州',
         'badge-1-val':'100+','badge-1-label':'电池已安装',
         'badge-2-val':'5年','badge-2-label':'施工质保',
-        'badge-3-val':'长达15年','badge-3-label':'电池质保',
-        'trust-1':'SAA认证安装商','trust-2':'持牌且全额投保',
-        'trust-3':'5年施工质保','trust-4':'长达15年电池质保','trust-5':'本周内出报价',
+        'badge-3-val':'10年','badge-3-label':'电池质保',
+        'trust-1':'SAA认证安装商','trust-2':'NET认证销售商',
+        'trust-3':'5年施工质保','trust-4':'即时竞争报价',
         'prog-eyebrow':'澳大利亚政府资助计划',
-        'prog-h2':'储能电池，补贴后更实惠。',
-        'prog-body':'联邦廉价家用电池计划在安装时自动兑现阶梯式补贴，无需单独申请。新南威尔士州业主还可叠加申请VPP激励补贴，额外获得约1,100澳元。随着电价持续上涨、上网电价不断下降，现在安装家用储能电池的经济价值前所未有。',
+        'prog-h2':'善用联邦廉价家用电池计划',
+        'prog-body':'联邦廉价家用电池计划在安装时兑现阶梯式补贴。更大的电池不一定更好，我们将协助您找到最适合您预算、用电习惯和未来规划的方案。我们全程代办补贴手续，让您只需支付折后价格。',
         'prog-cta':'了解该计划详情',
         'prog-b1-h':'联邦补贴：廉价家用电池计划','prog-b1-p':'阶梯式联邦补贴在安装时自动兑现，适用于全国符合条件的新装系统及现有太阳能系统加装电池。无需单独申请，HelioFlo全程代办。',
         'prog-b2-h':'新南威尔士州VPP额外补贴','prog-b2-p':'新南威尔士州业主可通过参加认证虚拟电厂（VPP）计划，在联邦补贴基础上额外获得约1,100澳元奖励。HelioFlo安装的所有系统均支持VPP接入，从第一天起即可申请注册。',
@@ -1246,8 +1199,8 @@
         'why-r4-l':'价格透明公正','why-r4-r':'固定明细报价，无隐性费用，安装当天无意外惊喜',
         'why-r5-l':'政府补贴协助','why-r5-r':'廉价家用电池计划全程代办，所有文件由我们一手处理',
         'why-r6-l':'专属客户支持','why-r6-r':'本地专属客服团队，响应迅速、经验丰富，伴您系统全生命周期',
-        'why-r7-l':'全面质保保障','why-r7-r':'5年施工质保 + 长达15年产品质保，全方位覆盖，长期安心无忧',
-        'why-r8-l':'CEC认证设计师','why-r8-r':'获清洁能源委员会认证，依据澳洲标准设计储能系统——符合所有政府补贴资格要求',
+        'why-r7-l':'全面质保保障','why-r7-r':'5年施工质保 + 10年产品质保，全方位覆盖，长期安心无忧。',
+        'why-r8-l':'SAA认证','why-r8-r':'SAA认证电工，持有澳大利亚住宅储能安装最高认证资质。',
         'why-r9-l':'当天调试完成','why-r9-r':'您的电池在我们离开前完成测试、激活并开始节电——无需等待，无需再次上门',
         'why-cta':'免费获取报价',
         'prod-eyebrow':'产品系列','prod-h2':'为您的家选择最适合的系统。',
@@ -1323,7 +1276,8 @@
         'contact-phone':'0414 146 027','contact-email':'hello@helioflo.com',
         'contact-area':'服务范围：悉尼，新南威尔士州',
         'form-first':'名字','form-last':'姓氏','form-email':'电子邮箱','form-phone':'联系电话',
-        'form-address':'地址','form-property-label':'房产类型','form-interest-label':'您对哪项服务感兴趣？',
+        'form-address':'街道地址','form-suburb':'区域','form-postcode':'邮政编码',
+        'form-property-label':'房产类型','form-interest-label':'您对哪项服务感兴趣？',
         'form-build-label':'新建或现有建筑','form-bill-label':'季度电费金额',
         'form-period-label':'安装时间范围','form-photos-label':'现场照片',
         'ph-address':'例：悉尼乔治街42号5室',
@@ -1367,6 +1321,13 @@
 
       const lbl = document.getElementById('lang-current');
       if (lbl) lbl.textContent = t['lang-label'];
+
+      const activeChip = document.querySelector('.why-chip.is-active');
+      const detail = document.querySelector('.why-detail-text');
+      if (activeChip && detail) {
+        const idx = parseInt(activeChip.dataset.chip, 10);
+        detail.textContent = WHY_DESCS[lang]?.[idx] ?? WHY_DESCS.en[idx];
+      }
     }
 
     document.getElementById('lang-toggle')?.addEventListener('click', () => {
