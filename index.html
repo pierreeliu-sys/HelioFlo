@@ -441,15 +441,21 @@
         <div class="program-chart reveal reveal--delay">
           <p class="rebate-chart-caption">Federal rebate — tiered by usable capacity*</p>
           <svg class="rebate-step-svg" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" aria-label="Federal battery rebate tiered step chart">
+            <defs>
+              <radialGradient id="coinGrad" cx="38%" cy="36%" r="65%">
+                <stop offset="0%" stop-color="#f5ca3c"/>
+                <stop offset="75%" stop-color="#c9900a"/>
+              </radialGradient>
+            </defs>
             <!-- Tier filled areas -->
             <rect x="60" y="43" width="97" height="207" fill="#00C9A7" opacity="0.18"/>
             <rect x="157" y="126" width="96" height="124" fill="#D4A847" opacity="0.32"/>
             <rect x="253" y="219" width="152" height="31" fill="#B5451B" opacity="0.22"/>
-            <!-- Step outline -->
-            <polyline points="60,43 157,43 157,126 253,126 253,219 405,219" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- Step outline (thin) -->
+            <polyline points="60,43 157,43 157,126 253,126 253,219 405,219" fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
             <!-- Left vertical from top step to axis -->
-            <line x1="60" y1="43" x2="60" y2="250" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"/>
-            <!-- Right drop line (solid) -->
+            <line x1="60" y1="43" x2="60" y2="250" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/>
+            <!-- Right drop line -->
             <line x1="405" y1="219" x2="405" y2="250" stroke="#ccc" stroke-width="1"/>
             <!-- X axis -->
             <line x1="60" y1="250" x2="405" y2="250" stroke="#1a1a1a" stroke-width="1.5"/>
@@ -476,16 +482,18 @@
             <text x="108" y="128" text-anchor="middle" class="tier-label" fill="#00877a" font-size="10">$243/kWh</text>
             <text x="205" y="192" text-anchor="middle" class="tier-label" fill="#9a7320" font-size="10">$146/kWh</text>
             <text x="329" y="242" text-anchor="middle" class="tier-label" fill="#B5451B" font-size="10">$36/kWh</text>
-            <!-- Callout bubble: up to $6,238 — arrow points into teal shaded band -->
-            <rect x="60" y="2" width="190" height="46" rx="6" fill="#1a1a1a"/>
-            <polygon points="88,48 108,64 128,48" fill="#1a1a1a"/>
-            <text x="155" y="23" text-anchor="middle" class="annotation-val">up to $6,238</text>
-            <text x="155" y="40" text-anchor="middle" class="annotation-sub">in federal rebate</text>
+            <!-- Gold coin: top-right of chart (above brand tier) -->
+            <circle cx="335" cy="118" r="46" fill="url(#coinGrad)"/>
+            <circle cx="335" cy="118" r="46" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="2.5"/>
+            <circle cx="335" cy="118" r="38" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+            <text x="335" y="107" text-anchor="middle" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="7.5" font-weight="700" fill="rgba(255,255,255,0.78)" letter-spacing="0.08em">UP TO</text>
+            <text x="335" y="122" text-anchor="middle" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="15" font-weight="800" fill="#fff">$6,238</text>
+            <text x="335" y="136" text-anchor="middle" font-family="'Trebuchet MS',Helvetica,sans-serif" font-size="7" font-weight="500" fill="rgba(255,255,255,0.8)">in federal rebate</text>
             <!-- Most homeowners label inside gold band -->
             <text text-anchor="middle" class="tier-label" fill="#7a5c14" font-size="8" font-style="italic">
               <tspan x="205" y="140">Most homeowners</tspan>
-              <tspan x="205" dy="12">choose this</tspan>
-              <tspan x="205" dy="12">capacity range</tspan>
+              <tspan x="205" dy="12">choose between</tspan>
+              <tspan x="205" dy="12">14–18kWh</tspan>
             </text>
           </svg>
           <p class="rebate-footnote">* Based on the average traded price of Small-scale Technology Certificates (STCs).</p>
