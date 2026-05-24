@@ -265,6 +265,28 @@
     }
     @media (max-width: 860px) {
       .hero-right { display: none; }
+      /* Why layout: centre content when stacked */
+      .why-layout .why-chips { justify-content: center; }
+      .why-layout .why-detail { max-width: 560px; margin-left: auto; margin-right: auto; }
+      .why-layout .why-detail-text { text-align: center; }
+      .why-layout .why-cta-wrap { text-align: center; }
+    }
+    @media (max-width: 640px) {
+      /* Header: tighter padding on small phones */
+      .site-header .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+      /* Hero badges: explicit flex sizing for 3-per-row */
+      .hero-badge { flex: 1 1 calc(33% - 0.5rem); }
+      /* Footer logos: override fixed widths */
+      .footer-accred-logos { flex-wrap: wrap; justify-content: center; }
+      .footer-accred-logos img { width: auto !important; height: 34px !important; }
+      .footer-accred-logos img[alt*="New Energy"] { width: auto !important; height: 48px !important; }
+      /* Government section coin row: stack on narrow screens */
+      .coin-row { flex-direction: column; align-items: center; text-align: center; }
+      .coin-caption { text-align: center; }
+      /* Program CTA: full width */
+      .program-cta, .btn-brand { width: 100%; justify-content: center; }
+      /* Multi-step form: compact nav buttons */
+      .btn-step-next, .btn-step-back { padding: 0.55rem 1.1rem; font-size: 0.85rem; }
     }
 
     /* ── Multi-step contact form ────────────────────────────── */
