@@ -150,63 +150,63 @@
       .hcw-btn   { right: 16px; bottom: 16px; }
     }
 
-    /* ── Rebate Pyramid ────────────────────────────────────── */
-    .rebate-pyramid { margin: 1.5rem 0; }
-    .pyramid-tier {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 4px;
-      border-radius: 6px;
-      padding: 10px 20px;
-      clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 100%, 0% 100%);
+    /* ── SVG Step Chart ─────────────────────────────────────── */
+    .program-chart { display: flex; flex-direction: column; align-self: center; }
+    .rebate-step-svg { width: 100%; height: auto; overflow: visible; }
+    .rebate-step-svg .axis-label { font-family: var(--font-sans); font-size: 11px; fill: #888; }
+    .rebate-step-svg .axis-title { font-family: var(--font-sans); font-size: 9.5px; fill: #aaa; letter-spacing: 0.06em; }
+    .rebate-step-svg .tier-label { font-family: var(--font-sans); font-size: 10px; font-weight: 700; }
+    .rebate-step-svg .annotation-val { font-family: var(--font-sans); font-size: 12.5px; font-weight: 800; fill: #fff; }
+    .rebate-step-svg .annotation-sub { font-family: var(--font-sans); font-size: 9.5px; font-weight: 500; fill: rgba(255,255,255,0.82); }
+    .rebate-footnote { font-size: 0.72rem; color: var(--muted); margin-top: 0.5rem; }
+    .rebate-chart-caption { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.5rem; }
+
+    /* ── Coin infographic ────────────────────────────────────── */
+    .coin-row { display: flex; align-items: center; gap: 1.25rem; margin: 1.5rem 0 1.5rem; }
+    .coin {
+      width: 104px; height: 104px; flex-shrink: 0; border-radius: 50%;
+      background: radial-gradient(circle at 38% 36%, #f5ca3c 0%, #c9900a 75%);
+      box-shadow: inset -3px -3px 8px rgba(0,0,0,0.18), inset 2px 2px 6px rgba(255,255,255,0.26), 0 6px 20px rgba(212,168,71,0.38);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; border: 2.5px solid rgba(255,255,255,0.22);
     }
-    .pyramid-tier--top  { width: 45%; background: var(--teal); }
-    .pyramid-tier--mid  { width: 72%; background: var(--gold); }
-    .pyramid-tier--base { width: 100%; background: var(--brand); }
-    .pyramid-tier-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 8px; }
-    .pyramid-range { font-size: 0.8rem; font-weight: 600; color: #fff; white-space: nowrap; }
-    .pyramid-value { font-size: 1rem; font-weight: 800; color: #fff; white-space: nowrap; }
-    .rebate-unit   { font-size: 0.7rem; font-weight: 600; }
+    .coin::after { content:''; position:absolute; inset:7px; border-radius:50%; border:1.5px solid rgba(255,255,255,0.2); }
+    .coin-face { text-align: center; position: relative; z-index: 1; padding: 0 8px; }
+    .coin-amount { display: block; font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.15; text-shadow: 0 1px 3px rgba(0,0,0,0.28); }
+    .coin-desc { display: block; font-size: 0.58rem; font-weight: 700; color: rgba(255,255,255,0.82); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
+    .coin-caption { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── Red button variant ──────────────────────────────────── */
+    .btn-brand { background: var(--brand); color: #fff; border: 2px solid var(--brand); }
+    .btn-brand:hover { background: #9e3c17; border-color: #9e3c17; }
 
     /* ── Why-chips ─────────────────────────────────────────── */
     .why-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 1.25rem;
+      display: flex; flex-wrap: wrap; gap: 8px;
+      justify-content: center; max-width: 760px;
+      margin: 0 auto 1.5rem;
     }
     .why-chip {
-      padding: 8px 16px;
-      border: 1.5px solid var(--border);
+      padding: 8px 18px;
+      border: 1.5px solid #ddd;
       border-radius: 9999px;
-      background: #fff;
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
+      background: transparent;
+      font-family: var(--font-sans); font-size: 0.84rem; font-weight: 600;
+      color: var(--text); cursor: pointer;
       transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
     }
-    .why-chip:hover,
-    .why-chip.is-active {
-      background: var(--teal);
-      border-color: var(--teal);
-      color: #fff;
+    .why-chip:hover, .why-chip.is-active {
+      background: var(--brand); border-color: var(--brand); color: #fff;
     }
     .why-detail {
-      background: var(--cream);
-      border-left: 3px solid var(--teal);
-      border-radius: 0 8px 8px 0;
-      padding: 14px 18px;
-      min-height: 60px;
+      max-width: 640px; margin: 0 auto 2rem;
+      background: rgba(255,255,255,0.7);
+      border-radius: 10px; padding: 18px 24px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+      min-height: 72px;
     }
-    .why-detail-text {
-      font-size: 0.92rem;
-      color: var(--text);
-      line-height: 1.65;
-      margin: 0;
-    }
+    .why-detail-text { font-size: 0.95rem; color: var(--text); line-height: 1.7; margin: 0; text-align: center; }
+    .why-cta-wrap { text-align: center; margin-top: 0.5rem; }
 
     /* ── Process Video Section ──────────────────────────────── */
     .section-process-video {
@@ -244,6 +244,12 @@
     .flow-step--light p  { color: rgba(255,255,255,0.78); }
     .flow-step--light .flow-node { border-color: rgba(255,255,255,0.3); }
     .flow-step--light .flow-num  { color: var(--teal); }
+
+    /* ── Footer accreditations: 1.5× larger ─────────────────── */
+    .footer-accred-logos img { width: 180px !important; height: auto !important; }
+
+    /* ── NET badge in hero ───────────────────────────────────── */
+    .hero-badges { flex-wrap: wrap; }
   </style>
 </head>
 <body>
@@ -321,6 +327,10 @@
             <strong data-i18n="badge-3-val">10 yr</strong>
             <span   data-i18n="badge-3-label">Battery warranty</span>
           </div>
+          <div class="hero-badge">
+            <strong>NET</strong>
+            <span>Approved Seller</span>
+          </div>
         </div>
       </div>
     </section>
@@ -357,103 +367,102 @@
           <p class="section-eyebrow" data-i18n="prog-eyebrow">Australian Government Initiative</p>
           <h2 data-i18n="prog-h2">Take advantage of the federal Cheaper Home Batteries Program</h2>
           <p data-i18n="prog-body">The federal Cheaper Home Batteries Program applies a tiered rebate at the point of installation. Larger batteries don't always mean better, we will work with you to find the perfect set-up that suits your budget, consumption and future plans. We handle your rebate end-to-end, so you only pay the discounted price.</p>
-          <div class="rebate-pyramid" aria-label="Tiered rebate structure">
-            <p class="rebate-chart-caption">Federal rebate — applied per kWh of usable capacity*</p>
-            <div class="pyramid-tier pyramid-tier--top">
-              <div class="pyramid-tier-inner">
-                <span class="pyramid-range">1 – 14 kWh</span>
-                <span class="pyramid-value">$243<span class="rebate-unit">/kWh</span></span>
+          <div class="coin-row">
+            <div class="coin">
+              <div class="coin-face">
+                <span class="coin-amount">~$1,500</span>
+                <span class="coin-desc">avg. annual savings</span>
               </div>
             </div>
-            <div class="pyramid-tier pyramid-tier--mid">
-              <div class="pyramid-tier-inner">
-                <span class="pyramid-range">15 – 28 kWh</span>
-                <span class="pyramid-value">$146<span class="rebate-unit">/kWh</span></span>
-              </div>
-            </div>
-            <div class="pyramid-tier pyramid-tier--base">
-              <div class="pyramid-tier-inner">
-                <span class="pyramid-range">29 – 50 kWh</span>
-                <span class="pyramid-value">$36<span class="rebate-unit">/kWh</span></span>
-              </div>
-            </div>
-            <p class="rebate-footnote">* Values based on the average traded price of Small-scale Technology Certificates (STCs).</p>
+            <p class="coin-caption">average annual energy bill savings for a typical Australian home with a solar battery</p>
           </div>
-          <a href="https://www.dcceew.gov.au/energy/programs/cheaper-home-batteries#toc_1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg program-cta">
+          <a href="https://www.dcceew.gov.au/energy/programs/cheaper-home-batteries#toc_1" target="_blank" rel="noopener noreferrer" class="btn btn-brand btn-lg program-cta">
             <span data-i18n="prog-cta">Learn about the program</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
         </div>
+        <div class="program-chart reveal reveal--delay">
+          <p class="rebate-chart-caption">Federal rebate — tiered by usable capacity*</p>
+          <svg class="rebate-step-svg" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" aria-label="Federal battery rebate tiered step chart">
+            <!-- Horizontal grid lines -->
+            <line x1="60" y1="43" x2="405" y2="43" stroke="#e8e3dc" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="60" y1="126" x2="405" y2="126" stroke="#e8e3dc" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="60" y1="219" x2="405" y2="219" stroke="#e8e3dc" stroke-width="1" stroke-dasharray="4,3"/>
+            <!-- Tier filled areas -->
+            <rect x="60" y="43" width="97" height="207" fill="#00C9A7" opacity="0.18"/>
+            <rect x="157" y="126" width="96" height="124" fill="#D4A847" opacity="0.22"/>
+            <rect x="253" y="219" width="152" height="31" fill="#B5451B" opacity="0.22"/>
+            <!-- Step outline -->
+            <polyline points="60,43 157,43 157,126 253,126 253,219 405,219" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- Left vertical from top step to axis -->
+            <line x1="60" y1="43" x2="60" y2="250" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Right drop line (dashed) -->
+            <line x1="405" y1="219" x2="405" y2="250" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3"/>
+            <!-- X axis -->
+            <line x1="60" y1="250" x2="405" y2="250" stroke="#1a1a1a" stroke-width="1.5"/>
+            <!-- X axis ticks -->
+            <line x1="60"  y1="250" x2="60"  y2="257" stroke="#1a1a1a" stroke-width="1.5"/>
+            <line x1="157" y1="250" x2="157" y2="257" stroke="#bbb" stroke-width="1"/>
+            <line x1="253" y1="250" x2="253" y2="257" stroke="#bbb" stroke-width="1"/>
+            <line x1="405" y1="250" x2="405" y2="257" stroke="#1a1a1a" stroke-width="1.5"/>
+            <!-- X axis labels -->
+            <text x="60"  y="270" text-anchor="middle" class="axis-label">0</text>
+            <text x="157" y="270" text-anchor="middle" class="axis-label">14</text>
+            <text x="253" y="270" text-anchor="middle" class="axis-label">28</text>
+            <text x="405" y="270" text-anchor="middle" class="axis-label">50</text>
+            <!-- X axis title -->
+            <text x="232" y="288" text-anchor="middle" class="axis-title">kWh USABLE CAPACITY</text>
+            <!-- Y axis labels -->
+            <text x="54" y="47"  text-anchor="end" class="axis-label">$243</text>
+            <text x="54" y="130" text-anchor="end" class="axis-label">$146</text>
+            <text x="54" y="223" text-anchor="end" class="axis-label">$36</text>
+            <text x="54" y="254" text-anchor="end" class="axis-label">$0</text>
+            <!-- Y axis title -->
+            <text transform="rotate(-90)" x="-147" y="14" text-anchor="middle" class="axis-title">REBATE ($/kWh)</text>
+            <!-- Tier rate labels inside bands -->
+            <text x="108" y="128" text-anchor="middle" class="tier-label" fill="#00877a" font-size="10">$243/kWh</text>
+            <text x="205" y="192" text-anchor="middle" class="tier-label" fill="#9a7320" font-size="10">$146/kWh</text>
+            <text x="329" y="242" text-anchor="middle" class="tier-label" fill="#B5451B" font-size="10">$36/kWh</text>
+            <!-- Total rebate annotation box -->
+            <rect x="128" y="52" width="172" height="48" rx="7" fill="#1a1a1a" opacity="0.86"/>
+            <text x="214" y="72" text-anchor="middle" class="annotation-val">Up to $6,238</text>
+            <text x="214" y="89" text-anchor="middle" class="annotation-sub">in federal rebate</text>
+          </svg>
+          <p class="rebate-footnote">* Based on the average traded price of Small-scale Technology Certificates (STCs).</p>
+        </div>
       </div>
     </section>
 
-
-    <!-- ═══ BY THE NUMBERS ═══ -->
-    <section class="section-stats section--dark-alt">
-      <div class="container stats-grid">
-        <div class="stat-item reveal">
-          <strong>~$1,500</strong>
-          <span>average annual energy bill savings for a typical Australian home with a solar battery</span>
-        </div>
-        <div class="stat-item reveal reveal--delay">
-          <strong>Up to $6,283</strong>
-          <span>in federal rebate on a solar battery installation under the Cheaper Home Batteries Program</span>
-        </div>
-      </div>
-    </section>
 
     <!-- ═══ WHY HELIOFLO ═══ -->
     <section id="why" class="section section--cream">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head text-center reveal">
           <p class="section-eyebrow" data-i18n="why-eyebrow">Why HelioFlo</p>
           <h2 data-i18n="why-h2">The HelioFlo difference.</h2>
         </div>
-        <div class="why-layout">
-          <div class="why-video-embed reveal">
-            <video controls playsinline preload="metadata">
-              <source src="brand_assets/Why%20HelioFlo%20Video.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <div class="why-panel reveal">
-            <div class="why-panel-header">
-              <p class="why-panel-label" data-i18n="why-panel-label">The HelioFlo standard</p>
-            </div>
-          <div class="why-chips">
-            <button class="why-chip is-active" data-chip="0" data-i18n="why-r1-l">Installation expertise</button>
-            <button class="why-chip" data-chip="1" data-i18n="why-r2-l">Industry standards</button>
-            <button class="why-chip" data-chip="2" data-i18n="why-r3-l">Equipment quality</button>
-            <button class="why-chip" data-chip="3" data-i18n="why-r4-l">Pricing transparency</button>
-            <button class="why-chip" data-chip="4" data-i18n="why-r5-l">Government rebates</button>
-            <button class="why-chip" data-chip="5" data-i18n="why-r6-l">Customer support</button>
-            <button class="why-chip" data-chip="6" data-i18n="why-r7-l">Warranty coverage</button>
-            <button class="why-chip" data-chip="7" data-i18n="why-r8-l">SAA Accredited</button>
-            <button class="why-chip" data-chip="8" data-i18n="why-r9-l">Same-day commissioning</button>
-          </div>
-          <div class="why-detail">
-            <p class="why-detail-text" data-i18n="why-r1-r">Over a decade of professional electrician experience, specialising in home solar battery installations.</p>
-          </div>
-
-          <div class="why-panel-cta">
-            <a href="#contact" class="btn btn-primary btn-sm" data-i18n="why-cta" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
-          </div>
+        <div class="why-chips reveal">
+          <button class="why-chip is-active" data-chip="0" data-i18n="why-r1-l">Installation expertise</button>
+          <button class="why-chip" data-chip="1" data-i18n="why-r2-l">Industry standards</button>
+          <button class="why-chip" data-chip="2" data-i18n="why-r3-l">Equipment quality</button>
+          <button class="why-chip" data-chip="3" data-i18n="why-r4-l">Pricing transparency</button>
+          <button class="why-chip" data-chip="4" data-i18n="why-r5-l">Government rebates</button>
+          <button class="why-chip" data-chip="5" data-i18n="why-r6-l">Customer support</button>
+          <button class="why-chip" data-chip="6" data-i18n="why-r7-l">Warranty coverage</button>
+          <button class="why-chip" data-chip="7" data-i18n="why-r8-l">SAA Accredited</button>
+          <button class="why-chip" data-chip="8" data-i18n="why-r9-l">Same-day commissioning</button>
         </div>
-        </div><!-- /.why-layout -->
+        <div class="why-detail reveal">
+          <p class="why-detail-text" data-i18n="why-r1-r">Over a decade of professional electrician experience, specialising in home solar battery installations.</p>
+        </div>
+        <div class="why-cta-wrap reveal">
+          <a href="#contact" class="btn btn-primary btn-sm" data-i18n="why-cta" onclick="fbq('track','InitiateCheckout')">Get a Free Quote</a>
+        </div>
       </div>
     </section>
 
-    <!-- ═══ PRODUCT CATALOGUE ═══ -->
-    <section id="products" class="section section--white">
-      <div class="container">
-        <div class="section-head text-center reveal">
-          <p class="section-eyebrow" data-i18n="prod-eyebrow">Our Product Range</p>
-          <h2 data-i18n="prod-h2">Choose the right system for your home.</h2>
-          <p data-i18n="prod-sub">From essential battery storage to whole-home energy independence, HelioFlo matches the right system to your household size, energy goals, and budget.</p>
-        </div>
-
-        <!-- Battery tier comparison -->
-        <div class="tier-grid">
+    <!-- Products removed -->
+    <div style="display:none"><div class="tier-grid">
 
           <!-- Essential -->
           <div class="tier-card tier-card--basic reveal">
@@ -558,9 +567,7 @@
             <a href="/premium-batteries" class="btn btn-tier-p btn-sm" data-i18n="tier-p-btn">View Premium Range</a>
           </div>
 
-        </div>
-      </div>
-    </section>
+        </div></div>
 
     <!-- ═══ PROCESS ═══ -->
     <section id="process" class="section-process-video">
@@ -599,75 +606,8 @@
       </div>
     </section>
 
-    <!-- ═══ FAQ ═══ -->
-    <section id="faq" class="section section--cream">
-      <div class="container faq-inner">
-        <div class="section-head">
-          <p class="section-eyebrow" data-i18n="faq-eyebrow">FAQ</p>
-          <h2 data-i18n="faq-h2">Answers to the questions we hear most.</h2>
-          <p data-i18n-html="faq-sub-html">Still have questions? <a href="#contact" class="text-link">Get in touch</a>. We're happy to help.</p>
-        </div>
-        <div class="faq-list" role="list">
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q1">How much does a home battery system cost?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n="faq-a1">Solar battery systems typically range from $8,000 to $20,000 fully installed, depending on battery capacity, inverter type, and site complexity. The federal Cheaper Home Batteries Program applies automatically, providing a tiered rebate worth approximately $2,430 for a 10 kWh battery and up to $6,238 for systems at the maximum eligible capacity. We provide detailed, itemised quotes upfront and identify every rebate you're eligible for.</p>
-            </div>
-          </div>
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q2">Can you add a battery to my existing solar panels?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n="faq-a2">In most cases, yes. Adding a battery to an existing solar system is one of the most effective ways to maximise your solar energy self-consumption. We assess your existing inverter, panels, and switchboard to determine the best integration approach, whether AC-coupling or DC-coupling, and advise on any upgrades needed during your free consultation at no charge.</p>
-            </div>
-          </div>
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q4">How long does installation take?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n="faq-a4">Most residential battery installations are completed in a single day. Larger or more complex systems, such as those requiring switchboard upgrades, may take two days. We'll give you a precise timeline in your proposal so you can plan accordingly.</p>
-            </div>
-          </div>
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q5">What warranties are included?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n="faq-a5">The batteries in our range carry manufacturer warranties of 10 to 15 years, covering performance and capacity. HelioFlo also backs every installation with a 5-year workmanship warranty, so you're covered from every angle and you'll always have someone to call — long after installation day.</p>
-            </div>
-          </div>
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q6">Are there government rebates or incentives?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n="faq-a6">Yes. The federal Cheaper Home Batteries Program provides a tiered rebate: $243/kWh on the first 14 kWh of usable capacity, $146/kWh from 15 to 28 kWh, and $36/kWh from 29 to 50 kWh. In practical terms: a 10 kWh battery attracts around $2,430; a 20 kWh system around $4,278; a 30 kWh system around $5,518; and systems at the maximum 50 kWh capacity receive approximately $6,238. NSW homeowners can also stack the VPP incentive on top, worth up to approximately $1,100. As feed-in tariffs continue to fall, storing your solar energy rather than exporting it makes more financial sense than ever. We identify every applicable incentive and include all savings in your proposal automatically.</p>
-            </div>
-          </div>
-          <div class="faq-item" role="listitem">
-            <button class="faq-summary" aria-expanded="false">
-              <span data-i18n="faq-q7">What size solar battery do I need?</span>
-              <span class="faq-icon" aria-hidden="true">+</span>
-            </button>
-            <div class="faq-body">
-              <p data-i18n="faq-a7">Battery sizing should match your home's nighttime energy consumption. For most Australian homes, a solar battery in the 10–16 kWh range covers overnight usage comfortably while leaving a reserve for blackout protection. If you're on a time-of-use tariff or want to trade energy back to the grid, a larger system of 16–20 kWh may deliver better returns. We size every solar battery system to your specific usage profile during your free consultation.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ CONTACT ═══ -->
-    <section id="contact" class="section section--cream">
+    <section id="contact" class="section section--white">
       <div class="container contact-grid">
         <div class="contact-copy reveal">
           <p class="section-eyebrow" data-i18n="contact-eyebrow">Get in touch</p>
@@ -816,6 +756,73 @@
             <button type="submit" class="btn btn-primary btn-lg" data-i18n="form-submit">Send My Free Quote Request</button>
             <p class="form-note" data-i18n="form-note">No spam, ever. We'll only contact you about your enquiry.</p>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section id="faq" class="section section--cream">
+      <div class="container faq-inner">
+        <div class="section-head">
+          <p class="section-eyebrow" data-i18n="faq-eyebrow">FAQ</p>
+          <h2 data-i18n="faq-h2">Answers to the questions we hear most.</h2>
+          <p data-i18n-html="faq-sub-html">Still have questions? <a href="#contact" class="text-link">Get in touch</a>. We're happy to help.</p>
+        </div>
+        <div class="faq-list" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-summary" aria-expanded="false">
+              <span data-i18n="faq-q1">How much does a home battery system cost?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p data-i18n="faq-a1">Solar battery systems typically range from $8,000 to $20,000 fully installed, depending on battery capacity, inverter type, and site complexity. The federal Cheaper Home Batteries Program applies automatically, providing a tiered rebate worth approximately $2,430 for a 10 kWh battery and up to $6,238 for systems at the maximum eligible capacity. We provide detailed, itemised quotes upfront and identify every rebate you're eligible for.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-summary" aria-expanded="false">
+              <span data-i18n="faq-q2">Can you add a battery to my existing solar panels?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p data-i18n="faq-a2">In most cases, yes. Adding a battery to an existing solar system is one of the most effective ways to maximise your solar energy self-consumption. We assess your existing inverter, panels, and switchboard to determine the best integration approach, whether AC-coupling or DC-coupling, and advise on any upgrades needed during your free consultation at no charge.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-summary" aria-expanded="false">
+              <span data-i18n="faq-q4">How long does installation take?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p data-i18n="faq-a4">Most residential battery installations are completed in a single day. Larger or more complex systems, such as those requiring switchboard upgrades, may take two days. We'll give you a precise timeline in your proposal so you can plan accordingly.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-summary" aria-expanded="false">
+              <span data-i18n="faq-q5">What warranties are included?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p data-i18n="faq-a5">The batteries in our range carry manufacturer warranties of 10 to 15 years, covering performance and capacity. HelioFlo also backs every installation with a 5-year workmanship warranty, so you're covered from every angle and you'll always have someone to call — long after installation day.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-summary" aria-expanded="false">
+              <span data-i18n="faq-q6">Are there government rebates or incentives?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p data-i18n="faq-a6">Yes. The federal Cheaper Home Batteries Program provides a tiered rebate: $243/kWh on the first 14 kWh of usable capacity, $146/kWh from 15 to 28 kWh, and $36/kWh from 29 to 50 kWh. In practical terms: a 10 kWh battery attracts around $2,430; a 20 kWh system around $4,278; a 30 kWh system around $5,518; and systems at the maximum 50 kWh capacity receive approximately $6,238. NSW homeowners can also stack the VPP incentive on top, worth up to approximately $1,100. As feed-in tariffs continue to fall, storing your solar energy rather than exporting it makes more financial sense than ever. We identify every applicable incentive and include all savings in your proposal automatically.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-summary" aria-expanded="false">
+              <span data-i18n="faq-q7">What size solar battery do I need?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <p data-i18n="faq-a7">Battery sizing should match your home's nighttime energy consumption. For most Australian homes, a solar battery in the 10–16 kWh range covers overnight usage comfortably while leaving a reserve for blackout protection. If you're on a time-of-use tariff or want to trade energy back to the grid, a larger system of 16–20 kWh may deliver better returns. We size every solar battery system to your specific usage profile during your free consultation.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1479,36 +1486,22 @@
           <input type="text" id="hcw-name" name="hcw_name" placeholder="Jane Smith" required>
         </div>
         <div class="hcw-field">
-          <label for="hcw-phone">Phone <span style="color:var(--brand)">*</span></label>
-          <input type="tel" id="hcw-phone" name="hcw_phone" placeholder="04XX XXX XXX" required>
+          <label for="hcw-phone">Phone</label>
+          <input type="tel" id="hcw-phone" name="hcw_phone" placeholder="04XX XXX XXX">
         </div>
         <div class="hcw-field">
-          <label for="hcw-email">Email</label>
-          <input type="email" id="hcw-email" name="hcw_email" placeholder="you@example.com">
+          <label for="hcw-email">Email <span style="color:var(--brand)">*</span></label>
+          <input type="email" id="hcw-email" name="hcw_email" placeholder="you@example.com" required>
         </div>
         <div class="hcw-field">
-          <label for="hcw-interest">What are you interested in?</label>
-          <select id="hcw-interest" name="hcw_interest">
-            <option value="" disabled selected>Select a service</option>
-            <option value="inverter-battery">Inverter + Battery bundle</option>
-            <option value="battery-only">Battery only</option>
-          </select>
-        </div>
-        <div class="hcw-field">
-          <label for="hcw-bill">Quarterly electricity bill</label>
-          <select id="hcw-bill" name="hcw_bill">
-            <option value="" disabled selected>Select range</option>
-            <option value="under-300">Under $300</option>
-            <option value="301-600">$301 – $600</option>
-            <option value="601-900">$601 – $900</option>
-            <option value="above-900">Above $900</option>
-          </select>
+          <label for="hcw-suburb">Suburb <span style="color:var(--brand)">*</span></label>
+          <input type="text" id="hcw-suburb" name="hcw_suburb" placeholder="e.g. Parramatta" required>
         </div>
         <div class="hcw-field">
           <label for="hcw-message">Message</label>
           <textarea id="hcw-message" name="hcw_message" rows="2" placeholder="Anything else we should know…"></textarea>
         </div>
-        <button type="submit" class="hcw-submit">Send Enquiry →</button>
+        <button type="submit" class="hcw-submit">Get a Free Quote →</button>
       </form>
       <div class="hcw-success" id="hcw-success">
         <strong>Thanks! We'll be in touch soon.</strong>
@@ -1549,14 +1542,13 @@
           await fetch(SCRIPT, {
             method: 'POST', mode: 'no-cors',
             body: JSON.stringify({
-              timestamp:        new Date().toLocaleString('en-AU'),
-              first_name:       form.hcw_name.value,
-              phone:            form.hcw_phone.value,
-              email:            form.hcw_email.value,
-              interest:         form.hcw_interest.value,
-              electricity_bill: form.hcw_bill.value,
-              message:          form.hcw_message.value,
-              source:           'hover-widget',
+              timestamp:  new Date().toLocaleString('en-AU'),
+              first_name: form.hcw_name.value,
+              phone:      form.hcw_phone.value,
+              email:      form.hcw_email.value,
+              suburb:     form.hcw_suburb.value,
+              message:    form.hcw_message.value,
+              source:     'hover-widget',
             }),
           });
           fbq('track', 'Lead', {value: 150.00, currency: 'AUD'});
