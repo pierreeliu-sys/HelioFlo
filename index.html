@@ -243,7 +243,7 @@
     .flow-step--light h3 { color: #fff; }
     .flow-step--light p  { color: rgba(255,255,255,0.78); }
     .flow-step--light .flow-node { border-color: rgba(255,255,255,0.3); }
-    .flow-step--light .flow-num  { color: var(--teal); }
+    .flow-step--light .flow-num  { color: #fff; }
 
     /* ── Footer accreditations: 1.5× larger ─────────────────── */
     .footer-accred-logos img { width: 180px !important; height: auto !important; }
@@ -251,11 +251,11 @@
 
     /* ── Hero layout: NET logo bottom-right ─────────────────── */
     .hero-badges { flex-wrap: wrap; }
+    .site-header .container { width: 100%; max-width: none; }
     .hero-right {
       position: absolute;
       bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 0;
       z-index: 3;
     }
     .hero-net-logo {
@@ -287,14 +287,17 @@
       font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1.25rem;
     }
-    .form-step-nav { display: flex; justify-content: flex-end; margin-top: 1.5rem; }
-    .btn-step-next {
-      background: var(--brand); color: #fff; border: none; border-radius: 9999px;
+    .form-step-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+    .form-step-nav--end { justify-content: flex-end; }
+    .btn-step-next, .btn-step-back {
+      border: none; border-radius: 9999px;
       padding: 0.65rem 1.75rem; font-family: var(--font-sans);
       font-size: 0.9rem; font-weight: 700; cursor: pointer;
       display: inline-flex; align-items: center; gap: 0.5rem; transition: opacity 0.2s;
     }
-    .btn-step-next:hover { opacity: 0.88; }
+    .btn-step-next { background: var(--brand); color: #fff; }
+    .btn-step-back { background: transparent; color: var(--muted); border: 1.5px solid var(--border); }
+    .btn-step-next:hover, .btn-step-back:hover { opacity: 0.78; }
 
     /* ── Why-layout chip/detail alignment overrides ─────────── */
     .why-layout .why-chips { justify-content: flex-start; max-width: none; margin: 1.25rem 0 1.5rem; }
@@ -444,7 +447,7 @@
             <line x1="60" y1="219" x2="405" y2="219" stroke="#e8e3dc" stroke-width="1" stroke-dasharray="4,3"/>
             <!-- Tier filled areas -->
             <rect x="60" y="43" width="97" height="207" fill="#00C9A7" opacity="0.18"/>
-            <rect x="157" y="126" width="96" height="124" fill="#D4A847" opacity="0.22"/>
+            <rect x="157" y="126" width="96" height="124" fill="#D4A847" opacity="0.32"/>
             <rect x="253" y="219" width="152" height="31" fill="#B5451B" opacity="0.22"/>
             <!-- Step outline -->
             <polyline points="60,43 157,43 157,126 253,126 253,219 405,219" fill="none" stroke="#1a1a1a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
@@ -477,10 +480,12 @@
             <text x="108" y="128" text-anchor="middle" class="tier-label" fill="#00877a" font-size="10">$243/kWh</text>
             <text x="205" y="192" text-anchor="middle" class="tier-label" fill="#9a7320" font-size="10">$146/kWh</text>
             <text x="329" y="242" text-anchor="middle" class="tier-label" fill="#B5451B" font-size="10">$36/kWh</text>
-            <!-- Total rebate annotation box -->
-            <rect x="128" y="52" width="172" height="48" rx="7" fill="#1a1a1a" opacity="0.86"/>
-            <text x="214" y="72" text-anchor="middle" class="annotation-val">Up to $6,238</text>
-            <text x="214" y="89" text-anchor="middle" class="annotation-sub">in federal rebate</text>
+            <!-- Dashed border around total shaded area -->
+            <rect x="60" y="43" width="345" height="207" fill="none" stroke="#bbb" stroke-width="0.9" stroke-dasharray="4,3" rx="2"/>
+            <!-- Minimal rebate label above shaded area -->
+            <text x="60" y="34" text-anchor="start" class="axis-label" font-weight="700" fill="#555">up to $6,238 in federal rebate</text>
+            <!-- Most popular range label inside gold band -->
+            <text x="205" y="143" text-anchor="middle" class="tier-label" fill="#7a5c14" font-size="8.5" font-style="italic">Most popular range</text>
           </svg>
           <p class="rebate-footnote">* Based on the average traded price of Small-scale Technology Certificates (STCs).</p>
         </div>
@@ -678,7 +683,6 @@
         <div class="contact-copy reveal">
           <p class="section-eyebrow" data-i18n="contact-eyebrow">Get in touch</p>
           <h2 data-i18n="contact-h2">Ready to power your home?</h2>
-          <p  data-i18n="contact-body">Complete the form and our team will review your home's energy profile and send a detailed proposal within 48 hours, at no cost and with no obligation.</p>
           <div class="contact-info-list">
             <div class="contact-info-item">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
@@ -752,6 +756,10 @@
                 </div>
               </div>
               <div class="form-step-nav">
+                <button type="button" class="btn-step-back" onclick="contactPrevStep(2)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                  Back
+                </button>
                 <button type="button" class="btn-step-next" onclick="contactNextStep(2)">
                   Next
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -782,7 +790,13 @@
                   <input id="email" name="email" type="email" placeholder="alex@example.com" autocomplete="email" required>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;margin-top:1.25rem;" data-i18n="form-submit">Send My Free Quote Request</button>
+              <div class="form-step-nav" style="margin-bottom:0.5rem;">
+                <button type="button" class="btn-step-back" onclick="contactPrevStep(3)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                  Back
+                </button>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;margin-top:0.5rem;" data-i18n="form-submit">Send My Free Quote Request</button>
               <p class="form-note" data-i18n="form-note">No spam, ever. We'll only contact you about your enquiry.</p>
             </div>
 
@@ -1037,6 +1051,46 @@
       document.getElementById('line-' + current).classList.add('is-done');
       document.getElementById('dot-' + next).classList.add('is-active');
     }
+
+    function contactPrevStep(current) {
+      const prev = current - 1;
+      document.getElementById('step-' + current).classList.remove('is-active');
+      document.getElementById('step-' + prev).classList.add('is-active');
+      const dot = document.getElementById('dot-' + prev);
+      dot.classList.remove('is-done');
+      dot.classList.add('is-active');
+      document.getElementById('dot-' + current).classList.remove('is-active');
+      if (prev > 1) document.getElementById('line-' + (prev - 1));
+      document.getElementById('line-' + prev).classList.remove('is-done');
+    }
+
+    // Suburb → postcode auto-populate
+    (function () {
+      const suburbEl  = document.getElementById('suburb');
+      const postcodeEl = document.getElementById('postcode');
+      if (!suburbEl || !postcodeEl) return;
+      let pcTimer;
+      suburbEl.addEventListener('input', () => {
+        clearTimeout(pcTimer);
+        pcTimer = setTimeout(lookupPostcode, 600);
+      });
+      suburbEl.addEventListener('blur', lookupPostcode);
+
+      async function lookupPostcode() {
+        const q = suburbEl.value.trim();
+        if (q.length < 3 || postcodeEl.value) return;
+        try {
+          const res  = await fetch(
+            `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&countrycodes=au&limit=1&q=${encodeURIComponent(q + ', NSW')}`,
+            { headers: { 'Accept-Language': 'en-AU' } }
+          );
+          const data = await res.json();
+          if (data[0]?.address?.postcode) {
+            postcodeEl.value = data[0].address.postcode;
+          }
+        } catch {}
+      }
+    })();
 
     document.querySelector('.contact-form')?.addEventListener('submit', async e => {
       e.preventDefault();
