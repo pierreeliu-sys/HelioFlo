@@ -289,6 +289,19 @@
       .btn-step-next, .btn-step-back { padding: 0.55rem 1.1rem; font-size: 0.85rem; }
     }
 
+    /* ── Process steps: staggered fade-in ───────────────────── */
+    .process-flow .flow-step:nth-child(1).reveal { transition-delay: 0s; }
+    .process-flow .flow-step:nth-child(2).reveal { transition-delay: 0.2s; }
+    .process-flow .flow-step:nth-child(3).reveal { transition-delay: 0.4s; }
+    .process-flow .flow-step:nth-child(4).reveal { transition-delay: 0.6s; }
+
+    /* ── Contact form card: elevated shadow ──────────────────── */
+    .contact-form-card {
+      box-shadow:
+        0 4px 20px rgba(181, 69, 27, 0.10),
+        0 24px 72px rgba(27, 23, 18, 0.16) !important;
+    }
+
     /* ── Multi-step contact form ────────────────────────────── */
     .form-steps-indicator { display: flex; align-items: center; margin-bottom: 2rem; }
     .step-dot {
