@@ -319,15 +319,11 @@
         0 0 24px rgba(212, 168, 71, 0.55),
         0 6px 20px rgba(0, 0, 0, 0.22) !important;
     }
-    /* ── Coin spin-in on scroll (one full 3D rotation) ───────── */
-    @keyframes coinSpinIn {
-      0%   { opacity: 0; transform: perspective(700px) scale(0.75) rotateY(0deg); }
-      25%  { opacity: 1; transform: perspective(700px) scale(1)    rotateY(0deg); }
-      100% { opacity: 1; transform: perspective(700px) scale(1)    rotateY(360deg); }
+    /* Mobile-only $6,238 rebate coin (SVG chart coin is desktop-only) */
+    .coin-rebate-mobile { display: none; }
+    @media (max-width: 860px) {
+      .coin-rebate-mobile { display: flex; }
     }
-    .coin-anim          { opacity: 0; }
-    .coin-anim.is-visible { animation: coinSpinIn 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards; }
-    .svg-coin-anim      { transform-box: fill-box; transform-origin: 50% 50%; }
 
     /* ── Multi-step contact form ────────────────────────────── */
     .form-steps-indicator { display: flex; align-items: center; margin-bottom: 2rem; }
@@ -487,13 +483,22 @@
           <h2 data-i18n="prog-h2">Take advantage of the federal Cheaper Home Batteries Program</h2>
           <p data-i18n="prog-body">The federal Cheaper Home Batteries Program applies a tiered rebate at the point of installation. Larger batteries don't always mean better, we will work with you to find the perfect set-up that suits your budget, consumption and future plans. We handle your rebate end-to-end, so you only pay the discounted price.</p>
           <div class="coin-row">
-            <div class="coin coin-anim">
+            <div class="coin">
               <div class="coin-face">
                 <span class="coin-amount">~$1,500</span>
                 <span class="coin-desc">avg. annual savings</span>
               </div>
             </div>
             <p class="coin-caption">average annual energy bill savings for a typical Australian home with a solar battery</p>
+          </div>
+          <div class="coin-row coin-rebate-mobile">
+            <div class="coin">
+              <div class="coin-face">
+                <span class="coin-amount" style="font-size:0.78rem;">UP TO<br>$6,238</span>
+                <span class="coin-desc">in federal rebate</span>
+              </div>
+            </div>
+            <p class="coin-caption">federal Cheaper Home Batteries rebate available on eligible installations nationwide</p>
           </div>
           <a href="https://www.dcceew.gov.au/energy/programs/cheaper-home-batteries#toc_1" target="_blank" rel="noopener noreferrer" class="btn btn-brand btn-lg program-cta">
             <span data-i18n="prog-cta">Learn about the program</span>
@@ -549,7 +554,7 @@
             <text x="205" y="192" text-anchor="middle" class="tier-label" fill="#9a7320" font-size="10">$146/kWh</text>
             <text x="329" y="242" text-anchor="middle" class="tier-label" fill="#B5451B" font-size="10">$36/kWh</text>
             <!-- Gold coin: top-right of chart (above brand tier) -->
-            <g class="svg-coin-anim coin-anim">
+            <g class="svg-coin-anim">
               <circle cx="335" cy="118" r="46" fill="url(#coinGrad)" filter="url(#coinShadow)"/>
               <circle cx="335" cy="118" r="46" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="2.5"/>
               <circle cx="335" cy="118" r="38" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
@@ -1052,7 +1057,6 @@
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    document.querySelectorAll('.coin-anim').forEach(el => revealObserver.observe(el));
 
     // ── Why-chip descriptions ──
     const WHY_DESCS = {
