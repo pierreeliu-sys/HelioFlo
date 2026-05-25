@@ -313,31 +313,11 @@
       animation: cardAttention 1.3s 0.45s ease both;
     }
 
-    /* ── Gold coin: 3D half-spin fade-in on scroll (once) ───── */
-    @keyframes coinRevealAndFlip {
-      0%   { opacity: 0; transform: scale(0.7)  perspective(700px) rotateY(0deg); }
-      28%  { opacity: 1; transform: scale(1)    perspective(700px) rotateY(0deg); }
-      100% { opacity: 1; transform: scale(1)    perspective(700px) rotateY(180deg); }
-    }
-    /* CSS div coin */
-    .coin.coin-anim { opacity: 0; }
-    .coin.coin-anim.is-visible {
-      animation: coinRevealAndFlip 1.6s ease-in-out forwards;
-    }
     /* CSS coin: gold glow shadow */
     .coin {
       box-shadow:
         0 0 24px rgba(212, 168, 71, 0.55),
         0 6px 20px rgba(0, 0, 0, 0.22) !important;
-    }
-    /* SVG coin group */
-    .svg-coin-anim {
-      transform-box: fill-box;
-      transform-origin: 50% 50%;
-      opacity: 0;
-    }
-    .svg-coin-anim.is-visible {
-      animation: coinRevealAndFlip 1.6s ease-in-out forwards;
     }
 
     /* ── Multi-step contact form ────────────────────────────── */
@@ -498,7 +478,7 @@
           <h2 data-i18n="prog-h2">Take advantage of the federal Cheaper Home Batteries Program</h2>
           <p data-i18n="prog-body">The federal Cheaper Home Batteries Program applies a tiered rebate at the point of installation. Larger batteries don't always mean better, we will work with you to find the perfect set-up that suits your budget, consumption and future plans. We handle your rebate end-to-end, so you only pay the discounted price.</p>
           <div class="coin-row">
-            <div class="coin coin-anim">
+            <div class="coin">
               <div class="coin-face">
                 <span class="coin-amount">~$1,500</span>
                 <span class="coin-desc">avg. annual savings</span>
@@ -560,7 +540,7 @@
             <text x="205" y="192" text-anchor="middle" class="tier-label" fill="#9a7320" font-size="10">$146/kWh</text>
             <text x="329" y="242" text-anchor="middle" class="tier-label" fill="#B5451B" font-size="10">$36/kWh</text>
             <!-- Gold coin: top-right of chart (above brand tier) -->
-            <g class="coin-anim svg-coin-anim">
+            <g class="svg-coin-anim">
               <circle cx="335" cy="118" r="46" fill="url(#coinGrad)" filter="url(#coinShadow)"/>
               <circle cx="335" cy="118" r="46" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="2.5"/>
               <circle cx="335" cy="118" r="38" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
@@ -1063,7 +1043,6 @@
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    document.querySelectorAll('.coin-anim').forEach(el => revealObserver.observe(el));
 
     // ── Why-chip descriptions ──
     const WHY_DESCS = {
