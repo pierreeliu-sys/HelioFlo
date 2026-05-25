@@ -313,27 +313,16 @@
       animation: cardAttention 1.3s 0.45s ease both;
     }
 
-    /* ── Gold coin spin + fade-in on scroll ──────────────────── */
-    @keyframes coinFadeIn {
-      from { opacity: 0; transform: scale(0.65); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    @keyframes coinFlip {
-      0%   { transform: scaleX(1); }
-      42%  { transform: scaleX(0.06); }
-      58%  { transform: scaleX(0.06); }
-      100% { transform: scaleX(1); }
-    }
-    @keyframes svgCoinFlip {
-      0%   { transform: scaleX(1); }
-      42%  { transform: scaleX(0.06); }
-      58%  { transform: scaleX(0.06); }
-      100% { transform: scaleX(1); }
+    /* ── Gold coin: 3D half-spin fade-in on scroll (once) ───── */
+    @keyframes coinRevealAndFlip {
+      0%   { opacity: 0; transform: scale(0.7)  perspective(700px) rotateY(0deg); }
+      28%  { opacity: 1; transform: scale(1)    perspective(700px) rotateY(0deg); }
+      100% { opacity: 1; transform: scale(1)    perspective(700px) rotateY(180deg); }
     }
     /* CSS div coin */
     .coin.coin-anim { opacity: 0; }
     .coin.coin-anim.is-visible {
-      animation: coinFadeIn 0.65s ease forwards, coinFlip 3.8s 0.65s ease-in-out infinite;
+      animation: coinRevealAndFlip 1.6s ease-in-out forwards;
     }
     /* CSS coin: gold glow shadow */
     .coin {
@@ -348,7 +337,7 @@
       opacity: 0;
     }
     .svg-coin-anim.is-visible {
-      animation: coinFadeIn 0.65s ease forwards, svgCoinFlip 3.8s 0.65s ease-in-out infinite;
+      animation: coinRevealAndFlip 1.6s ease-in-out forwards;
     }
 
     /* ── Multi-step contact form ────────────────────────────── */
